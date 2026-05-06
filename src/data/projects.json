@@ -1,0 +1,46 @@
+[
+  {
+    "slug": "neo-ledger",
+    "title": "NEO-LEDGER",
+    "category": "Fintech App",
+    "tagColor": "#ffd700",
+    "description": "A high-frequency trading dashboard designed for real-time visualization of complex financial datasets with sub-100ms latency.",
+    "tech": ["Next.js", "TypeScript", "WebSocket"],
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBoTiV-V4IHdDGSZhG0NtPXMkfdkohMHh2l2-mdFHHSZZo0c09HJdOErl3-DGndLCu7joJ0BvRaB_rcvSt0cAfF25QW5yiqFi7QZdCczHZLlfy-X7XVjXNQ79sjQyDhqostoNKGg5zjfhBLjQN2k7pKCNYmHMRb13h7rLOYqTjChwakJAo6xmIzfK8Jo0jvl4s9n8ZccgIW8OndUYC3V1e8O_KcGf7Ujyz2C5a9pBhdsm5nxzOT9a7Ljf5g9BvRLSboO9fxCAQ2tWyw",
+    "demoUrl": "#",
+    "githubUrl": "#"
+  },
+  {
+    "slug": "brutalist-ui-kit",
+    "title": "BRUTALIST UI KIT",
+    "category": "Digital Product",
+    "tagColor": "#a5f624",
+    "description": "A collection of 50+ neobrutalist components for Figma and Webflow, designed for high-impact landing pages and technical interfaces.",
+    "tech": ["Vanilla CSS", "Figma", "Webflow"],
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuD2KtNuu7v1qvY2llAc_yIc6yM5NhhOj0Gpbup84Sv56L-6VpL10woWVYzcLqmgTHX8-impzL7G_i9ZKmrEiCULaPFIVCj3D0Ru0C6sY_Vgi0bHBJEJLcpaSqrk1ldAeUBPqLOSKVmngipzXCQfKXJx6wFvAnpzMJHZ_6-Ms_eJYJ7GJPdnAayoaIoJA6R28PyZBSrjs8Wsc8SWdK74S1aZutRdd_1jP4jPoM97nDFZNZtT6oA_my6m-RvvVLIfcZzXeaOQYLCpmJu2",
+    "demoUrl": "#",
+    "githubUrl": "#"
+  },
+  {
+    "slug": "ecommerce-app",
+    "title": "E-COMMERCE APP",
+    "category": "Full Stack",
+    "tagColor": "#ffd700",
+    "description": "A full-stack commerce solution featuring a custom payment gateway, real-time inventory tracking, and a brutalist design language for better accessibility.",
+    "tech": ["React", "Node.js", "PostgreSQL"],
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBoTiV-V4IHdDGSZhG0NtPXMkfdkohMHh2l2-mdFHHSZZo0c09HJdOErl3-DGndLCu7joJ0BvRaB_rcvSt0cAfF25QW5yiqFi7QZdCczHZLlfy-X7XVjXNQ79sjQyDhqostoNKGg5zjfhBLjQN2k7pKCNYmHMRb13h7rLOYqTjChwakJAo6xmIzfK8Jo0jvl4s9n8ZccgIW8OndUYC3V1e8O_KcGf7Ujyz2C5a9pBhdsm5nxzOT9a7Ljf5g9BvRLSboO9fxCAQ2tWyw",
+    "demoUrl": "#",
+    "githubUrl": "#"
+  },
+  {
+    "slug": "task-manager",
+    "title": "TASK MANAGER",
+    "category": "Productivity App",
+    "tagColor": "#a5f624",
+    "description": "A productivity powerhouse focused on keyboard shortcuts and rapid task entry. Built with a heavy focus on performance and raw utility.",
+    "tech": ["Vue.js", "TypeScript", "Pinia"],
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuD2KtNuu7v1qvY2llAc_yIc6yM5NhhOj0Gpbup84Sv56L-6VpL10woWVYzcLqmgTHX8-impzL7G_i9ZKmrEiCULaPFIVCj3D0Ru0C6sY_Vgi0bHBJEJLcpaSqrk1ldAeUBPqLOSKVmngipzXCQfKXJx6wFvAnpzMJHZ_6-Ms_eJYJ7GJPdnAayoaIoJA6R28PyZBSrjs8Wsc8SWdK74S1aZutRdd_1jP4jPoM97nDFZNZtT6oA_my6m-RvvVLIfcZzXeaOQYLCpmJu2",
+    "demoUrl": "#",
+    "githubUrl": "#"
+  }
+]

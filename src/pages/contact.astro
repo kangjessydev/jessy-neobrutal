@@ -1,0 +1,385 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact | KANGJESSY DEV">
+    <!-- Hero Section -->
+    <section class="py-32 px-6 bg-white border-b-8 border-black">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-6">
+            
+            <!-- Left Info Side -->
+            <div class="flex-1">
+                <h1 class="font-lexend font-black text-6xl md:text-8xl text-black uppercase mb-8 leading-[1.1] tracking-tighter">
+                    GET IN <span class="bg-[#a5f624] px-4 shadow-[6px_6px_0px_#000000] border-4 border-black inline-block mt-2">TOUCH.</span>
+                </h1>
+                <p class="text-xl font-medium uppercase text-[#5d5f5f] mb-16">
+                    I'M CURRENTLY OPEN TO NEW PROJECTS AND COLLABORATIONS. LET'S BUILD SOMETHING THAT BREAKS THE INTERNET.
+                </p>
+
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="border-4 border-black p-2 bg-white shadow-[4px_4px_0px_#000000]">
+                            <span class="material-symbols-outlined text-3xl">alternate_email</span>
+                        </div>
+                        <div>
+                            <h3 class="font-black uppercase text-xs text-[#5d5f5f]">Email Me</h3>
+                            <a href="mailto:HELLO@DEVPORT.IO" class="font-lexend font-black text-2xl text-black hover:text-[#ffd700] transition-colors">
+                                HELLO@DEVPORT.IO
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="border-4 border-black p-2 bg-white shadow-[4px_4px_0px_#000000]">
+                            <span class="material-symbols-outlined text-3xl">location_on</span>
+                        </div>
+                        <div>
+                            <h3 class="font-black uppercase text-xs text-[#5d5f5f]">Location</h3>
+                            <p class="font-lexend font-black text-2xl text-black">
+                                BERLIN, DE
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full h-1 bg-black my-12"></div>
+
+                <div>
+                    <h3 class="font-black uppercase text-xl mb-6 text-black">Connect</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://github.com/kangjessy" target="_blank" class="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm">
+                            <span class="material-symbols-outlined text-lg">terminal</span>
+                            GITHUB
+                        </a>
+                        <a href="#" target="_blank" class="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm">
+                             <span class="material-symbols-outlined text-lg">work</span>
+                             LINKEDIN
+                        </a>
+                        <a href="#" target="_blank" class="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm">
+                            <span class="material-symbols-outlined text-lg">podcasts</span>
+                            TWITTER
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Form Side (WhatsApp Integration) -->
+            <div class="flex-1 bg-white border-8 border-black p-10 md:p-14 shadow-[8px_8px_0px_#000000] h-fit">
+                <div class="mb-12">
+                    <h2 class="font-lexend font-black text-4xl lg:text-[40px] uppercase leading-none text-black mb-1">Drop a line</h2>
+                    <div style="width: 80px; height: 10px; background-color: #ffd700; border: 3px solid black;"></div>
+                </div>
+
+                <form id="wa-form" class="flex flex-col gap-8">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <!-- Full Name -->
+                        <div class="flex flex-col gap-3 flex-1">
+                            <label for="name" class="font-bold uppercase text-xs text-black">FULL NAME</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                required
+                                placeholder="John Doe"
+                                class="bg-white border-4 border-black p-4 h-14 font-medium text-base text-black focus:outline-none focus:shadow-[4px_4px_0px_#000000] transition-all placeholder:text-gray-400"
+                            >
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="flex flex-col gap-3 flex-1">
+                            <label for="email" class="font-bold uppercase text-xs text-black">EMAIL ADDRESS</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                required
+                                placeholder="john@example.com"
+                                class="bg-white border-4 border-black p-4 h-14 font-medium text-base text-black focus:outline-none focus:shadow-[4px_4px_0px_#000000] transition-all placeholder:text-gray-400"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Subject (Custom Dropdown) -->
+                    <div class="flex flex-col gap-3 relative" id="subject-container">
+                        <label class="font-bold uppercase text-xs text-black">SUBJECT</label>
+                        <div class="relative">
+                            <button 
+                                type="button"
+                                id="dropdown-button"
+                                class="custom-dropdown-btn"
+                            >
+                                <span id="selected-value">Project Inquiry</span>
+                                <div class="dropdown-arrow-wrapper">
+                                    <svg id="dropdown-arrow" class="dropdown-arrow-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 9L12 15L18 9" stroke="black" stroke-width="3" stroke-linecap="square"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            
+                            <!-- Hidden Select -->
+                            <select name="type" id="type" class="hidden">
+                                <option value="Project Inquiry" selected>Project Inquiry</option>
+                                <option value="Budget & Pricing">Budget & Pricing</option>
+                                <option value="Collaboration">Collaboration</option>
+                                <option value="Other">Other</option>
+                            </select>
+
+                            <!-- Custom Options List -->
+                            <div id="options-list" class="hidden dropdown-options-container">
+                                <div class="dropdown-option-item" data-value="Project Inquiry">Project Inquiry</div>
+                                <div class="dropdown-option-item" data-value="Budget & Pricing">Budget & Pricing</div>
+                                <div class="dropdown-option-item" data-value="Collaboration">Collaboration</div>
+                                <div class="dropdown-option-item" data-value="Other">Other</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <style>
+                        /* Custom Dropdown Styles */
+                        .custom-dropdown-btn {
+                            width: 100%;
+                            background: white;
+                            border: 4px solid black;
+                            height: 64px;
+                            padding: 0 70px 0 20px;
+                            font-weight: 500;
+                            font-size: 16px;
+                            color: black;
+                            display: flex;
+                            align-items: center;
+                            cursor: pointer;
+                            position: relative;
+                            outline: none;
+                            text-align: left;
+                        }
+
+                        .custom-dropdown-btn:focus {
+                            box-shadow: 4px 4px 0px #000000;
+                        }
+
+                        .dropdown-arrow-wrapper {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            bottom: 0;
+                            width: 56px;
+                            border-left: 4px solid black;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background: white;
+                        }
+
+                        .dropdown-arrow-svg {
+                            width: 24px;
+                            height: 24px;
+                            transition: transform 0.2s ease;
+                        }
+
+                        .dropdown-options-container {
+                            position: absolute;
+                            top: 72px;
+                            left: 0;
+                            width: 100%;
+                            background: white;
+                            border: 4px solid black;
+                            box-shadow: 8px 8px 0px black;
+                            z-index: 40;
+                            overflow: hidden;
+                        }
+
+                        .dropdown-option-item {
+                            padding: 16px 20px;
+                            cursor: pointer;
+                            font-weight: 500;
+                            border-bottom: 2px solid black;
+                            transition: background-color 0.2s ease;
+                        }
+
+                        .dropdown-option-item:last-child {
+                            border-bottom: none;
+                        }
+
+                        .dropdown-option-item:hover {
+                            background-color: #ffd700 !important;
+                        }
+
+                        @keyframes dropIn {
+                            0% { transform: translateY(-10px); opacity: 0; }
+                            100% { transform: translateY(0); opacity: 1; }
+                        }
+
+                        .animate-drop {
+                            display: block !important;
+                            animation: dropIn 0.2s ease-out forwards;
+                        }
+                    </style>
+
+                    <script>
+                        const button = document.getElementById('dropdown-button');
+                        const list = document.getElementById('options-list');
+                        const selectedText = document.getElementById('selected-value');
+                        const arrow = document.getElementById('dropdown-arrow');
+                        const hiddenSelect = document.getElementById('type');
+                        const options = document.querySelectorAll('.dropdown-option-item');
+
+                        button.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            const isShowing = list.classList.contains('animate-drop');
+                            if (!isShowing) {
+                                list.classList.remove('hidden');
+                                list.classList.add('animate-drop');
+                                (arrow as HTMLElement).style.transform = 'rotate(180deg)';
+                            } else {
+                                list.classList.remove('animate-drop');
+                                list.classList.add('hidden');
+                                (arrow as HTMLElement).style.transform = 'rotate(0deg)';
+                            }
+                        });
+
+                        options.forEach(option => {
+                            option.addEventListener('click', () => {
+                                const val = option.getAttribute('data-value');
+                                selectedText.innerText = (val as string);
+                                (hiddenSelect as HTMLSelectElement).value = (val as string);
+                                list.classList.remove('animate-drop');
+                                list.classList.add('hidden');
+                                (arrow as HTMLElement).style.transform = 'rotate(0deg)';
+                            });
+                        });
+
+                        document.addEventListener('click', () => {
+                            list.classList.remove('animate-drop');
+                            list.classList.add('hidden');
+                            (arrow as HTMLElement).style.transform = 'rotate(0deg)';
+                        });
+                    </script>
+
+                    <!-- Message -->
+                    <div class="flex flex-col gap-3">
+                        <label for="message" class="font-bold uppercase text-xs text-black">YOUR MESSAGE</label>
+                        <textarea 
+                            id="message" 
+                            rows="5"
+                            required
+                            placeholder="Tell me about your vision..."
+                            class="bg-white border-4 border-black p-4 font-medium text-base text-black focus:outline-none focus:shadow-[4px_4px_0px_#000000] transition-all resize-none placeholder:text-gray-400"
+                        ></textarea>
+                    </div>
+
+                    <!-- Submit (WhatsApp Redirect) -->
+                    <button 
+                        type="submit"
+                        class="bg-[#ffd700] text-black border-4 border-black px-6 py-4 font-lexend font-black text-xl uppercase mt-2 shadow-[8px_8px_0px_#000000] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none transition-all flex justify-center items-center gap-3 cursor-pointer"
+                    >
+                        <span>SEND MESSAGE</span>
+                        <span class="material-symbols-outlined font-black">send</span>
+                    </button>
+                    <!-- hidden visually but kept for info -->
+                    <p class="text-xs font-black uppercase text-center text-black">
+                        *This will redirect you to WhatsApp
+                    </p>
+                </form>
+            </div>
+
+
+        </div>
+    </section>
+    
+    <!-- Image Gallery (from Screenshot) -->
+    <section class="py-16 px-6 bg-white border-b-8 border-black">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="border-8 border-black shadow-[12px_12px_0px_#000000] aspect-square bg-[#e8e8e8] relative group overflow-hidden">
+                <img src="/placeholder-desk.jpg" alt="Our Studio" class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-500">
+                <div class="absolute bottom-6 left-6 border-4 border-black bg-white px-4 py-2 font-black uppercase text-sm shadow-[4px_4px_0px_#000000]">
+                    OUR STUDIO
+                </div>
+            </div>
+            
+            <div class="border-8 border-black shadow-[12px_12px_0px_#000000] aspect-square bg-[#ffd700] relative group overflow-hidden p-8 flex items-center justify-center">
+                <!-- Using an icon/emoji as placeholder for the keyboard since it's an abstract image in design -->
+                <span class="material-symbols-outlined text-9xl text-black">keyboard</span>
+                <div class="absolute inset-0 border-[16px] border-[#c0a200] opacity-50 mix-blend-overlay"></div>
+                <div class="absolute bottom-6 left-6 border-4 border-black bg-white px-4 py-2 font-black uppercase text-sm shadow-[4px_4px_0px_#000000]">
+                    THE LAB
+                </div>
+            </div>
+            
+            <div class="border-8 border-black shadow-[12px_12px_0px_#000000] aspect-square bg-[#a5f624] relative group overflow-hidden p-8 flex items-center justify-center">
+                <span class="material-symbols-outlined text-9xl text-black">developer_board</span>
+                <div class="absolute inset-0 border-[16px] border-[#7cb91b] opacity-50 mix-blend-overlay"></div>
+                <div class="absolute bottom-6 left-6 border-4 border-black bg-white px-4 py-2 font-black uppercase text-sm shadow-[4px_4px_0px_#000000]">
+                    PLAYGROUND
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Caution Tape Marquee -->
+    <div class="bg-[#ffd700] text-black border-y-8 border-black overflow-hidden py-3 relative flex whitespace-nowrap">
+        <div class="animate-[marquee_10s_linear_infinite] flex items-center gap-4 font-lexend font-black text-2xl uppercase">
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+        </div>
+        <div class="animate-[marquee_10s_linear_infinite] flex items-center gap-4 font-lexend font-black text-2xl uppercase absolute top-3 left-full">
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+            <span>LET'S BUILD SOMETHING BOLD</span>
+            <span class="material-symbols-outlined font-black">stars</span>
+        </div>
+    </div>
+
+</BaseLayout>
+
+<script>
+    const form = document.getElementById('wa-form');
+    // Ganti nomor ini dengan nomor WhatsApp aktif kamu, format: 628xxxxxxxx
+    const waNumber = "6281234567890"; 
+
+    form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = (document.getElementById('name') as HTMLInputElement).value;
+        const type = (document.getElementById('type') as HTMLSelectElement).value;
+        const message = (document.getElementById('message') as HTMLTextAreaElement).value;
+
+        // Construct WhatsApp friendly text
+        const text = `Halo, saya ${name}.%0A%0ASaya ingin diskusi mengenai ${type}.%0A%0A${message}`;
+        
+        const waUrl = `https://wa.me/${waNumber}?text=${text}`;
+        
+        // Buka WhatsApp di tab baru
+        window.open(waUrl, '_blank');
+    });
+</script>
+
+<style>
+    @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-100%); }
+    }
+</style>

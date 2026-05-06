@@ -1,6 +1,7 @@
 ---
 const currentYear = new Date().getFullYear();
 ---
+
 <footer class="bg-white border-t-8 border-black flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 gap-6">
     <a href="/" class="font-lexend font-black italic text-xl uppercase text-black hover:text-[#FFD700] transition-colors">
         KANGJESSY_DEV
@@ -8,9 +9,80 @@ const currentYear = new Date().getFullYear();
     <div class="font-lexend font-bold uppercase text-black text-center">
         © {currentYear} PORTFOLIO. BUILT WITH COFFEE AND BRUTALISM.
     </div>
-    <div class="flex gap-6">
-        <a class="font-lexend font-bold uppercase text-black hover:underline hover:text-[#FFD700] transition-colors scale-105" href="https://github.com/kangjessy" target="_blank">GITHUB</a>
-        <a class="font-lexend font-bold uppercase text-black hover:underline hover:text-[#FFD700] transition-colors scale-105" href="#" target="_blank">LINKEDIN</a>
-        <a class="font-lexend font-bold uppercase text-black hover:underline hover:text-[#FFD700] transition-colors scale-105" href="#" target="_blank">TWITTER</a>
-    </div>
+    <!-- Single button trigger -->
+    <button
+        id="socials-btn"
+        class="border-4 border-black px-6 py-3 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all"
+    >
+        SOCIALS ↗
+    </button>
 </footer>
+
+<!-- Popup Modal -->
+<div id="socials-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
+    <!-- Backdrop -->
+    <div id="socials-backdrop" class="absolute inset-0 bg-black/60"></div>
+
+    <!-- Modal Box -->
+    <div class="relative bg-white border-8 border-black shadow-[12px_12px_0px_#000000] p-10 min-w-[320px] z-10">
+        <div class="flex justify-between items-center mb-8 border-b-4 border-black pb-4">
+            <span class="font-lexend font-black text-2xl uppercase">Find me on</span>
+            <button id="socials-close" class="font-black text-2xl border-4 border-black w-10 h-10 flex items-center justify-center hover:bg-black hover:text-white transition-all">
+                ✕
+            </button>
+        </div>
+        <div class="flex flex-col gap-4">
+            <a
+                href="https://github.com/kangjessy"
+                target="_blank"
+                class="border-4 border-black px-6 py-4 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-4"
+            >
+                <span class="material-symbols-outlined">code</span>
+                GITHUB
+            </a>
+            <a
+                href="#"
+                target="_blank"
+                class="border-4 border-black px-6 py-4 font-black uppercase bg-[#ffd700] shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-4"
+            >
+                <span class="material-symbols-outlined">work</span>
+                LINKEDIN
+            </a>
+            <a
+                href="#"
+                target="_blank"
+                class="border-4 border-black px-6 py-4 font-black uppercase bg-[#a5f624] shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-4"
+            >
+                <span class="material-symbols-outlined">alternate_email</span>
+                TWITTER
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    const btn = document.getElementById('socials-btn');
+    const modal = document.getElementById('socials-modal');
+    const closeBtn = document.getElementById('socials-close');
+    const backdrop = document.getElementById('socials-backdrop');
+
+    function openModal() {
+        modal?.classList.remove('hidden');
+        modal?.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal?.classList.add('hidden');
+        modal?.classList.remove('flex');
+        document.body.style.overflow = '';
+    }
+
+    btn?.addEventListener('click', openModal);
+    closeBtn?.addEventListener('click', closeModal);
+    backdrop?.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
+</script>

@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getProjects } from '../services/getProjects';
+
+const projects = getProjects();
+---
+
+<BaseLayout title="Projects | KANGJESSY DEV">
+
+    <!-- Hero -->
+    <section class="py-32 px-6 bg-white border-b-8 border-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="inline-block bg-[#a5f624] text-black border-4 border-black px-4 py-2 mb-8 shadow-[4px_4px_0px_#000000] font-bold uppercase text-sm">
+                Case Studies & Archive
+            </div>
+            <h1 class="font-lexend font-black text-7xl md:text-8xl text-black uppercase mb-8 leading-[1.1] tracking-tighter">
+                SELECTED <span class="bg-[#ffd700] px-4">WORKS</span>
+            </h1>
+            <p class="text-xl text-[#5d5f5f] max-w-2xl">
+                A collection of high-performance digital experiences built with precision, raw logic, and a refusal to be ordinary.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-32 px-6 bg-[#f9f9f9]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                {projects.map((project) => (
+                    <div class="border-4 border-black bg-white shadow-[8px_8px_0px_#000000] group overflow-hidden flex flex-col">
+                        <!-- Card Header strip -->
+                        <div class="bg-[#e2e2e2] border-b-4 border-black px-6 py-3 flex justify-between items-center">
+                            <span class="font-bold uppercase text-sm">{project.category}</span>
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-black"></div>
+                                <div class="w-3 h-3 rounded-full bg-black"></div>
+                            </div>
+                        </div>
+
+                        <!-- Image -->
+                        <div class="h-64 bg-[#e8e8e8] overflow-hidden border-b-4 border-black">
+                            <img
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                src={project.image}
+                                alt={project.title}
+                            />
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="font-lexend font-black text-3xl uppercase mb-4">{project.title}</h3>
+                            <p class="text-[#5d5f5f] mb-6 flex-grow">{project.description}</p>
+
+                            <!-- Tech tags -->
+                            <div class="flex flex-wrap gap-3 mb-8">
+                                {project.tech.map((tag) => (
+                                    <span class="border-2 border-black px-3 py-1 text-xs font-bold uppercase" style={`background-color: ${project.tagColor}`}>
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <a href={`/projects/${project.slug}`} class="font-bold uppercase underline underline-offset-4 decoration-4 hover:text-[#705d00] transition-colors">
+                                View Case Study →
+                            </a>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Stack (dari Stitch — posisi di bawah project grid) -->
+    <section class="py-16 px-6 border-t-8 border-black bg-[#eeeeee]">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-lexend font-black text-5xl uppercase mb-12">TECHNICAL STACK</h2>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_#000000] flex flex-col items-center justify-center text-center min-h-[160px]">
+                    <span class="material-symbols-outlined text-5xl mb-4">terminal</span>
+                    <span class="font-black uppercase tracking-widest text-sm">Frontend</span>
+                </div>
+                <div class="bg-[#ffd700] border-4 border-black p-8 shadow-[8px_8px_0px_#000000] flex flex-col items-center justify-center text-center min-h-[160px]">
+                    <span class="material-symbols-outlined text-5xl mb-4">database</span>
+                    <span class="font-black uppercase tracking-widest text-sm">Backend</span>
+                </div>
+                <div class="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_#000000] flex flex-col items-center justify-center text-center min-h-[160px]">
+                    <span class="material-symbols-outlined text-5xl mb-4">edit_ruler</span>
+                    <span class="font-black uppercase tracking-widest text-sm">UI / UX</span>
+                </div>
+                <div class="bg-[#ffd700] border-4 border-black p-8 shadow-[8px_8px_0px_#000000] flex flex-col items-center justify-center text-center min-h-[160px]">
+                    <span class="material-symbols-outlined text-5xl mb-4">cloud_sync</span>
+                    <span class="font-black uppercase tracking-widest text-sm">DevOps</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</BaseLayout>
