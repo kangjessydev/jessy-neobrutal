@@ -63,88 +63,185 @@ function isActive(href: string) {
         </div>
     </div>
 
-    <!-- Main Nav -->
-    <nav class="hidden md:flex gap-6 items-center">
-        {mainLinks.map(link => (
-            <a
-                href={link.href}
-                class={`font-lexend font-black uppercase tracking-tighter text-black hover:bg-[#FFD700] transition-colors px-2 py-1 ${isActive(link.href) ? 'bg-[#FFD700] underline decoration-4 underline-offset-4' : ''}`}
-            >
-                {link.label}
-            </a>
-        ))}
-
-        <!-- More Dropdown -->
-        <div class="relative" id="more-menu">
-            <button
-                id="more-btn"
-                class="font-lexend font-black uppercase tracking-tighter text-black hover:bg-[#FFD700] transition-colors px-2 py-1 flex items-center gap-1"
-            >
-                More <span id="more-arrow" class="transition-transform duration-200">▾</span>
-            </button>
-
-            <!-- Dropdown -->
-            <div
-                id="more-dropdown"
-                class="absolute top-[calc(100%+12px)] right-0 bg-white border-4 border-black shadow-[8px_8px_0px_#000000] min-w-[180px] hidden z-50 origin-top"
-            >
-                {moreLinks.map(link => (
-                    <a
-                        href={link.href}
-                        class={`block px-6 py-4 font-lexend font-black uppercase text-sm tracking-tighter text-black hover:bg-[#FFD700] border-b-4 border-black last:border-b-0 transition-colors ${isActive(link.href) ? 'bg-[#FFD700]' : ''}`}
-                    >
-                        {link.label}
-                    </a>
-                ))}
-            </div>
+    <!-- Main Nav (Slimming down) -->
+    <div class="flex items-center gap-4">
+        <!-- Language Switcher (Slim Pill Style) -->
+        <div class="hidden sm:flex border-4 border-black bg-black p-1 shadow-[3px_3px_0px_#000000] overflow-hidden">
+            <button class="px-3 py-1 text-[10px] font-black uppercase text-white hover:bg-[#ADFF2F] hover:text-black transition-colors bg-[#ADFF2F] !text-black">ID</button>
+            <button class="px-3 py-1 text-[10px] font-black uppercase text-white hover:bg-[#ADFF2F] hover:text-black transition-colors">EN</button>
         </div>
-    </nav>
 
-    <!-- CTA Button -->
-    <div class="hidden md:block">
-        <Button href="/contact" variant="yellow" size="md">
-            Let's Talk
-        </Button>
+        <!-- Menu Toggle Button -->
+        <button
+            id="menu-toggle"
+            class="bg-[#FFD700] text-black border-4 border-black px-4 py-1 font-lexend font-black uppercase tracking-tighter shadow-[4px_4px_0px_#000000] hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2"
+        >
+            MENU <span class="text-xl">☰</span>
+        </button>
     </div>
-
-    <!-- Mobile Hamburger -->
-    <button id="mobile-menu-btn" class="md:hidden border-4 border-black p-2 shadow-[4px_4px_0px_#000000] font-black">
-        ☰
-    </button>
 </header>
 
-<!-- Mobile Nav -->
-<div id="mobile-nav" class="hidden md:hidden bg-white border-b-8 border-black">
-    {[...mainLinks, ...moreLinks].map(link => (
-        <a
-            href={link.href}
-            class={`block px-8 py-4 font-lexend font-black uppercase tracking-tighter text-black border-b-4 border-black hover:bg-[#FFD700] transition-colors ${isActive(link.href) ? 'bg-[#FFD700]' : ''}`}
-        >
-            {link.label}
-        </a>
-    ))}
+<!-- Full Screen Overlay Menu -->
+<div id="full-menu" class="fixed inset-0 bg-white z-[200] hidden flex-col border-[12px] border-black">
+    <div class="flex justify-between items-center p-8 border-b-8 border-black bg-[#ADFF2F]">
+        <span class="font-lexend font-black uppercase text-2xl tracking-tighter">NAVIGATION</span>
+        <button id="menu-close" class="bg-black text-white w-12 h-12 flex items-center justify-center border-4 border-black shadow-[4px_4px_0px_#000000] hover:translate-y-1 hover:shadow-none transition-all text-2xl font-black">✕</button>
+    </div>
+    
+    <div class="flex-grow flex flex-col md:flex-row divide-y-8 md:divide-y-0 md:divide-x-8 divide-black overflow-y-auto">
+        <!-- Main Links (Left Side) -->
+        <div class="flex-grow p-12 flex flex-col justify-center gap-6">
+            <a href="/" class="menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block" data-target="default">Home</a>
+            <a href="/about" class="menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block" data-target="default">About</a>
+            <a href="/projects" class="menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block" data-target="projects">Projects</a>
+            <a href="/blog" class="menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block" data-target="default">Blog</a>
+            
+            <!-- Network with Submenu trigger -->
+            <button class="menu-link-dynamic text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block focus:outline-none" data-target="network">
+                Network
+            </button>
+        </div>
+
+        <!-- Dynamic Sidebar Panel (Right Side) -->
+        <div id="dynamic-side-panel" class="w-full md:w-[450px] bg-[#f0f0f0] flex flex-col transition-all duration-300 border-l-0 md:border-l-8 border-black overflow-hidden">
+            
+            <!-- Default Content -->
+            <div id="content-default" class="side-content flex flex-col justify-between h-full p-12">
+                <div>
+                    <h4 class="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">CONNECT</h4>
+                    <div class="flex flex-col gap-6">
+                        <a href="#" class="text-3xl font-black uppercase hover:text-[#ADFF2F] transition-colors flex items-center gap-4 group">
+                            LinkedIn <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0">arrow_outward</span>
+                        </a>
+                        <a href="#" class="text-3xl font-black uppercase hover:text-[#ADFF2F] transition-colors flex items-center gap-4 group">
+                            Github <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0">arrow_outward</span>
+                        </a>
+                        <a href="#" class="text-3xl font-black uppercase hover:text-[#FFD700] transition-colors flex items-center gap-4 group">
+                            Twitter <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0">arrow_outward</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-20">
+                    <Button href="/contact" variant="black" size="lg" isFullWidth>Get In Touch</Button>
+                </div>
+            </div>
+
+            <!-- Network Submenu Content -->
+            <div id="content-network" class="side-content hidden flex-col h-full bg-[#ADFF2F] p-12">
+                <h4 class="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">EXPLORE NETWORK</h4>
+                <div class="flex flex-col gap-8">
+                    <a href="https://mejadaring.id" target="_blank" class="block group">
+                        <span class="text-xs font-bold text-black/60 block mb-1">Education Portal</span>
+                        <span class="text-4xl font-lexend font-black uppercase hover:translate-x-2 transition-transform block">MEJADARING.ID</span>
+                    </a>
+                    <a href="https://skincluv.id" target="_blank" class="block group">
+                        <span class="text-xs font-bold text-black/60 block mb-1">Skincare Analytics</span>
+                        <span class="text-4xl font-lexend font-black uppercase hover:translate-x-2 transition-transform block">SKINCLUV.ID</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projects Submenu Content -->
+            <div id="content-projects" class="side-content hidden flex-col h-full bg-[#FFD700] p-12">
+                <h4 class="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">PORTFOLIO</h4>
+                <div class="flex flex-col gap-6">
+                    <a href="/projects" class="text-3xl font-black uppercase hover:translate-x-2 transition-transform block">Web Development</a>
+                    <a href="/projects" class="text-3xl font-black uppercase hover:translate-x-2 transition-transform block">Mobile apps</a>
+                    <a href="/projects" class="text-3xl font-black uppercase hover:translate-x-2 transition-transform block">UI/UX Design</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+<style>
+    /* Content Fade Effects */
+    .side-content {
+        animation: contentFade 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
+    @keyframes contentFade {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Full Menu Animations */
+    #full-menu .menu-link-dynamic {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    #full-menu.flex .menu-link-dynamic {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Stagger Delays */
+    #full-menu.flex .menu-link-dynamic:nth-child(1) { transition-delay: 0.1s; }
+    #full-menu.flex .menu-link-dynamic:nth-child(2) { transition-delay: 0.15s; }
+    #full-menu.flex .menu-link-dynamic:nth-child(3) { transition-delay: 0.2s; }
+    #full-menu.flex .menu-link-dynamic:nth-child(4) { transition-delay: 0.25s; }
+    #full-menu.flex .menu-link-dynamic:nth-child(5) { transition-delay: 0.3s; }
+
+    /* Geometric Slide */
+    #full-menu {
+        transform: translateX(100%);
+        transition: transform 0.5s cubic-bezier(0.8, 0, 0.2, 1);
+    }
+    #full-menu.flex {
+        transform: translateX(0);
+    }
+</style>
+
 <script>
+    // Elements
     const networkBtn = document.getElementById('network-btn');
     const networkDropdown = document.getElementById('network-dropdown');
     const networkArrow = document.getElementById('network-arrow');
 
-    const moreBtn = document.getElementById('more-btn');
-    const moreDropdown = document.getElementById('more-dropdown');
-    const moreArrow = document.getElementById('more-arrow');
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const fullMenu = document.getElementById('full-menu');
 
     function closeAllMenus() {
-        // Close Network Menu
         networkDropdown?.classList.add('hidden');
         if (networkArrow) networkArrow.style.transform = 'rotate(0deg)';
-        
-        // Close More Menu
-        moreDropdown?.classList.add('hidden');
-        if (moreArrow) moreArrow.style.transform = 'rotate(0deg)';
     }
 
-    // Toggle Network Menu
+    // Dynamic Panel Logic
+    const menuLinks = document.querySelectorAll('.menu-link-dynamic');
+    const sideContents = document.querySelectorAll('.side-content');
+
+    menuLinks.forEach(link => {
+        const target = link.getAttribute('data-target');
+        const showPanel = () => {
+            sideContents.forEach(content => content.classList.add('hidden'));
+            const targetEl = document.getElementById(`content-${target}`);
+            if (targetEl) {
+                targetEl.classList.remove('hidden');
+                targetEl.classList.add('flex');
+            }
+        };
+        link.addEventListener('mouseenter', showPanel);
+        link.addEventListener('click', showPanel); 
+    });
+
+    // Full Menu Logic
+    menuToggle?.addEventListener('click', () => {
+        fullMenu?.classList.remove('hidden');
+        setTimeout(() => {
+            fullMenu?.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }, 10);
+    });
+
+    menuClose?.addEventListener('click', () => {
+        fullMenu?.classList.remove('flex');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            fullMenu?.classList.add('hidden');
+        }, 500);
+    });
+
     networkBtn?.addEventListener('click', (e) => {
         e.stopPropagation();
         const isHidden = networkDropdown?.classList.contains('hidden');
@@ -155,27 +252,7 @@ function isActive(href: string) {
         }
     });
 
-    // Toggle More Menu
-    moreBtn?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isHidden = moreDropdown?.classList.contains('hidden');
-        closeAllMenus();
-        if (isHidden) {
-            moreDropdown?.classList.remove('hidden');
-            if (moreArrow) moreArrow.style.transform = 'rotate(180deg)';
-        }
-    });
-
-    // Click Away Listener
     document.addEventListener('click', () => {
         closeAllMenus();
-    });
-
-    // Mobile menu
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileNav = document.getElementById('mobile-nav');
-
-    mobileBtn?.addEventListener('click', () => {
-        mobileNav?.classList.toggle('hidden');
     });
 </script>
