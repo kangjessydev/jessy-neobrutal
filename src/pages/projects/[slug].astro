@@ -1,0 +1,396 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getProjectBySlug, getProjects } from '../../services/getProjects';
+
+export function getStaticPaths() {
+  const projects = getProjects();
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+
+if (!project) {
+    return Astro.redirect('/404');
+}
+---
+
+<BaseLayout title={`${project.title} | KANGJESSY DEV`}>
+    
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6 bg-white border-b-8 border-black">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            
+            <!-- Left: Info -->
+            <div class="lg:col-span-2">
+                <div class="inline-block bg-[#a5f624] text-black border-4 border-black px-4 py-2 mb-8 shadow-[4px_4px_0px_#000000] font-bold uppercase text-sm">
+                    {project.category}
+                </div>
+                <h1 class="font-lexend font-black text-6xl md:text-8xl text-black uppercase mb-8 leading-[1.1] tracking-tighter">
+                    {project.title}
+                </h1>
+                <p class="text-xl md:text-2xl text-[#5d5f5f] mb-10 max-w-2xl leading-relaxed">
+                    {project.description}
+                </p>
+
+                <!-- Tech Stack Chips -->
+                <div class="flex flex-wrap gap-3 mb-10">
+                    {project.tech.map((tag) => (
+                        <span class="border-2 border-black bg-white px-4 py-1 text-sm font-bold uppercase shadow-[2px_2px_0px_#000000]">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap gap-6">
+                    <a href={project.demoUrl} class="bg-[#ffd700] text-black border-4 border-black px-8 py-4 font-black uppercase tracking-wider shadow-[6px_6px_0px_#000000] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined">launch</span>
+                        LIVE DEMO
+                    </a>
+                    <a href={project.githubUrl} class="bg-white text-black border-4 border-black px-8 py-4 font-black uppercase tracking-wider shadow-[6px_6px_0px_#000000] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined">code</span>
+                        VIEW CODE
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Specs Card (Sticky) -->
+            <div class="lg:sticky lg:top-32 lg:col-span-1">
+                <div class="border-4 border-black bg-white p-8 shadow-[12px_12px_0px_#000000]">
+                    <h3 class="font-lexend font-black text-2xl uppercase mb-6 border-b-4 border-black pb-4">SPECS</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <span class="block text-xs font-bold uppercase text-[#7e775f] mb-1 tracking-widest">Year</span>
+                            <span class="text-2xl font-black uppercase">{project.year || "2024"}</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold uppercase text-[#7e775f] mb-1 tracking-widest">Role</span>
+                            <span class="text-2xl font-black uppercase">{project.role || "Lead Developer"}</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold uppercase text-[#7e775f] mb-1 tracking-widest">Client</span>
+                            <span class="text-2xl font-black uppercase">{project.client || "External Project"}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="bg-[#ffd700] border-b-8 border-black py-4 overflow-hidden whitespace-nowrap flex select-none">
+        <div class="animate-marquee flex gap-8 items-center min-w-full">
+            {[...Array(10)].map(() => (
+                <div class="flex gap-8 items-center">
+                    <span class="font-lexend font-black text-2xl uppercase italic">DESIGN WITH PURPOSE</span>
+                    <span class="material-symbols-outlined text-4xl">star</span>
+                    <span class="font-lexend font-black text-2xl uppercase italic">RAW LOGIC ONLY</span>
+                    <span class="material-symbols-outlined text-4xl">bolt</span>
+                    <span class="font-lexend font-black text-2xl uppercase italic">NEOBRUTAL SYSTEM</span>
+                    <span class="material-symbols-outlined text-4xl">change_history</span>
+                </div>
+            ))}
+        </div>
+        <div class="animate-marquee2 flex gap-8 items-center min-w-full absolute">
+            {[...Array(10)].map(() => (
+                <div class="flex gap-8 items-center">
+                    <span class="font-lexend font-black text-2xl uppercase italic">DESIGN WITH PURPOSE</span>
+                    <span class="material-symbols-outlined text-4xl">star</span>
+                    <span class="font-lexend font-black text-2xl uppercase italic">RAW LOGIC ONLY</span>
+                    <span class="material-symbols-outlined text-4xl">bolt</span>
+                    <span class="font-lexend font-black text-2xl uppercase italic">NEOBRUTAL SYSTEM</span>
+                    <span class="material-symbols-outlined text-4xl">change_history</span>
+                </div>
+            ))}
+        </div>
+    </div>
+
+    <!-- Problem & Solution (Smart Cards with Integrated Sliders) -->
+    <section class="py-32 px-6 bg-[#f9f9f9]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <!-- THE PROBLEM CARD -->
+            <div class="border-4 border-black bg-white shadow-[8px_8px_0px_#000000] flex flex-col h-full">
+                <div class="bg-[#ff69b4] text-white border-b-4 border-black px-6 py-3 font-black uppercase text-sm tracking-widest">
+                    THE PROBLEM
+                </div>
+                <div class="p-8 flex-grow flex flex-col">
+                    <p class="text-lg font-medium leading-relaxed mb-8">{project.problem || "Traditional crypto-wallets and dashboards were cluttered with unnecessarily complex navigation patterns."}</p>
+                    
+                    <!-- Problem Points (The Controllers) -->
+                    <ul class="space-y-3 mb-10 problem-points-list">
+                        <li data-target="prob-0" class="cursor-pointer border-2 border-black p-3 font-bold flex gap-3 items-center hover:bg-[#ff69b4] hover:text-white transition-all active-point">
+                            <span class="w-6 h-6 bg-black text-white text-xs flex items-center justify-center">01</span>
+                            UI Dashboard Berantakan & Berat
+                        </li>
+                        <li data-target="prob-1" class="cursor-pointer border-2 border-black p-3 font-bold flex gap-3 items-center hover:bg-[#ff69b4] hover:text-white transition-all">
+                            <span class="w-6 h-6 bg-black text-white text-xs flex items-center justify-center">02</span>
+                            Fitur Transaksi Sering Error/Rusak
+                        </li>
+                        <li data-target="prob-2" class="cursor-pointer border-2 border-black p-3 font-bold flex gap-3 items-center hover:bg-[#ff69b4] hover:text-white transition-all">
+                            <span class="w-6 h-6 bg-black text-white text-xs flex items-center justify-center">03</span>
+                            Latensi Data Per detik Sangat Lambat
+                        </li>
+                    </ul>
+
+                    <!-- Integrated Slider Tool -->
+                    <div class="mt-auto relative border-4 border-black bg-black overflow-hidden aspect-video">
+                        <div id="problem-slider" class="flex w-full h-full transition-transform duration-500 ease-out">
+                            <img id="prob-0" src={project.image} class="w-full h-full object-cover shrink-0" alt="Problem 1" />
+                            <img id="prob-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2KtNuu7v1qvY2llAc_yIc6yM5NhhOj0Gpbup84Sv56L-6VpL10woWVYzcLqmgTHX8-impzL7G_i9ZKmrEiCULaPFIVCj3D0Ru0C6sY_Vgi0bHBJEJLcpaSqrk1ldAeUBPqLOSKVmngipzXCQfKXJx6wFvAnpzMJHZ_6-Ms_eJYJ7GJPdnAayoaIoJA6R28PyZBSrjs8Wsc8SWdK74S1aZutRdd_1jP4jPoM97nDFZNZtT6oA_my6m-RvvVLIfcZzXeaOQYLCpmJu2" class="w-full h-full object-cover shrink-0" alt="Problem 2" />
+                            <img id="prob-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoTiV-V4IHdDGSZhG0NtPXMkfdkohMHh2l2-mdFHHSZZo0c09HJdOErl3-DGndLCu7joJ0BvRaB_rcvSt0cAfF25QW5yiqFi7QZdCczHZLlfy-X7XVjXNQ79sjQyDhqostoNKGg5zjfhBLjQN2k7pKCNYmHMRb13h7rLOYqTjChwakJAo6xmIzfK8Jo0jvl4s9n8ZccgIW8OndUYC3V1e8O_KcGf7Ujyz2C5a9pBhdsm5nxzOT9a7Ljf5g9BvRLSboO9fxCAQ2tWyw" class="w-full h-full object-cover shrink-0" alt="Problem 3" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THE SOLUTION CARD -->
+            <div class="border-4 border-black bg-white shadow-[8px_8px_0px_#000000] flex flex-col h-full">
+                <div class="bg-[#adff2f] text-black border-b-4 border-black px-6 py-3 font-black uppercase text-sm tracking-widest">
+                    THE SOLUTION
+                </div>
+                <div class="p-8 flex-grow flex flex-col">
+                    <p class="text-lg font-medium leading-relaxed mb-8">{project.solution || "We implemented a strict Neobrutalist system that prioritizes data hierarchy and performance."}</p>
+                    
+                    <!-- Solution Points (The Controllers) -->
+                    <ul class="space-y-3 mb-10 solution-points-list">
+                        <li data-target="sol-0" class="cursor-pointer border-2 border-black p-3 font-bold flex gap-3 items-center hover:bg-[#adff2f] transition-all active-point">
+                            <span class="w-6 h-6 bg-black text-white text-xs flex items-center justify-center">01</span>
+                            Arsitektur Modular & Ringan
+                        </li>
+                        <li data-target="sol-1" class="cursor-pointer border-2 border-black p-3 font-bold flex gap-3 items-center hover:bg-[#adff2f] transition-all">
+                            <span class="w-6 h-6 bg-black text-white text-xs flex items-center justify-center">02</span>
+                            Validasi Transaksi Real-time
+                        </li>
+                        <li data-target="sol-2" class="cursor-pointer border-2 border-black p-3 font-bold flex gap-3 items-center hover:bg-[#adff2f] transition-all">
+                            <span class="w-6 h-6 bg-black text-white text-xs flex items-center justify-center">03</span>
+                            Optimasi GraphQL Subscription
+                        </li>
+                    </ul>
+
+                    <!-- Integrated Slider Tool -->
+                    <div class="mt-auto relative border-4 border-black bg-black overflow-hidden aspect-video">
+                        <div id="solution-slider" class="flex w-full h-full transition-transform duration-500 ease-out">
+                            <img src={project.image} class="w-full h-full object-cover shrink-0" alt="Solution 1" />
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2KtNuu7v1qvY2llAc_yIc6yM5NhhOj0Gpbup84Sv56L-6VpL10woWVYzcLqmgTHX8-impzL7G_i9ZKmrEiCULaPFIVCj3D0Ru0C6sY_Vgi0bHBJEJLcpaSqrk1ldAeUBPqLOSKVmngipzXCQfKXJx6wFvAnpzMJHZ_6-Ms_eJYJ7GJPdnAayoaIoJA6R28PyZBSrjs8Wsc8SWdK74S1aZutRdd_1jP4jPoM97nDFZNZtT6oA_my6m-RvvVLIfcZzXeaOQYLCpmJu2" class="w-full h-full object-cover shrink-0" alt="Solution 2" />
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoTiV-V4IHdDGSZhG0NtPXMkfdkohMHh2l2-mdFHHSZZo0c09HJdOErl3-DGndLCu7joJ0BvRaB_rcvSt0cAfF25QW5yiqFi7QZdCczHZLlfy-X7XVjXNQ79sjQyDhqostoNKGg5zjfhBLjQN2k7pKCNYmHMRb13h7rLOYqTjChwakJAo6xmIzfK8Jo0jvl4s9n8ZccgIW8OndUYC3V1e8O_KcGf7Ujyz2C5a9pBhdsm5nxzOT9a7Ljf5g9BvRLSboO9fxCAQ2tWyw" class="w-full h-full object-cover shrink-0" alt="Solution 3" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Execution Narrative (Balanced layout) -->
+    <section class="py-32 px-6 bg-white border-t-8 border-black">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-lexend font-black text-4xl md:text-6xl uppercase mb-16 tracking-tighter text-center">THE EXECUTION</h2>
+            
+            <div class="prose-neo">
+                <h3>Breaking the Convention</h3>
+                <p>
+                    Dalam proyek {project.title}, tantangan utamanya adalah bagaimana menyajikan data yang sangat kompleks tanpa membuat pengguna merasa kewalahan. Kami memulai dengan <strong>menghapus semua elemen visual yang tidak esensial</strong>.
+                </p>
+                <p>
+                    Setiap komponen harus lulus uji <em>"Raw Logic"</em>: jika sebuah border tidak mendefinisikan struktur, maka ia harus dibuang. Hasilnya adalah antarmuka yang sangat jujur dan transparan.
+                </p>
+                
+                <h4>Key Requirements:</h4>
+                <ul>
+                    <li>Sub-100ms latency for all data visualizers.</li>
+                    <li>High-contrast accessibility for outdoor trading environments.</li>
+                    <li>Scalable component library for future protocol integration.</li>
+                </ul>
+
+                <blockquote>
+                    "Brutalism in web design isn't about being ugly; it's about being unapologetically functional."
+                </blockquote>
+
+                <h4>System Performance:</h4>
+                <div class="my-10 overflow-x-auto">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Before</th>
+                                <th>After</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Load Time</td>
+                                <td>4.2s</td>
+                                <td>0.8s</td>
+                            </tr>
+                            <tr>
+                                <td>Bundle Size</td>
+                                <td>1.2MB</td>
+                                <td>145KB</td>
+                            </tr>
+                            <tr>
+                                <td>User Retention</td>
+                                <td>12%</td>
+                                <td>88%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Hasil akhir bukan hanya tentang kecepatan, tapi tentang membangun kepercayaan. Dengan pendekatan neobrutalist, {project.title} membuktikan bahwa kejujuran dalam desain adalah mata uang terkuat di era digital yang penuh dengan visual yang menipu.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Architecture (Floating Black Card) -->
+    <section class="py-32 px-6 bg-[#f0f0f0]">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative group">
+                <!-- Shadow Layer -->
+                <div class="absolute inset-0 bg-black translate-x-4 translate-y-4"></div>
+                
+                <!-- Main Card -->
+                <div class="relative bg-black text-white p-12 lg:p-20 border-4 border-black">
+                    <h2 class="font-lexend font-black text-4xl md:text-5xl uppercase mb-16 text-[#ffd700] tracking-tighter">TECHNICAL ARCHITECTURE</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                        
+                        <!-- Frontend -->
+                        <div class="flex flex-col gap-6">
+                            <span class="material-symbols-outlined text-[#ffd700] text-4xl">grid_view</span>
+                            <div>
+                                <h4 class="font-lexend font-black text-2xl uppercase mb-4 tracking-tight">FRONTEND</h4>
+                                <p class="text-[#cccccc] text-sm leading-relaxed">{project.technical?.frontend || "Built on Next.js 14 for server-side rendering performance, using Tailwind for the structural brutalist styling and custom framer-motion-free layout logic."}</p>
+                            </div>
+                        </div>
+
+                        <!-- Real-time -->
+                        <div class="flex flex-col gap-6">
+                            <span class="material-symbols-outlined text-[#ffd700] text-4xl">database</span>
+                            <div>
+                                <h4 class="font-lexend font-black text-2xl uppercase mb-4 tracking-tight">REAL-TIME</h4>
+                                <p class="text-[#cccccc] text-sm leading-relaxed">{project.technical?.realtime || "Leveraging WebSockets and Apollo Client for real-time price feeds and transaction monitoring across five major blockchain networks simultaneously."}</p>
+                            </div>
+                        </div>
+
+                        <!-- Security -->
+                        <div class="flex flex-col gap-6">
+                            <span class="material-symbols-outlined text-[#ffd700] text-4xl">verified_user</span>
+                            <div>
+                                <h4 class="font-lexend font-black text-2xl uppercase mb-4 tracking-tight">SECURITY</h4>
+                                <p class="text-[#cccccc] text-sm leading-relaxed">{project.technical?.security || "End-to-end encrypted session management and hardware wallet integration via the Web3Auth protocol, wrapped in a rigid UI shell."}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</BaseLayout>
+
+<script>
+    function initSmartSlider(containerId, listSelector, activeClass) {
+        const slider = document.getElementById(containerId);
+        if (!slider) return;
+        
+        const listItems = document.querySelectorAll(listSelector);
+        let currentIndex = 0;
+        let interval;
+
+        function goToSlide(index) {
+            currentIndex = index;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            
+            listItems.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add(activeClass);
+                } else {
+                    item.classList.remove(activeClass);
+                }
+            });
+        }
+
+        function nextSlide() {
+            goToSlide((currentIndex + 1) % listItems.length);
+        }
+
+        function startAutoSlide() {
+            stopAutoSlide(); // Clear previous
+            interval = setInterval(nextSlide, 4000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(interval);
+        }
+
+        listItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                stopAutoSlide();
+                goToSlide(index);
+                setTimeout(startAutoSlide, 8000); // Resume after manual click
+            });
+        });
+
+        startAutoSlide();
+    }
+
+    // Initialize both sliders after content loads
+    document.addEventListener('DOMContentLoaded', () => {
+        initSmartSlider('problem-slider', '.problem-points-list li', 'active-point-prob');
+        initSmartSlider('solution-slider', '.solution-points-list li', 'active-point-sol');
+    });
+</script>
+
+<style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Custom Active States */
+    .active-point-prob {
+        background-color: #ff69b4 !important;
+        color: white !important;
+        transform: translateX(10px);
+        box-shadow: -4px 0px 0px black;
+    }
+    .active-point-sol {
+        background-color: #adff2f !important;
+        color: black !important;
+        transform: translateX(10px);
+        box-shadow: -4px 0px 0px black;
+    }
+    
+    .problem-points-list li, .solution-points-list li {
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+</style>
+        
+
+</BaseLayout>
+
+<style>
+    .animate-marquee {
+        animation: marquee 30s linear infinite;
+    }
+    .animate-marquee2 {
+        animation: marquee2 30s linear infinite;
+    }
+
+    @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-100%); }
+    }
+
+    @keyframes marquee2 {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(0%); }
+    }
+</style>

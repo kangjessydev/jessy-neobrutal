@@ -16,6 +16,22 @@ export interface Project {
   image: string;
   demoUrl: string;
   githubUrl: string;
+  // Detail Fields
+  year?: string;
+  role?: string;
+  client?: string;
+  problem?: string;
+  solution?: string;
+  execution?: {
+    title: string;
+    description: string;
+  };
+  gallery?: string[];
+  technical?: {
+    frontend: string;
+    realtime: string;
+    security: string;
+  };
 }
 
 export function getProjects(): Project[] {
