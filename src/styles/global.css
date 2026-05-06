@@ -1,0 +1,132 @@
+@import "tailwindcss";
+@source "../**/*.astro";
+@source "../pages/**/*.astro";
+@source "../components/**/*.astro";
+@source "../layouts/**/*.astro";
+
+@theme {
+  --color-tertiary: #5d5f5f;
+  --color-primary: #705d00;
+  --color-surface-variant: #e2e2e2;
+  --color-background: #f9f9f9;
+  --color-surface-container-high: #e8e8e8;
+  --color-tertiary-container: #d9dada;
+  --color-on-background: #1b1b1b;
+  --color-on-primary: #ffffff;
+  --color-surface-dim: #dadada;
+  --color-on-surface-variant: #4d4732;
+  --color-inverse-primary: #e9c400;
+  --color-inverse-surface: #303030;
+  --color-secondary: #426900;
+  --color-outline-variant: #d0c6ab;
+  --color-surface-container-highest: #e2e2e2;
+  --color-on-error-container: #93000a;
+  --color-on-tertiary-fixed: #1a1c1c;
+  --color-primary-fixed-dim: #e9c400;
+  --color-error-container: #ffdad6;
+  --color-primary-fixed: #ffe16d;
+  --color-outline: #7e775f;
+  --color-on-secondary-fixed: #112000;
+  --color-surface-container-low: #f3f3f3;
+  --color-on-primary-fixed-variant: #544600;
+  --color-secondary-fixed-dim: #8fdb00;
+  --color-on-secondary-fixed-variant: #314f00;
+  --color-on-primary-fixed: #221b00;
+  --color-tertiary-fixed-dim: #c6c6c7;
+  --color-surface: #f9f9f9;
+  --color-primary-container: #ffd700;
+  --color-on-tertiary: #ffffff;
+  --color-surface-container-lowest: #ffffff;
+  --color-inverse-on-surface: #f1f1f1;
+  --color-on-error: #ffffff;
+  --color-surface-tint: #705d00;
+  --color-on-secondary-container: #456e00;
+  --color-surface-bright: #f9f9f9;
+  --color-error: #ba1a1a;
+  --color-tertiary-fixed: #e2e2e2;
+  --color-secondary-container: #a5f624;
+  --color-on-primary-container: #705e00;
+  --color-on-surface: #1b1b1b;
+  --color-on-secondary: #ffffff;
+  --color-secondary-fixed: #a8f928;
+  --color-surface-container: #eeeeee;
+  --color-on-tertiary-container: #5e5f60;
+  --color-on-tertiary-fixed-variant: #454747;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+  --spacing-border-width-heavy: 8px;
+  --spacing-gutter: 24px;
+  --spacing-border-width: 4px;
+
+  --font-body-lg: "Space Grotesk", sans-serif;
+  --font-h3: "Lexend", sans-serif;
+  --font-body-md: "Space Grotesk", sans-serif;
+  --font-h1: "Lexend", sans-serif;
+  --font-h2: "Lexend", sans-serif;
+  --font-label-bold: "Space Grotesk", sans-serif;
+  --font-lexend: "Lexend", sans-serif;
+
+  --text-body-lg: 20px;
+  --text-body-lg--line-height: 1.6;
+  --text-body-lg--font-weight: 500;
+
+  --text-h3: 32px;
+  --text-h3--line-height: 1.2;
+  --text-h3--font-weight: 700;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.6;
+  --text-body-md--font-weight: 400;
+
+  --text-h1: 80px;
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: -0.04em;
+  --text-h1--font-weight: 900;
+
+  --text-h2: 48px;
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h2--font-weight: 800;
+
+  --text-label-bold: 14px;
+  --text-label-bold--line-height: 1.2;
+  --text-label-bold--font-weight: 700;
+}
+
+@layer utilities {
+  .neobrutal-shadow {
+    box-shadow: 8px 8px 0px #000000;
+  }
+  .neobrutal-shadow-sm {
+    box-shadow: 4px 4px 0px #000000;
+  }
+  .neobrutal-shadow-btn {
+    box-shadow: 6px 6px 0px #000000;
+  }
+  .neobrutal-shadow-btn:hover {
+    box-shadow: 8px 8px 0px #000000;
+  }
+  .neobrutal-shadow-btn:active {
+    box-shadow: 0px 0px 0px #000000;
+    transform: translate(6px, 6px);
+  }
+  .caution-tape {
+    background: repeating-linear-gradient(
+      -45deg,
+      #ffd700,
+      #ffd700 20px,
+      #000000 20px,
+      #000000 40px
+    );
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}

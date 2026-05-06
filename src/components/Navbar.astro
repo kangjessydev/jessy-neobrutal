@@ -1,0 +1,16 @@
+---
+const { pathname } = Astro.url;
+---
+<header class="bg-white border-b-8 border-black shadow-[0px_8px_0px_#000000] flex justify-between items-center w-full px-8 py-6 sticky top-0 z-50">
+    <a href="/" class="text-2xl font-black bg-[#FFD700] text-black px-4 py-1 border-4 border-black shadow-[4px_4px_0px_#000000] font-lexend uppercase tracking-tighter hover:translate-y-1 hover:shadow-none transition-all">
+        KANGJESSY_DEV
+    </a>
+    <nav class="hidden md:flex gap-8 items-center">
+        <a class={`font-lexend font-black uppercase tracking-tighter text-black hover:bg-[#FFD700] transition-colors px-2 ${pathname === '/' ? 'bg-[#FFD700] underline decoration-4 underline-offset-4' : ''}`} href="/">Projects</a>
+        <a class={`font-lexend font-black uppercase tracking-tighter text-black hover:bg-[#FFD700] transition-colors px-2 ${pathname.includes('/about') ? 'bg-[#FFD700] underline decoration-4 underline-offset-4' : ''}`} href="/about">About</a>
+        <a class="font-lexend font-black uppercase tracking-tighter text-black hover:bg-[#FFD700] transition-colors px-2" href="/#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="font-lexend font-black uppercase tracking-tighter bg-[#FFD700] text-black px-6 py-2 border-4 border-black shadow-[6px_6px_0px_#000000] hover:shadow-[8px_8px_0px_#000000] transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none">
+        Let's Talk
+    </a>
+</header>
