@@ -123,6 +123,69 @@
       #000000 40px
     );
   }
+  @keyframes dropIn {
+    0% { transform: translateY(-10px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  .animate-drop {
+    display: block !important;
+    animation: dropIn 0.2s ease-out forwards;
+  }
+
+  /* Neobrutalist Button System */
+  .btn-neo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #000000;
+    font-family: var(--font-lexend);
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    gap: 0.5rem;
+  }
+
+  /* Color Variants */
+  .btn-neo.btn-yellow { background-color: #ffd700; }
+  .btn-neo.btn-green { background-color: #a5f624; }
+  .btn-neo.btn-white { background-color: #ffffff; }
+
+  /* Size Variants */
+  .btn-neo.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    box-shadow: 4px 4px 0px #000000;
+  }
+  .btn-neo.btn-md {
+    padding: 0.75rem 1.75rem;
+    font-size: 1.125rem;
+    box-shadow: 6px 6px 0px #000000;
+  }
+  .btn-neo.btn-lg {
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+    box-shadow: 8px 8px 0px #000000;
+  }
+
+  /* Interaction Effects (Float Up on Hover, Push Down on Click) */
+  .btn-neo:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 11px 11px 0px #000000;
+  }
+  .btn-neo.btn-sm:hover { box-shadow: 7px 7px 0px #000000; }
+  .btn-neo.btn-md:hover { box-shadow: 9px 9px 0px #000000; }
+  .btn-neo.btn-lg:hover { box-shadow: 12px 12px 0px #000000; }
+
+  .btn-neo:active {
+    transform: translate(6px, 6px);
+    box-shadow: none !important;
+    transition: all 0.05s ease;
+  }
+  .btn-neo.btn-sm:active { transform: translate(4px, 4px); }
 }
 
 @layer base {

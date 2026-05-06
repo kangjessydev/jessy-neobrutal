@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
 ---
 <BaseLayout>
     <!-- Hero Section -->
@@ -15,12 +16,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 I build robust, high-performance web applications with a focus on structural integrity and distinctive aesthetic choices. No fluff. Just clean code and loud design.
             </p>
             <div class="flex flex-wrap justify-center gap-6">
-                <button class="bg-[#ffd700] text-black border-4 border-black px-10 py-6 text-2xl font-black shadow-[6px_6px_0px_#000000] transition-all hover:shadow-[8px_8px_0px_#000000] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none uppercase">
+                <Button href="#projects" variant="yellow" size="lg">
                     VIEW MY WORK
-                </button>
-                <button class="bg-white text-black border-4 border-black px-10 py-6 text-2xl font-black shadow-[6px_6px_0px_#000000] transition-all hover:shadow-[8px_8px_0px_#000000] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none uppercase">
+                </Button>
+                <Button href="#tech" variant="white" size="lg">
                     MY STACK
-                </button>
+                </Button>
             </div>
         </div>
         <!-- Background Elements -->
@@ -154,9 +155,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <p class="text-xl text-[#e2e2e2] mb-12">I'm currently taking on new projects for Q3 and Q4. If you have a vision that requires precision and a bold visual voice, let's talk.</p>
             <form class="flex flex-col md:flex-row gap-6">
                 <input class="flex-grow bg-white text-black border-4 border-white p-6 font-lexend font-bold placeholder-[#5d5f5f] focus:outline-none focus:border-[#ffd700]" placeholder="YOUR EMAIL ADDRESS" type="email"/>
-                <button class="bg-[#ffd700] text-black border-4 border-[#ffd700] px-10 py-6 text-3xl font-black transition-all hover:bg-white hover:border-white uppercase" type="submit">
+                <Button type="submit" variant="yellow" size="lg">
                     GET IN TOUCH
-                </button>
+                </Button>
             </form>
         </div>
     </section>

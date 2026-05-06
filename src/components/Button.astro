@@ -1,0 +1,31 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'yellow' | 'green' | 'white';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  type?: 'button' | 'submit';
+  id?: string;
+}
+
+const { 
+  href, 
+  variant = 'white', 
+  size = 'md', 
+  class: className = '', 
+  type = 'button',
+  id
+} = Astro.props;
+
+const Element = href ? 'a' : 'button';
+const baseClass = `btn-neo btn-${variant} btn-${size}`;
+---
+
+<Element 
+  href={href} 
+  type={href ? undefined : type}
+  id={id}
+  class:list={[baseClass, className]}
+>
+  <slot />
+</Element>

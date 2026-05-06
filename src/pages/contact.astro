@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
 ---
 
 <BaseLayout title="Contact | KANGJESSY DEV">
@@ -265,14 +266,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         ></textarea>
                     </div>
 
-                    <!-- Submit (WhatsApp Redirect) -->
-                    <button 
+                    <Button 
                         type="submit"
-                        class="bg-[#ffd700] text-black border-4 border-black px-6 py-4 font-lexend font-black text-xl uppercase mt-2 shadow-[8px_8px_0px_#000000] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none transition-all flex justify-center items-center gap-3 cursor-pointer"
+                        variant="yellow"
+                        size="lg"
+                        class="w-full mt-2"
                     >
                         <span>SEND MESSAGE</span>
                         <span class="material-symbols-outlined font-black">send</span>
-                    </button>
+                    </Button>
                     <!-- hidden visually but kept for info -->
                     <p class="text-xs font-black uppercase text-center text-black">
                         *This will redirect you to WhatsApp
@@ -284,72 +286,107 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
     </section>
     
-    <!-- Image Gallery (from Screenshot) -->
-    <section class="py-16 px-6 bg-white border-b-8 border-black">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="border-8 border-black shadow-[12px_12px_0px_#000000] aspect-square bg-[#e8e8e8] relative group overflow-hidden">
-                <img src="/placeholder-desk.jpg" alt="Our Studio" class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-500">
-                <div class="absolute bottom-6 left-6 border-4 border-black bg-white px-4 py-2 font-black uppercase text-sm shadow-[4px_4px_0px_#000000]">
+    <!-- Image Gallery (Achieving 1:1 Parity with Stitch) -->
+    <section class="py-16 px-6 bg-[#f9f9f9] border-b-8 border-black">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Card 1: Our Studio -->
+            <div class="gallery-card relative group">
+                <div class="gallery-image-wrapper">
+                    <img src="/images/our_studio_photography_neobrutal_1778062528096.png" alt="Our Studio" class="gallery-image">
+                </div>
+                <div class="gallery-label">
                     OUR STUDIO
                 </div>
             </div>
             
-            <div class="border-8 border-black shadow-[12px_12px_0px_#000000] aspect-square bg-[#ffd700] relative group overflow-hidden p-8 flex items-center justify-center">
-                <!-- Using an icon/emoji as placeholder for the keyboard since it's an abstract image in design -->
-                <span class="material-symbols-outlined text-9xl text-black">keyboard</span>
-                <div class="absolute inset-0 border-[16px] border-[#c0a200] opacity-50 mix-blend-overlay"></div>
-                <div class="absolute bottom-6 left-6 border-4 border-black bg-white px-4 py-2 font-black uppercase text-sm shadow-[4px_4px_0px_#000000]">
+            <!-- Card 2: The Lab -->
+            <div class="gallery-card relative group">
+                <div class="gallery-image-wrapper">
+                    <img src="/images/the_lab_keyboard_neobrutal_1778062567814.png" alt="The Lab" class="gallery-image">
+                </div>
+                <div class="gallery-label">
                     THE LAB
                 </div>
             </div>
             
-            <div class="border-8 border-black shadow-[12px_12px_0px_#000000] aspect-square bg-[#a5f624] relative group overflow-hidden p-8 flex items-center justify-center">
-                <span class="material-symbols-outlined text-9xl text-black">developer_board</span>
-                <div class="absolute inset-0 border-[16px] border-[#7cb91b] opacity-50 mix-blend-overlay"></div>
-                <div class="absolute bottom-6 left-6 border-4 border-black bg-white px-4 py-2 font-black uppercase text-sm shadow-[4px_4px_0px_#000000]">
+            <!-- Card 3: Playground -->
+            <div class="gallery-card relative group">
+                <div class="gallery-image-wrapper">
+                    <img src="/images/playground_components_neobrutal_1778062798068.png" alt="Playground" class="gallery-image">
+                </div>
+                <div class="gallery-label">
                     PLAYGROUND
                 </div>
             </div>
         </div>
     </section>
+
+    <style>
+        .gallery-card {
+            background-color: black;
+            border: 4px solid black;
+            box-shadow: 12px 12px 0px #000000;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 16px 16px 0px #000000;
+        }
+
+        .gallery-image-wrapper {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border: 4px solid black;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-cover: cover;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-card:hover .gallery-image {
+            scale: 1.05;
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: white;
+            border: 4px solid black;
+            padding: 8px 16px;
+            font-family: var(--font-lexend);
+            font-weight: 900;
+            font-size: 14px;
+            text-transform: uppercase;
+            box-shadow: 6px 6px 0px #000000;
+            z-index: 10;
+        }
+    </style>
     
-    <!-- Caution Tape Marquee -->
-    <div class="bg-[#ffd700] text-black border-y-8 border-black overflow-hidden py-3 relative flex whitespace-nowrap">
-        <div class="animate-[marquee_10s_linear_infinite] flex items-center gap-4 font-lexend font-black text-2xl uppercase">
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-        </div>
-        <div class="animate-[marquee_10s_linear_infinite] flex items-center gap-4 font-lexend font-black text-2xl uppercase absolute top-3 left-full">
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
-            <span>LET'S BUILD SOMETHING BOLD</span>
-            <span class="material-symbols-outlined font-black">stars</span>
+    <!-- Caution Tape Marquee (Seamless & Relaxed) -->
+    <div class="bg-[#ffd700] text-black border-y-8 border-black overflow-hidden py-5 flex">
+        <div class="flex animate-[marquee_40s_linear_infinite] whitespace-nowrap">
+            <div class="flex items-center gap-12 px-6 font-lexend font-black text-3xl uppercase">
+                <span>LET'S BUILD SOMETHING BOLD 🌟</span>
+                <span>LET'S BUILD SOMETHING BOLD 🌟</span>
+                <span>LET'S BUILD SOMETHING BOLD 🌟</span>
+                <span>LET'S BUILD SOMETHING BOLD 🌟</span>
+                <span>LET'S BUILD SOMETHING BOLD 🌟</span>
+            </div>
+            <div class="flex items-center gap-12 px-6 font-lexend font-black text-3xl uppercase">
+                <span>LET'S BUILD SOMETHING BOLD 🌟</span>
+                <span>LET'S BUILD SOMETHING BOLD 🌟</span>
+                <span>LET'S BUILD SOMETHING BOLD 🌟</span>
+                <span>LET'S BUILD SOMETHING BOLD 🌟</span>
+                <span>LET'S BUILD SOMETHING BOLD 🌟</span>
+            </div>
         </div>
     </div>
 
