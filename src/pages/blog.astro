@@ -5,6 +5,7 @@ import "../styles/blog.css";
 
 const posts = [
   {
+    slug: "clean-code-lie",
     title: "Why Clean Code is a Lie We Tell Seniors.",
     excerpt: "Exploring the pragmatism of 'good enough' code over academic perfection in high-growth startups.",
     image: "/blog_featured_clean_code_1778066687705.png",
@@ -14,6 +15,7 @@ const posts = [
     featured: true
   },
   {
+    slug: "mastering-neobrutalism",
     title: "Mastering the Subgrid: A Guide.",
     excerpt: "Finally, layouts that don't break when your content changes. Dive deep into CSS Subgrid.",
     image: "/blog_subgrid_guide_1778066845930.png",
@@ -22,6 +24,7 @@ const posts = [
     readTime: "8 MIN READ"
   },
   {
+    slug: "brutalist-ux",
     title: "The Brutalist UX Manifesto.",
     excerpt: "Why hiding complexity is the biggest mistake you can make in modern UI design.",
     image: "https://placehold.co/600x600/000000/ADFF2F?text=UX+MANIFESTO",
@@ -30,6 +33,7 @@ const posts = [
     readTime: "5 MIN READ"
   },
   {
+    slug: "zero-js",
     title: "Zero-JS Hydration.",
     excerpt: "Stripping the fluff until only the core experience remains. Performance at its rawest.",
     image: "https://placehold.co/600x600/000000/FFD700?text=ZERO-JS",
@@ -47,8 +51,8 @@ const filters = ["ALL", "REACT", "CSS", "UX DESIGN", "PERFORMANCE"];
     
     <!-- Hero Section -->
     <section class="blog-hero">
-      <div class="container mx-auto px-6">
-        <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
+      <div class="container mx-auto px-6 text-center lg:text-left">
+        <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12">
           <div class="max-w-3xl">
             <h1 class="font-lexend font-black text-6xl md:text-8xl leading-none tracking-tighter uppercase mb-6">
               CODE <span class="highlight-box">WORDS</span> & IDEAS.
@@ -120,9 +124,11 @@ const filters = ["ALL", "REACT", "CSS", "UX DESIGN", "PERFORMANCE"];
                       <span id="stage-date" class="font-black text-sm">{posts[0].date}</span>
                       <span id="stage-read" class="font-black text-xs text-gray-400">{posts[0].readTime}</span>
                     </div>
-                    <Button variant="green" size="md">
-                      <span class="font-black italic">OPEN STORY</span>
-                    </Button>
+                    <a id="stage-link" href={`/blog/${posts[0].slug}`}>
+                        <Button variant="green" size="md">
+                          <span class="font-black italic uppercase">Open Story</span>
+                        </Button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -141,6 +147,7 @@ const filters = ["ALL", "REACT", "CSS", "UX DESIGN", "PERFORMANCE"];
                       data-image={post.image}
                       data-date={post.date}
                       data-read={post.readTime}
+                      data-slug={post.slug}
                       data-tags={JSON.stringify(post.tags)}
                     >
                       <div class="h-20 md:h-24 w-full overflow-hidden border-b-4 border-black">
@@ -167,6 +174,7 @@ const filters = ["ALL", "REACT", "CSS", "UX DESIGN", "PERFORMANCE"];
         const stageDate = document.getElementById('stage-date');
         const stageRead = document.getElementById('stage-read');
         const stageTags = document.getElementById('stage-tags');
+        const stageLink = document.getElementById('stage-link') as HTMLAnchorElement;
 
         switchBtns.forEach(btn => {
           btn.addEventListener('click', () => {
@@ -176,6 +184,7 @@ const filters = ["ALL", "REACT", "CSS", "UX DESIGN", "PERFORMANCE"];
               image: btn.getAttribute('data-image'),
               date: btn.getAttribute('data-date'),
               read: btn.getAttribute('data-read'),
+              slug: btn.getAttribute('data-slug'),
               tags: JSON.parse(btn.getAttribute('data-tags') || '[]')
             };
 
@@ -188,6 +197,7 @@ const filters = ["ALL", "REACT", "CSS", "UX DESIGN", "PERFORMANCE"];
               if (stageExcerpt) stageExcerpt.innerText = data.excerpt || '';
               if (stageDate) stageDate.innerText = data.date || '';
               if (stageRead) stageRead.innerText = data.read || '';
+              if (stageLink) stageLink.href = `/blog/${data.slug}`;
               
               if (stageTags) {
                 stageTags.innerHTML = data.tags.map((tag: string) => 
@@ -333,8 +343,8 @@ const filters = ["ALL", "REACT", "CSS", "UX DESIGN", "PERFORMANCE"];
       <!-- Regular Posts Grid (3 Columns) -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
         {posts.slice(1, 7).map((post) => (
-          <div class="blog-card">
-            <img src={post.image} alt={post.title} class="blog-card-image" />
+          <a href={`/blog/${post.slug}`} class="blog-card block group h-full">
+            <img src={post.image} alt={post.title} class="blog-card-image group-hover:scale-105 transition-transform duration-500" />
             <div class="blog-card-content">
               <span class={`blog-tag tag-${post.tags[0] === 'UX DESIGN' ? 'yellow' : 'green'}`}>
                 {post.tags[0]}
@@ -346,7 +356,7 @@ const filters = ["ALL", "REACT", "CSS", "UX DESIGN", "PERFORMANCE"];
               <span>{post.date}</span>
               <span>{post.readTime}</span>
             </div>
-          </div>
+          </a>
         ))}
       </div>
 

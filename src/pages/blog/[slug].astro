@@ -1,0 +1,234 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/Button.astro";
+import { Code } from 'astro:components';
+import "../../styles/blog.css";
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: 'mastering-neobrutalism' } },
+    { params: { slug: 'clean-code-lie' } },
+    { params: { slug: 'subgrid-guide' } },
+  ];
+}
+
+const { slug } = Astro.params;
+
+// For now, we use hardcoded data to match the screenshot provided by the user
+const post = {
+  title: "Mastering Neobrutalism in Modern UI",
+  excerpt: "Exploring the raw, high-contrast aesthetic that rejects the soft polish of traditional modern design for something more honest and impactful.",
+  image: "/blog_subgrid_guide_1778066845930.png", // Reusing an existing neobrutal image
+  category: "DESIGN",
+  readTime: "5 MIN READ",
+  date: "OCT 24, 2024",
+  content: [
+    {
+      type: 'text',
+      heading: 'The Core Philosophy',
+      body: "Neobrutalism isn't just about bold colors; it's a structural rebellion. It celebrates the \"honest\" materials of the digital world—pure CSS borders, non-blurry shadows, and unadulterated primary colors. Unlike the glassmorphism or neumorphism of years past, neobrutalism doesn't try to mimic physical glass or plastic. It mimics the grid."
+    },
+    {
+      type: 'quote',
+      text: "Good design is not just what looks good, it's what feels structurally sound and unapologetically clear."
+    },
+    {
+      type: 'text',
+      heading: 'Implementing The Shadow',
+      body: "The defining characteristic of this style is the hard-offset shadow. Avoid 'box-shadow: 0 4px 6px rgba(0,0,0,0.1)'. Instead, use a solid, 100% opaque offset."
+    },
+    {
+      type: 'code',
+      code: `.brutalist-card {
+  background: white;
+  border: 4px solid black;
+  box-shadow: 8px 8px 0px #000000;
+  transition: all 0.2s ease;
+}
+
+.brutalist-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px #000000;
+}`
+    },
+    {
+      type: 'text',
+      heading: 'Color and Contrast',
+      body: "In a Neobrutalist system, hierarchy is achieved through intensity rather than size alone. A high-contrast tag will grab more attention than a large, muted headline. We use colors like #ADFF2F and #FFD700 to guide the user's eye across the page."
+    }
+  ]
+};
+
+const nextArticle = {
+    title: "The Logic of Bento Grids",
+    slug: "bento-grids-logic"
+};
+---
+
+<BaseLayout title={`${post.title} | Blog`}>
+  <main class="bg-white min-h-screen pb-20">
+    
+    <!-- Article Header -->
+    <article class="max-w-4xl mx-auto px-6 pt-20">
+      <div class="flex gap-3 mb-8">
+        <span class="bg-[#ADFF2F] border-4 border-black px-4 py-1 font-lexend font-black text-xs uppercase shadow-[4px_4px_0px_#000000]">
+          {post.category}
+        </span>
+        <span class="bg-white border-4 border-black px-4 py-1 font-lexend font-black text-xs uppercase shadow-[4px_4px_0px_#000000]">
+          {post.readTime}
+        </span>
+      </div>
+
+      <h1 class="font-lexend font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase mb-8">
+        {post.title}
+      </h1>
+
+      <p class="font-space font-medium text-xl md:text-2xl text-gray-700 leading-relaxed mb-12">
+        {post.excerpt}
+      </p>
+
+      <div class="border-b-8 border-black mb-12"></div>
+
+      <!-- Featured Image -->
+      <div class="relative mb-20 group">
+        <div class="absolute inset-0 bg-black translate-x-4 translate-y-4 group-hover:translate-x-6 group-hover:translate-y-6 transition-all"></div>
+        <div class="relative border-8 border-black aspect-video overflow-hidden">
+             <img src={post.image} class="w-full h-full object-cover" alt={post.title} />
+        </div>
+      </div>
+
+      <!-- Article Content -->
+      <div class="blog-content space-y-16">
+        {post.content.map((block) => (
+          <div>
+            {block.type === 'text' && (
+              <div class="space-y-6">
+                <h2 class="font-lexend font-black text-4xl uppercase tracking-tight">{block.heading}</h2>
+                <p class="font-space font-medium text-lg leading-relaxed text-gray-800">{block.body}</p>
+              </div>
+            )}
+
+            {block.type === 'quote' && (
+              <div class="bg-[#FFD700] border-8 border-black p-10 md:p-16 relative overflow-hidden my-12 shadow-[12px_12px_0px_#000000]">
+                <span class="absolute top-4 left-6 font-lexend font-black text-6xl opacity-20">99</span>
+                <p class="font-lexend font-black text-3xl md:text-4xl italic leading-tight relative z-10">
+                  "{block.text}"
+                </p>
+              </div>
+            )}
+
+            {block.type === 'code' && (
+              <div class="relative my-12 group">
+                <!-- Yellow Shadow for visibility -->
+                <div class="absolute inset-0 bg-[#FFD700] translate-x-3 translate-y-3"></div>
+                <div class="relative bg-black border-4 border-black overflow-hidden">
+                  <!-- Terminal Style Header -->
+                  <div class="bg-white border-b-4 border-black p-3 flex justify-between items-center">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full border-2 border-black bg-[#FF5F56]"></div>
+                        <div class="w-3 h-3 rounded-full border-2 border-black bg-[#FFBD2E]"></div>
+                        <div class="w-3 h-3 rounded-full border-2 border-black bg-[#27C93F]"></div>
+                    </div>
+                    <button 
+                      class="copy-btn font-lexend font-black text-[10px] uppercase px-3 py-1 bg-[#FFD700] border-2 border-black hover:bg-black hover:text-white transition-all active:translate-y-1"
+                      data-code={block.code}
+                    >
+                      Copy
+                    </button>
+                  </div>
+                  <div class="p-6 md:p-8 overflow-x-auto text-sm md:text-base">
+                    <Code code={block.code} lang="css" theme="github-dark" />
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+
+        <!-- Feature Cards (as seen in screenshot) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 py-8">
+          <div class="border-4 border-black p-8 bg-white shadow-[8px_8px_0px_#000000] flex flex-col gap-4 hover:-translate-y-1 transition-all">
+            <div class="bg-[#FFD700] border-4 border-black w-12 h-12 flex items-center justify-center shadow-[4px_4px_0px_#000000]">
+                <span class="material-symbols-outlined font-black">bolt</span>
+            </div>
+            <h4 class="font-lexend font-black uppercase text-xl">High Impact</h4>
+            <p class="font-space font-medium text-sm text-gray-600">Vibrant colors and thick lines create an immediate sense of urgency and technical clarity.</p>
+          </div>
+          <div class="border-4 border-black p-8 bg-white shadow-[8px_8px_0px_#000000] flex flex-col gap-4 hover:-translate-y-1 transition-all">
+            <div class="bg-[#ADFF2F] border-4 border-black w-12 h-12 flex items-center justify-center shadow-[4px_4px_0px_#000000]">
+                <span class="material-symbols-outlined font-black">box</span>
+            </div>
+            <h4 class="font-lexend font-black uppercase text-xl">Zero Gradients</h4>
+            <p class="font-space font-medium text-sm text-gray-600">We reject the 'faking' of depth. Depth is a graphic choice, not a physical simulation.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Hazard Tape Divider -->
+      <div class="caution-divider my-24"></div>
+
+      <!-- Next Article Section -->
+      <div class="mb-20">
+        <span class="font-lexend font-black text-xs uppercase tracking-widest text-gray-400 mb-4 block">Next Article</span>
+        <a href={`/blog/${nextArticle.slug}`} class="group flex justify-between items-center bg-white border-8 border-black p-8 md:p-12 shadow-[12px_12px_0px_#000000] hover:translate-y-1 hover:shadow-none transition-all">
+            <h3 class="font-lexend font-black text-3xl md:text-5xl uppercase tracking-tighter group-hover:italic">{nextArticle.title}</h3>
+            <div class="bg-black text-white w-14 h-14 hidden md:flex items-center justify-center border-4 border-black">
+                <span class="material-symbols-outlined font-black text-3xl">arrow_forward</span>
+            </div>
+        </a>
+      </div>
+
+    </article>
+  </main>
+</BaseLayout>
+
+<script>
+  // Copy to Clipboard Logic
+  const copyButtons = document.querySelectorAll('.copy-btn');
+  
+  copyButtons.forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const code = btn.getAttribute('data-code');
+      if (code) {
+        try {
+          await navigator.clipboard.writeText(code);
+          const originalText = btn.textContent;
+          btn.textContent = 'Copied!';
+          btn.classList.add('bg-[#ADFF2F]');
+          
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.classList.remove('bg-[#ADFF2F]');
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+        }
+      }
+    });
+  });
+</script>
+
+<style is:global>
+  .blog-content h2 {
+    margin-top: 4rem;
+  }
+  
+  /* Additional styling for the divider if needed */
+  .caution-divider {
+    height: 48px;
+    background: repeating-linear-gradient(
+      -45deg,
+      #FFD700,
+      #FFD700 25px,
+      #000000 25px,
+      #000000 50px
+    );
+  }
+
+  /* Fix Astro Code background to be transparent */
+  pre.astro-code {
+    background-color: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+</style>
