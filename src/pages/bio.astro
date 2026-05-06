@@ -1,0 +1,166 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/bio.css";
+
+const links = [
+  {
+    title: "My Portfolio",
+    href: "/",
+    icon: "rocket_launch",
+    actionIcon: "arrow_forward",
+    variant: "btn-yellow",
+  },
+  {
+    title: "Latest Blog Post",
+    href: "/blog",
+    icon: "article",
+    actionIcon: "open_in_new",
+    variant: "btn-white",
+  },
+  {
+    title: "GitHub Repos",
+    href: "https://github.com/kangjessy",
+    icon: "code",
+    actionIcon: "link",
+    variant: "btn-black",
+  },
+  {
+    title: "LinkedIn Profile",
+    href: "https://linkedin.com/in/kangjessy",
+    icon: "account_circle",
+    actionIcon: "arrow_forward",
+    variant: "btn-white",
+  },
+];
+
+const socials = [
+  { icon: "alternate_email", href: "mailto:hello@jessy.dev", variant: "yellow" as const },
+  { icon: "rss_feed", href: "/rss", variant: "white" as const },
+  { icon: "share", href: "#", variant: "white" as const },
+];
+
+const tags = ["REACT", "TYPESCRIPT", "TAILWIND", "NODE.JS"];
+---
+
+<BaseLayout title="Link Bio | KANGJESSY DEV">
+  <main class="flex-grow flex items-center justify-center bio-page">
+    <div class="bio-container flex flex-col items-center">
+      
+      <!-- Profile Section -->
+      <div class="bio-profile-container">
+        <div class="bio-photo-frame">
+          <img 
+            src="/avatar.jpg" 
+            alt="DEV_PORTFOLIO Portrait" 
+            class="bio-photo"
+          />
+          <div class="bio-terminal-badge">
+            <span class="material-symbols-outlined">terminal</span>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        .bio-profile-container {
+          margin-bottom: 2.5rem;
+          margin-left: -12px; /* compensate for hanging badge shadow */
+        }
+        .bio-photo-frame {
+          width: 128px;
+          height: 128px;
+          border: 4px solid black;
+          background-color: #FFD700;
+          position: relative;
+          box-shadow: 6px 6px 0px #000000;
+          padding-left: 2px; /* Yellow line on left */
+          overflow: visible; /* Allow badge to hang out */
+        }
+        .bio-photo {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: grayscale(1) contrast(1.25);
+          display: block;
+          border-left: 1px solid rgba(0,0,0,0.1);
+          border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        .bio-terminal-badge {
+          position: absolute;
+          bottom: -22px;
+          right: -12px;
+          padding: 6px;
+          background-color: #FFD700;
+          border: 4px solid black;
+          box-shadow: 4px 4px 0px #000000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 20;
+        }
+        .bio-terminal-badge .material-symbols-outlined {
+          font-size: 24px;
+          font-weight: 900;
+        }
+      </style>
+
+      <!-- Identity Section -->
+      <div class="text-center mb-8">
+        <h1 class="font-lexend font-black text-5xl md:text-6xl uppercase mb-3 tracking-tighter leading-none">
+          DEV<span class="text-black">_</span>PORTFOLIO
+        </h1>
+        <div class="inline-block bg-black mt-4 px-6 py-2 border-2 border-black mb-6">
+          <p class="font-lexend font-black text-xl md:text-2xl text-[#FFD700] uppercase tracking-tight">
+            Web Developer & UI Rebel
+          </p>
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-3">
+          {tags.map(tag => (
+            <span class="border-2 border-black px-4 py-1 font-lexend font-bold bg-white text-xs tracking-widest text-[#5d5f5f]">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Links Grid -->
+      <div class="w-full">
+        {links.map(link => (
+          <a 
+            href={link.href} 
+            class:list={["bio-link-btn", link.variant]}
+          >
+            <span class:list={[
+              "material-symbols-outlined btn-icon-left",
+              link.title === "GitHub Repos" ? "github-icon-yellow" : ""
+            ]}>
+              {link.icon}
+            </span>
+            <span class="bio-link-text">
+              {link.title}
+            </span>
+            <span class="material-symbols-outlined btn-icon-right">
+              {link.actionIcon}
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <!-- Social Icons Row -->
+      <div class="flex gap-6 mt-16">
+        {socials.map(social => (
+          <a 
+            href={social.href}
+            class:list={[
+              "w-16 h-16 border-4 border-black flex items-center justify-center transition-all",
+              "neobrutal-shadow-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:scale-95",
+              social.variant === 'yellow' ? 'bg-[#FFD700]' : 'bg-white'
+            ]}
+          >
+            <span class="material-symbols-outlined text-3xl font-bold">{social.icon}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </main>
+</BaseLayout>

@@ -1,0 +1,65 @@
+/* Bio Page Specific Styles */
+
+.bio-link-btn {
+  display: flex !important;
+  align-items: center !important;
+  width: 100%;
+  padding: 16px 24px;
+  border: 4px solid #000000;
+  text-decoration: none;
+  color: #000000;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  transition: all 0.1s ease;
+  box-shadow: 6px 6px 0px #000000;
+  margin-bottom: 16px;
+}
+
+.bio-link-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px #000000;
+}
+
+.bio-link-btn:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0px 0px 0px #000000;
+}
+
+/* Variants */
+.btn-yellow { background-color: #FFD700; }
+.btn-white { background-color: #FFFFFF; }
+.btn-black { 
+  background-color: #000000; 
+  color: #FFFFFF; 
+}
+
+/* Icons */
+.btn-icon-left {
+  font-size: 24px !important;
+  margin-right: 16px;
+}
+
+.btn-icon-right {
+  font-size: 24px !important;
+  margin-left: auto; /* Push to the right */
+  transition: transform 0.2s ease;
+}
+
+.bio-link-btn:hover .btn-icon-right {
+  transform: translateX(4px);
+}
+
+.github-icon-yellow {
+  color: #FFD700;
+}
+
+/* Profile specific adjustment */
+.bio-container {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+}

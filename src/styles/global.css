@@ -153,6 +153,7 @@
   .btn-neo.btn-yellow { background-color: #ffd700; }
   .btn-neo.btn-green { background-color: #a5f624; }
   .btn-neo.btn-white { background-color: #ffffff; }
+  .btn-neo.btn-black { background-color: #000000; color: #ffffff; }
 
   /* Size Variants */
   .btn-neo.btn-sm {
