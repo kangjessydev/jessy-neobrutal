@@ -90,20 +90,19 @@ function isActive(href: string) {
     
     <div class="flex-grow flex flex-col md:flex-row divide-y-8 md:divide-y-0 md:divide-x-8 divide-black overflow-y-auto">
         <!-- Main Links (Left Side) -->
-        <div class="flex-grow p-12 flex flex-col justify-center gap-6">
-            <a href="/" class="menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block" data-target="default">Home</a>
-            <a href="/about" class="menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block" data-target="default">About</a>
-            <a href="/projects" class="menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block" data-target="projects">Projects</a>
-            <a href="/blog" class="menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block" data-target="default">Blog</a>
+        <div id="main-links-container" class="flex-grow p-12 flex flex-col justify-center gap-6">
+            <a href="/" class:list={["menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block", isActive('/') && "italic underline underline-offset-8 decoration-8 decoration-[#ADFF2F] translate-x-4"]} data-target="default">Home</a>
+            <a href="/about" class:list={["menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block", isActive('/about') && "italic underline underline-offset-8 decoration-8 decoration-[#ADFF2F] translate-x-4"]} data-target="default">About</a>
+            <a href="/projects" class:list={["menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block", isActive('/projects') && "italic underline underline-offset-8 decoration-8 decoration-[#ADFF2F] translate-x-4"]} data-target="projects">Projects</a>
+            <a href="/blog" class:list={["menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block", isActive('/blog') && "italic underline underline-offset-8 decoration-8 decoration-[#ADFF2F] translate-x-4"]} data-target="default">Blog</a>
             
-            <!-- Network with Submenu trigger -->
             <button class="menu-link-dynamic text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block focus:outline-none" data-target="network">
                 Network
             </button>
         </div>
 
-        <!-- Dynamic Sidebar Panel (Right Side) -->
-        <div id="dynamic-side-panel" class="w-full md:w-[450px] bg-[#f0f0f0] flex flex-col transition-all duration-300 border-l-0 md:border-l-8 border-black overflow-hidden">
+        <!-- Dynamic Sidebar Panel -->
+        <div id="dynamic-side-panel" class="w-full md:w-[450px] bg-[#f0f0f0] hidden md:flex flex-col flex-grow md:flex-grow-0 transition-all duration-300 border-l-0 md:border-l-8 border-black overflow-hidden relative">
             
             <!-- Default Content -->
             <div id="content-default" class="side-content flex flex-col justify-between h-full p-12">
@@ -122,12 +121,13 @@ function isActive(href: string) {
                     </div>
                 </div>
                 <div class="mt-20">
-                    <Button href="/contact" variant="black" size="lg" isFullWidth>Get In Touch</Button>
+                    <Button href="/contact" variant="yellow" size="lg" class="w-full text-center">Get In Touch</Button>
                 </div>
             </div>
 
             <!-- Network Submenu Content -->
             <div id="content-network" class="side-content hidden flex-col h-full bg-[#ADFF2F] p-12">
+                <button class="back-to-menu md:hidden mb-8 font-black uppercase text-xs flex items-center gap-2 underline">← Back to Menu</button>
                 <h4 class="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">EXPLORE NETWORK</h4>
                 <div class="flex flex-col gap-8">
                     <a href="https://mejadaring.id" target="_blank" class="block group">
@@ -143,6 +143,7 @@ function isActive(href: string) {
 
             <!-- Projects Submenu Content -->
             <div id="content-projects" class="side-content hidden flex-col h-full bg-[#FFD700] p-12">
+                <button class="back-to-menu md:hidden mb-8 font-black uppercase text-xs flex items-center gap-2 underline">← Back to Menu</button>
                 <h4 class="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">PORTFOLIO</h4>
                 <div class="flex flex-col gap-6">
                     <a href="/projects" class="text-3xl font-black uppercase hover:translate-x-2 transition-transform block">Web Development</a>
@@ -155,16 +156,30 @@ function isActive(href: string) {
 </div>
 
 <style>
-    /* Content Fade Effects */
     .side-content {
-        animation: contentFade 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        animation: sideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    @keyframes contentFade {
-        from { opacity: 0; transform: translateY(15px); }
-        to { opacity: 1; transform: translateY(0); }
+    @keyframes sideIn {
+        from { opacity: 0; transform: translateX(30px); }
+        to { opacity: 1; transform: translateX(0); }
     }
 
-    /* Full Menu Animations */
+    .side-content.leaving {
+        animation: sideOut 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes sideOut {
+        from { opacity: 1; transform: translateX(0); }
+        to { opacity: 0; transform: translateX(50px); }
+    }
+
+    #main-links-container.entering {
+        animation: mainIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes mainIn {
+        from { opacity: 0; transform: translateX(-30px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
     #full-menu .menu-link-dynamic {
         opacity: 0;
         transform: translateY(40px);
@@ -175,14 +190,12 @@ function isActive(href: string) {
         transform: translateY(0);
     }
 
-    /* Stagger Delays */
     #full-menu.flex .menu-link-dynamic:nth-child(1) { transition-delay: 0.1s; }
     #full-menu.flex .menu-link-dynamic:nth-child(2) { transition-delay: 0.15s; }
     #full-menu.flex .menu-link-dynamic:nth-child(3) { transition-delay: 0.2s; }
     #full-menu.flex .menu-link-dynamic:nth-child(4) { transition-delay: 0.25s; }
     #full-menu.flex .menu-link-dynamic:nth-child(5) { transition-delay: 0.3s; }
 
-    /* Geometric Slide */
     #full-menu {
         transform: translateX(100%);
         transition: transform 0.5s cubic-bezier(0.8, 0, 0.2, 1);
@@ -193,40 +206,93 @@ function isActive(href: string) {
 </style>
 
 <script>
-    // Elements
-    const networkBtn = document.getElementById('network-btn');
-    const networkDropdown = document.getElementById('network-dropdown');
-    const networkArrow = document.getElementById('network-arrow');
-
     const menuToggle = document.getElementById('menu-toggle');
     const menuClose = document.getElementById('menu-close');
     const fullMenu = document.getElementById('full-menu');
+    const mainLinksContainer = document.getElementById('main-links-container');
+    const dynamicSidePanel = document.getElementById('dynamic-side-panel');
+    const sideContents = document.querySelectorAll('.side-content');
+    const backBtn = document.querySelectorAll('.back-to-menu');
+
+    const networkBtn = document.getElementById('network-btn');
+    const networkDropdown = document.getElementById('network-dropdown');
+    const networkArrow = document.getElementById('network-arrow');
 
     function closeAllMenus() {
         networkDropdown?.classList.add('hidden');
         if (networkArrow) networkArrow.style.transform = 'rotate(0deg)';
     }
 
-    // Dynamic Panel Logic
+    // Navigation Switch Logic
     const menuLinks = document.querySelectorAll('.menu-link-dynamic');
-    const sideContents = document.querySelectorAll('.side-content');
-
+    
     menuLinks.forEach(link => {
         const target = link.getAttribute('data-target');
-        const showPanel = () => {
-            sideContents.forEach(content => content.classList.add('hidden'));
+        
+        const showPanel = (e) => {
+            const isMobile = window.innerWidth < 768;
+            const hasSubmenu = target !== 'default';
+            
+            // Only swap on hover for desktop, or click for mobile
+            if (e.type === 'mouseenter' && isMobile) return;
+
+            // FIX: Prevent navigation on mobile if it has a submenu
+            if (e.type === 'click' && isMobile && hasSubmenu) {
+                e.preventDefault();
+            }
+
+            sideContents.forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('leaving');
+            });
             const targetEl = document.getElementById(`content-${target}`);
+            
             if (targetEl) {
                 targetEl.classList.remove('hidden');
                 targetEl.classList.add('flex');
             }
+
+            if (isMobile && hasSubmenu) {
+                mainLinksContainer?.classList.add('hidden');
+                mainLinksContainer?.classList.remove('entering');
+                dynamicSidePanel?.classList.remove('hidden');
+                dynamicSidePanel?.classList.add('flex');
+            }
         };
+
         link.addEventListener('mouseenter', showPanel);
         link.addEventListener('click', showPanel); 
     });
 
-    // Full Menu Logic
+    // Back to Menu Logic (Mobile with Animation)
+    backBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const currentContent = document.querySelector('.side-content:not(.hidden)');
+            currentContent?.classList.add('leaving');
+
+            setTimeout(() => {
+                mainLinksContainer?.classList.remove('hidden');
+                mainLinksContainer?.classList.add('entering');
+                dynamicSidePanel?.classList.add('hidden');
+                dynamicSidePanel?.classList.remove('flex');
+                currentContent?.classList.add('hidden');
+                currentContent?.classList.remove('leaving');
+            }, 250);
+        });
+    });
+
+    // Reset view when closing the whole menu
+    const resetMenuView = () => {
+        mainLinksContainer?.classList.remove('hidden');
+        mainLinksContainer?.classList.remove('entering');
+        if (window.innerWidth < 768) {
+            dynamicSidePanel?.classList.add('hidden');
+            dynamicSidePanel?.classList.remove('flex');
+        }
+    };
+
     menuToggle?.addEventListener('click', () => {
+        resetMenuView();
         fullMenu?.classList.remove('hidden');
         setTimeout(() => {
             fullMenu?.classList.add('flex');
