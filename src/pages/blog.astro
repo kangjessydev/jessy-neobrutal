@@ -1,0 +1,198 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import "../styles/blog.css";
+
+const posts = [
+  {
+    title: "Why Clean Code is a Lie We Tell Seniors.",
+    excerpt: "Exploring the pragmatism of 'good enough' code over academic perfection in high-growth startups.",
+    image: "/blog_featured_clean_code_1778066687705.png",
+    tags: ["CRAFT", "ARCHITECTURE"],
+    date: "OCT 12, 2024",
+    readTime: "12 MIN READ",
+    featured: true
+  },
+  {
+    title: "Mastering the Subgrid: A Guide.",
+    excerpt: "Finally, layouts that don't break when your content changes. Dive deep into CSS Subgrid.",
+    image: "/blog_subgrid_guide_1778066845930.png",
+    tags: ["CSS"],
+    date: "OCT 08, 2024",
+    readTime: "8 MIN READ"
+  },
+  {
+    title: "The Brutalist UX Manifesto.",
+    excerpt: "Why hiding complexity is the biggest mistake you can make in modern UI design.",
+    image: "https://placehold.co/600x600/000000/ADFF2F?text=UX+MANIFESTO",
+    tags: ["UX DESIGN"],
+    date: "OCT 01, 2024",
+    readTime: "5 MIN READ"
+  },
+  {
+    title: "Zero-JS Hydration.",
+    excerpt: "Stripping the fluff until only the core experience remains. Performance at its rawest.",
+    image: "https://placehold.co/600x600/000000/FFD700?text=ZERO-JS",
+    tags: ["PERFORMANCE"],
+    date: "OCT 22, 2024",
+    readTime: "10 MIN READ"
+  }
+];
+
+const filters = ["ALL", "REACT", "CSS", "UX DESIGN", "PERFORMANCE"];
+---
+
+<BaseLayout title="Blog | Insights & Code">
+  <main class="flex-grow">
+    
+    <!-- Hero Section -->
+    <section class="blog-hero">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
+          <div class="max-w-3xl">
+            <h1 class="font-lexend font-black text-6xl md:text-8xl leading-none tracking-tighter uppercase mb-6">
+              CODE <span class="highlight-box">WORDS</span> & IDEAS.
+            </h1>
+            <p class="font-space font-medium text-xl md:text-2xl max-w-2xl text-gray-700">
+              Deep dives into modern web architecture, brutalist UI patterns, and the chaotic beauty of shipping production code. No fluff, just hard logic.
+            </p>
+          </div>
+          
+          <!-- Stay Sharp Card -->
+          <div class="w-full lg:w-96 border-8 border-black p-10 bg-white shadow-[8px_8px_0px_#000000]">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="material-symbols-outlined font-black text-3xl">mail</span>
+              <h3 class="font-lexend font-black text-3xl uppercase leading-none">STAY SHARP</h3>
+            </div>
+            <p class="font-space font-medium text-sm text-[#5d5f5f] mb-8 leading-relaxed">
+              Get bi-weekly updates on new tutorials and design resources.
+            </p>
+            <div class="flex flex-col gap-4">
+              <input 
+                type="email" 
+                placeholder="YOUR_EMAIL@DEV.COM" 
+                class="bg-white border-4 border-black p-4 h-14 font-medium text-base text-black focus:outline-none focus:shadow-[4px_4px_0px_#000000] transition-all placeholder:text-gray-400"
+              />
+              <Button variant="green" size="lg" class="w-full">
+                <span class="font-lexend font-black uppercase tracking-wider">SUBSCRIBE NOW</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Caution Divider -->
+    <div class="caution-divider"></div>
+
+    <!-- Content Section -->
+    <div class="container mx-auto px-6 py-12">
+      
+      <!-- Filters -->
+      <div class="flex items-center gap-4 mb-12">
+        <span class="font-lexend font-black italic text-gray-500 uppercase">FILTERED BY:</span>
+        <div class="flex flex-wrap gap-3">
+          {filters.map((filter, index) => (
+            <button class:list={["filter-tag", index === 0 && "active"]}>
+              {filter}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Featured Post (Pinned) -->
+        <div class="md:col-span-3">
+          <a href="#" class="blog-card blog-card-featured flex flex-col md:flex-row relative group md:h-[500px] overflow-hidden">
+            <!-- Pinned Badge -->
+            <div class="absolute top-5 left-5 z-20 bg-[#FFD700] border-4 border-black px-4 py-2 font-black text-xs uppercase shadow-[6px_6px_0px_#000000] tracking-tighter">
+              📌 PINNED POST
+            </div>
+            
+            <div class="w-full md:w-[55%] relative overflow-hidden h-64 md:h-full border-b-4 md:border-b-0 md:border-r-4 border-black">
+              <img src={posts[0].image} alt={posts[0].title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="w-full md:w-[45%] blog-card-content flex flex-col justify-center p-8 md:p-12">
+              <div class="flex flex-wrap gap-2 mb-6">
+                {posts[0].tags.map(tag => (
+                  <span class="blog-tag tag-green">{tag}</span>
+                ))}
+              </div>
+              <h2 class="blog-title text-3xl lg:text-5xl mb-6">
+                {posts[0].title}
+              </h2>
+              <p class="blog-excerpt text-lg lg:text-xl mb-8 opacity-90 leading-relaxed">
+                {posts[0].excerpt}
+              </p>
+              <div class="blog-footer pt-6 border-t-4 border-black">
+                <span class="font-black">{posts[0].date}</span>
+                <span class="flex items-center gap-2 font-black">
+                  <span class="material-symbols-outlined font-black">timer</span>
+                  {posts[0].readTime}
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Regular Posts -->
+        {posts.slice(1).map((post, index) => (
+          <div>
+            <a href="#" class="blog-card flex-col">
+              <img src={post.image} alt={post.title} class="blog-card-image h-64" />
+              <div class="blog-card-content">
+                <span class:list={["blog-tag", index === 0 ? "tag-white" : index === 1 ? "tag-yellow" : "tag-green"]}>
+                  {post.tags[0]}
+                </span>
+                <h2 class="blog-title">{post.title}</h2>
+                <div class="blog-footer">
+                  <span>{post.date}</span>
+                  <span>{post.readTime}</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <!-- Newsletter Banner -->
+      <div class="newsletter-box">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div class="max-w-xl">
+            <h2 class="font-lexend font-black text-4xl md:text-5xl uppercase tracking-tighter mb-4">
+              DON'T MISS THE NEXT PUSH.
+            </h2>
+            <p class="font-space font-bold text-xl opacity-80">
+              Get the source code for every tutorial directly in your inbox.
+            </p>
+          </div>
+          <div class="w-full lg:w-auto flex flex-col md:flex-row gap-6">
+            <input 
+              type="text" 
+              placeholder="FIRST_NAME" 
+              class="bg-white border-4 border-black p-4 h-16 w-full md:w-64 font-space font-bold focus:outline-none focus:shadow-[4px_4px_0px_#000000] transition-all text-black"
+            />
+            <Button variant="green" size="lg" class="h-16 whitespace-nowrap">
+              <span class="font-lexend font-black uppercase text-xl">JOIN THE LAB</span>
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex justify-center items-center gap-3 mt-16">
+        <button class="pagination-btn">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <button class="pagination-btn">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+</BaseLayout>
