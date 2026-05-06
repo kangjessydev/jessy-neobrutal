@@ -90,14 +90,18 @@ function isActive(href: string) {
     
     <div class="flex-grow flex flex-col md:flex-row divide-y-8 md:divide-y-0 md:divide-x-8 divide-black overflow-y-auto">
         <!-- Main Links (Left Side) -->
-        <div id="main-links-container" class="flex-grow p-12 flex flex-col justify-center gap-6">
+        <div id="main-links-container" class="flex-grow p-12 py-12 flex flex-col justify-start gap-6 overflow-y-auto no-scrollbar">
             <a href="/" class:list={["menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block", isActive('/') && "italic underline underline-offset-8 decoration-8 decoration-[#ADFF2F] translate-x-4"]} data-target="default">Home</a>
             <a href="/about" class:list={["menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block", isActive('/about') && "italic underline underline-offset-8 decoration-8 decoration-[#ADFF2F] translate-x-4"]} data-target="default">About</a>
             <a href="/projects" class:list={["menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block", isActive('/projects') && "italic underline underline-offset-8 decoration-8 decoration-[#ADFF2F] translate-x-4"]} data-target="projects">Projects</a>
+            <a href="/products" class:list={["menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block", isActive('/products') && "italic underline underline-offset-8 decoration-8 decoration-[#ADFF2F] translate-x-4"]} data-target="default">Product</a>
             <a href="/blog" class:list={["menu-link-dynamic font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block", isActive('/blog') && "italic underline underline-offset-8 decoration-8 decoration-[#ADFF2F] translate-x-4"]} data-target="default">Blog</a>
             
             <button class="menu-link-dynamic text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block focus:outline-none" data-target="network">
                 Network
+            </button>
+            <button class="menu-link-dynamic text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block focus:outline-none" data-target="other">
+                Other
             </button>
         </div>
 
@@ -151,6 +155,18 @@ function isActive(href: string) {
                     <a href="/projects" class="text-3xl font-black uppercase hover:translate-x-2 transition-transform block">UI/UX Design</a>
                 </div>
             </div>
+
+            <!-- Other Submenu Content -->
+            <div id="content-other" class="side-content hidden flex-col h-full bg-[#E0B0FF] p-12">
+                <button class="back-to-menu md:hidden mb-8 font-black uppercase text-xs flex items-center gap-2 underline">← Back to Menu</button>
+                <h4 class="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">LINKS & MORE</h4>
+                <div class="flex flex-col gap-8">
+                    <a href="/bio" class="block group">
+                        <span class="text-xs font-bold text-black/60 block mb-1">Quick Access</span>
+                        <span class="text-4xl font-lexend font-black uppercase hover:translate-x-2 transition-transform block italic">BIO LINK</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -195,6 +211,8 @@ function isActive(href: string) {
     #full-menu.flex .menu-link-dynamic:nth-child(3) { transition-delay: 0.2s; }
     #full-menu.flex .menu-link-dynamic:nth-child(4) { transition-delay: 0.25s; }
     #full-menu.flex .menu-link-dynamic:nth-child(5) { transition-delay: 0.3s; }
+    #full-menu.flex .menu-link-dynamic:nth-child(6) { transition-delay: 0.35s; }
+    #full-menu.flex .menu-link-dynamic:nth-child(7) { transition-delay: 0.4s; }
 
     #full-menu {
         transform: translateX(100%);
