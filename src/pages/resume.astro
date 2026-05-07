@@ -1,0 +1,253 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+
+const experience = [
+  {
+    period: "Jul 2024",
+    role: "Pengembang Web",
+    company: "GB Media Freelancing Agency",
+    desc: "Developing and managing custom web solutions. Focused on rapid deployment and robust frontend performance using modern frameworks."
+  },
+  {
+    period: "Sep 2023 - Aug 2024",
+    role: "IT Support Specialist",
+    company: "PT Bank Usaha Rakyat",
+    desc: "Engineered a professional banking portal and an innovative WhatsApp Banking service leveraging Google Sheets and Apps Script for mass market accessibility."
+  },
+  {
+    period: "Sep 2023 - Aug 2024",
+    role: "IT Support Specialist",
+    company: "Nur Alam Hotel Lembang",
+    desc: "Built a semi-automated accounting system and sales monitoring platform with analysis features. Managed full-scale hotel web infrastructure."
+  },
+  {
+    period: "Jul 2023",
+    role: "Virtual Intern: Backend Developer",
+    company: "Evermos X Rakamin Academy",
+    desc: "Architected e-commerce sales management APIs using Go and the Fiber framework. Implemented CI/CD pipelines via GitLab."
+  },
+  {
+    period: "Jun 2020 - Sep 2020",
+    role: "Junior Software Engineer",
+    company: "PT. SAS Aero Sishan",
+    desc: "Collaborated on the design of unmanned aircraft prototypes and mortar control applications within a .NET environment."
+  }
+];
+
+const skills = ["Tailwind CSS", "Vue", "Laravel", "MySQL", "Postgres", "Node.js", "TypeScript", "JavaScript", "Git", "Docker", "Wordpress", "Figma", "Canva"];
+---
+
+<BaseLayout title="Resume | JESSY MUTAJ HIFJUDIN" hideNav={true} hideFooter={true}>
+  <!-- Control Bar (Hidden on Print) -->
+  <div class="fixed top-0 left-0 w-full bg-black text-white p-4 z-50 flex justify-center gap-4 border-b-4 border-black print:hidden">
+    <button id="print-btn" class="bg-[#A5F624] text-black border-2 border-black px-6 py-2 font-lexend font-black text-sm uppercase shadow-[4px_4px_0px_#A5F624] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
+        Save as PDF (Designer View)
+    </button>
+    <a href="#" class="bg-white text-black border-2 border-black px-6 py-2 font-lexend font-black text-sm uppercase shadow-[4px_4px_0px_#ffffff] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all opacity-50 cursor-not-allowed">
+        Standard Version (GDrive)
+    </a>
+    <a href="/about" class="bg-[#FFD700] text-black border-2 border-black px-6 py-2 font-lexend font-black text-sm uppercase shadow-[4px_4px_0px_#FFD700] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
+        Back to About
+    </a>
+  </div>
+
+  <main class="min-h-screen bg-[#eeeeee] py-16 md:py-32 px-4 md:px-8 print:p-0 print:bg-white flex justify-center">
+    <!-- A4 Paper Container -->
+    <div id="resume-container" class="resume-paper bg-white border-[8px] border-black w-full max-w-[850px] shadow-[20px_20px_0px_#000000] p-10 md:p-16 relative overflow-hidden print:shadow-none print:border-none print:max-w-none print:w-full print:block">
+      
+      <!-- Top Section -->
+      <header class="header-section border-b-8 border-black pb-6 mb-8 flex flex-col md:flex-row justify-between items-start gap-8">
+        <div>
+            <h1 class="font-lexend font-black text-5xl md:text-7xl p-0 m-0 uppercase leading-[0.85] tracking-tighter mb-4">
+                JESSY MUTAJ<br/>HIFJUDIN
+            </h1>
+            <p class="role-banner font-lexend font-black text-base md:text-xl uppercase italic bg-[#ffd700] border-4 border-black px-4 py-1 inline-block -rotate-1">
+                AI-Driven Engineer & Business Solutions Specialist
+            </p>
+        </div>
+        <div class="flex flex-col gap-1 font-lexend font-bold text-[10px] md:text-sm uppercase tracking-tight text-right md:items-end">
+            <span class="flex items-center gap-2">hi.kangjessy@gmail.com <span class="material-symbols-outlined text-[12px] md:text-sm">alternate_email</span></span>
+            <span class="flex items-center gap-2">Bandung, Indonesia <span class="material-symbols-outlined text-[12px] md:text-sm">location_on</span></span>
+            <span class="flex items-center gap-2">github.com/kangjessydev <span class="material-symbols-outlined text-[12px] md:text-sm">terminal</span></span>
+        </div>
+      </header>
+
+      <!-- Main Layout -->
+      <div class="resume-grid flex flex-col md:flex-row gap-8 md:gap-16">
+        <!-- Sidebar -->
+        <div class="sidebar-col w-full md:w-[280px] space-y-8 print:w-[60mm]">
+            <section class="section-block">
+                <h3 class="font-lexend font-black text-xl uppercase mb-3 border-b-4 border-black pb-2">Profile</h3>
+                <p class="font-bold text-xs leading-relaxed text-[#444]">
+                    An AI-driven engineer focused on strategic business solutions through high-performance code and intelligent architecture. Pushing boundaries in tech.
+                </p>
+            </section>
+
+            <section class="section-block">
+                <h3 class="font-lexend font-black text-xl uppercase mb-3 border-b-4 border-black pb-2">Arsenal</h3>
+                <div class="flex flex-wrap gap-2">
+                    {skills.map(skill => (
+                        <span class="border-2 border-black px-2 py-0.5 text-[8.5px] font-black uppercase bg-white shadow-[2px_2px_0px_#000000]">{skill}</span>
+                    ))}
+                </div>
+            </section>
+
+            <section class="section-block">
+                <h3 class="font-lexend font-black text-xl uppercase mb-3 border-b-4 border-black pb-2">Languages</h3>
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center bg-black text-white p-2 border-2 border-black">
+                        <span class="font-bold text-[9px] uppercase">Indonesian</span>
+                        <span class="font-black italic text-[9px]">Native</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-white text-black p-2 border-2 border-black">
+                        <span class="font-bold text-[9px] uppercase">English</span>
+                        <span class="font-black italic text-[9px]">Fluent</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-col flex-grow space-y-10">
+            <section class="section-block">
+                <h3 class="font-lexend font-black text-xl uppercase mb-6 flex items-center gap-2">
+                    <span class="material-symbols-outlined font-black">work</span> 
+                    Experience
+                </h3>
+                <div class="space-y-8">
+                    {experience.map(job => (
+                        <div class="experience-item relative pl-8 border-l-4 border-black">
+                            <div class="absolute -left-[14px] top-0 w-6 h-6 bg-black"></div>
+                            <span class="text-[9px] font-black uppercase text-[#888] mb-1 block">{job.period}</span>
+                            <h4 class="font-lexend font-black text-lg md:text-xl uppercase m-0 leading-tight mb-1">{job.role}</h4>
+                            <p class="font-lexend font-black text-[10px] uppercase text-[#FF6B00] mb-2 tracking-wider">{job.company}</p>
+                            <p class="font-bold text-[10px] leading-relaxed text-[#444]">{job.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section class="section-block">
+                <h3 class="font-lexend font-black text-xl uppercase mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined font-black">school</span> 
+                    Education
+                </h3>
+                <div class="experience-item relative pl-8 border-l-4 border-black">
+                    <div class="absolute -left-[14px] top-0 w-6 h-6 bg-[#A5F624] border-4 border-black"></div>
+                    <span class="text-[9px] font-black uppercase text-[#888] mb-1 block">2018 - 2023</span>
+                    <h4 class="font-lexend font-black text-lg md:text-xl uppercase m-0 leading-tight">S.Kom</h4>
+                    <p class="font-bold text-[10px] uppercase tracking-wider text-black">Universitas Kebangsaan Republik Indonesia</p>
+                </div>
+            </section>
+        </div>
+      </div>
+
+      <!-- Footer Decoration -->
+      <div class="footer-decor block mt-12 print:mt-8">
+        <div class="w-full h-4 bg-black"></div>
+        <div class="w-full h-2 bg-[#ffd700]"></div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<script lang="ts">
+    const printBtn = document.getElementById('print-btn');
+    printBtn?.addEventListener('click', () => {
+        window.print();
+    });
+</script>
+
+<style>
+  @media print {
+    @page {
+      size: A4 portrait;
+      margin: 15mm;
+    }
+    :root {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    body {
+      background: white !important;
+      margin: 0;
+      padding: 0;
+    }
+    main {
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+    }
+    .resume-paper {
+        max-width: none !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        border: none !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        display: block !important;
+        overflow: visible !important;
+    }
+    .header-section {
+        border-bottom-width: 4px !important;
+        margin-bottom: 6mm !important;
+        padding-bottom: 4mm !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+    }
+    h1 {
+        font-size: 32pt !important;
+        line-height: 0.8 !important;
+    }
+    .role-banner {
+        font-size: 10pt !important;
+        transform: rotate(-1deg) !important;
+        margin-top: 1mm !important;
+        display: inline-block !important;
+    }
+    .resume-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 8mm !important;
+    }
+    .sidebar-col {
+        width: 60mm !important;
+        min-width: 60mm !important;
+    }
+    .main-col {
+        flex: 1 !important;
+    }
+    .section-block {
+        margin-bottom: 5mm !important;
+    }
+    h3 {
+        font-size: 13pt !important;
+        margin-bottom: 2mm !important;
+    }
+    .experience-item {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin-bottom: 4mm !important;
+    }
+    h4 { font-size: 11pt !important; }
+    p, span { font-size: 9pt !important; line-height: 1.3 !important; }
+    
+    .footer-decor {
+        position: relative !important;
+        margin-top: 10mm !important;
+    }
+
+    .print\:hidden {
+        display: none !important;
+    }
+
+    /* Color protection */
+    .bg-\[\#ffd700\] { background-color: #ffd700 !important; }
+    .bg-\[\#A5F624\] { background-color: #A5F624 !important; }
+    .bg-black { background-color: #000000 !important; }
+    .text-white { color: #ffffff !important; }
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
 ---
 <BaseLayout title="About Me - KANGJESSY DEV">
     <div class="max-w-[1440px] mx-auto border-x-8 border-black bg-white">
@@ -9,9 +10,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <h1 class="text-6xl md:text-8xl font-black uppercase mb-8 leading-[0.9] tracking-tighter">
                     BRUTALLY HONEST <span class="bg-[#FFD700] px-4 shadow-[6px_6px_0px_#000000] border-2 border-black inline-block -rotate-1">CODE.</span>
                 </h1>
-                <p class="font-lexend text-xl text-[#5d5f5f] max-w-2xl">
+                <p class="font-lexend text-xl text-[#5d5f5f] max-w-2xl mb-12">
                     I build high-performance digital interfaces with a focus on structural integrity and unapologetic visual identities. My approach is rooted in the belief that great software should be as bold as it is functional.
                 </p>
+                <div class="flex gap-4">
+                    <Button href="/resume" variant="yellow" size="lg">LIHAT CV</Button>
+                </div>
             </div>
             <div class="flex-1 min-h-[400px] bg-[#FFD700] relative group overflow-hidden">
                 <img 

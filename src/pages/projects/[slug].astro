@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getProjectBySlug, getProjects } from '../../services/getProjects';
+import { getProjects } from '../../services/getProjects';
 
 export function getStaticPaths() {
   const projects = getProjects();
@@ -297,18 +297,18 @@ if (!project) {
 
 </BaseLayout>
 
-<script>
-    function initSmartSlider(containerId, listSelector, activeClass) {
+<script lang="ts">
+    function initSmartSlider(containerId: string, listSelector: string, activeClass: string) {
         const slider = document.getElementById(containerId);
         if (!slider) return;
         
         const listItems = document.querySelectorAll(listSelector);
         let currentIndex = 0;
-        let interval;
+        let interval: any;
 
-        function goToSlide(index) {
+        function goToSlide(index: number) {
             currentIndex = index;
-            slider.style.transform = `translateX(-${index * 100}%)`;
+            slider!.style.transform = `translateX(-${index * 100}%)`;
             
             listItems.forEach((item, i) => {
                 if (i === index) {
@@ -371,12 +371,7 @@ if (!project) {
     .problem-points-list li, .solution-points-list li {
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-</style>
-        
 
-</BaseLayout>
-
-<style>
     .animate-marquee {
         animation: marquee 30s linear infinite;
     }
