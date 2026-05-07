@@ -133,127 +133,6 @@ import Button from '../components/Button.astro';
                         </div>
                     </div>
 
-                    <style>
-                        /* Custom Dropdown Styles */
-                        .custom-dropdown-btn {
-                            width: 100%;
-                            background: white;
-                            border: 4px solid black;
-                            height: 64px;
-                            padding: 0 70px 0 20px;
-                            font-weight: 500;
-                            font-size: 16px;
-                            color: black;
-                            display: flex;
-                            align-items: center;
-                            cursor: pointer;
-                            position: relative;
-                            outline: none;
-                            text-align: left;
-                        }
-
-                        .custom-dropdown-btn:focus {
-                            box-shadow: 4px 4px 0px #000000;
-                        }
-
-                        .dropdown-arrow-wrapper {
-                            position: absolute;
-                            right: 0;
-                            top: 0;
-                            bottom: 0;
-                            width: 56px;
-                            border-left: 4px solid black;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            background: white;
-                        }
-
-                        .dropdown-arrow-svg {
-                            width: 24px;
-                            height: 24px;
-                            transition: transform 0.2s ease;
-                        }
-
-                        .dropdown-options-container {
-                            position: absolute;
-                            top: 72px;
-                            left: 0;
-                            width: 100%;
-                            background: white;
-                            border: 4px solid black;
-                            box-shadow: 8px 8px 0px black;
-                            z-index: 40;
-                            overflow: hidden;
-                        }
-
-                        .dropdown-option-item {
-                            padding: 16px 20px;
-                            cursor: pointer;
-                            font-weight: 500;
-                            border-bottom: 2px solid black;
-                            transition: background-color 0.2s ease;
-                        }
-
-                        .dropdown-option-item:last-child {
-                            border-bottom: none;
-                        }
-
-                        .dropdown-option-item:hover {
-                            background-color: #ffd700 !important;
-                        }
-
-                        @keyframes dropIn {
-                            0% { transform: translateY(-10px); opacity: 0; }
-                            100% { transform: translateY(0); opacity: 1; }
-                        }
-
-                        .animate-drop {
-                            display: block !important;
-                            animation: dropIn 0.2s ease-out forwards;
-                        }
-                    </style>
-
-                    <script lang="ts">
-                        const button = document.getElementById('dropdown-button');
-                        const list = document.getElementById('options-list');
-                        const selectedText = document.getElementById('selected-value');
-                        const arrow = document.getElementById('dropdown-arrow');
-                        const hiddenSelect = document.getElementById('type');
-                        const options = document.querySelectorAll('.dropdown-option-item');
-
-                        button.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                            const isShowing = list.classList.contains('animate-drop');
-                            if (!isShowing) {
-                                list.classList.remove('hidden');
-                                list.classList.add('animate-drop');
-                                (arrow as HTMLElement).style.transform = 'rotate(180deg)';
-                            } else {
-                                list.classList.remove('animate-drop');
-                                list.classList.add('hidden');
-                                (arrow as HTMLElement).style.transform = 'rotate(0deg)';
-                            }
-                        });
-
-                        options.forEach(option => {
-                            option.addEventListener('click', () => {
-                                const val = option.getAttribute('data-value');
-                                selectedText.innerText = (val as string);
-                                (hiddenSelect as HTMLSelectElement).value = (val as string);
-                                list.classList.remove('animate-drop');
-                                list.classList.add('hidden');
-                                (arrow as HTMLElement).style.transform = 'rotate(0deg)';
-                            });
-                        });
-
-                        document.addEventListener('click', () => {
-                            list.classList.remove('animate-drop');
-                            list.classList.add('hidden');
-                            (arrow as HTMLElement).style.transform = 'rotate(0deg)';
-                        });
-                    </script>
-
                     <!-- Message -->
                     <div class="flex flex-col gap-3">
                         <label for="message" class="font-bold uppercase text-xs text-black">YOUR MESSAGE</label>
@@ -281,96 +160,37 @@ import Button from '../components/Button.astro';
                     </p>
                 </form>
             </div>
-
-
         </div>
     </section>
     
-    <!-- Image Gallery (Achieving 1:1 Parity with Stitch) -->
+    <!-- Image Gallery -->
     <section class="py-16 px-6 bg-[#f9f9f9] border-b-8 border-black">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-            <!-- Card 1: Our Studio -->
+            <!-- Card 1 -->
             <div class="gallery-card relative group">
                 <div class="gallery-image-wrapper">
                     <img src="/images/our_studio_photography_neobrutal_1778062528096.png" alt="Our Studio" class="gallery-image">
                 </div>
-                <div class="gallery-label">
-                    OUR STUDIO
-                </div>
+                <div class="gallery-label">OUR STUDIO</div>
             </div>
-            
-            <!-- Card 2: The Lab -->
+            <!-- Card 2 -->
             <div class="gallery-card relative group">
                 <div class="gallery-image-wrapper">
                     <img src="/images/the_lab_keyboard_neobrutal_1778062567814.png" alt="The Lab" class="gallery-image">
                 </div>
-                <div class="gallery-label">
-                    THE LAB
-                </div>
+                <div class="gallery-label">THE LAB</div>
             </div>
-            
-            <!-- Card 3: Playground -->
+            <!-- Card 3 -->
             <div class="gallery-card relative group">
                 <div class="gallery-image-wrapper">
                     <img src="/images/playground_components_neobrutal_1778062798068.png" alt="Playground" class="gallery-image">
                 </div>
-                <div class="gallery-label">
-                    PLAYGROUND
-                </div>
+                <div class="gallery-label">PLAYGROUND</div>
             </div>
         </div>
     </section>
 
-    <style>
-        .gallery-card {
-            background-color: black;
-            border: 4px solid black;
-            box-shadow: 12px 12px 0px #000000;
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-card:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 16px 16px 0px #000000;
-        }
-
-        .gallery-image-wrapper {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            border: 4px solid black;
-        }
-
-        .gallery-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.5s ease;
-        }
-
-        .gallery-card:hover .gallery-image {
-            scale: 1.05;
-        }
-
-        .gallery-label {
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            background: white;
-            border: 4px solid black;
-            padding: 8px 16px;
-            font-family: var(--font-lexend);
-            font-weight: 900;
-            font-size: 14px;
-            text-transform: uppercase;
-            box-shadow: 6px 6px 0px #000000;
-            z-index: 10;
-        }
-    </style>
-    
-    <!-- Caution Tape Marquee (Seamless & Relaxed) -->
+    <!-- Caution Tape Marquee -->
     <div class="bg-[#ffd700] text-black border-y-8 border-black overflow-hidden py-5 flex">
         <div class="flex animate-[marquee_40s_linear_infinite] whitespace-nowrap">
             <div class="flex items-center gap-12 px-6 font-lexend font-black text-3xl uppercase">
@@ -389,34 +209,179 @@ import Button from '../components/Button.astro';
             </div>
         </div>
     </div>
-
 </BaseLayout>
 
-<script lang="ts">
-    const form = document.getElementById('wa-form');
-    // Ganti nomor ini dengan nomor WhatsApp aktif kamu, format: 628xxxxxxxx
-    const waNumber = "6281234567890"; 
-
-    form?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const name = (document.getElementById('name') as HTMLInputElement).value;
-        const type = (document.getElementById('type') as HTMLSelectElement).value;
-        const message = (document.getElementById('message') as HTMLTextAreaElement).value;
-
-        // Construct WhatsApp friendly text
-        const text = `Halo, saya ${name}.%0A%0ASaya ingin diskusi mengenai ${type}.%0A%0A${message}`;
-        
-        const waUrl = `https://wa.me/${waNumber}?text=${text}`;
-        
-        // Buka WhatsApp di tab baru
-        window.open(waUrl, '_blank');
-    });
-</script>
-
 <style>
+    /* Dropdown Styles */
+    .custom-dropdown-btn {
+        width: 100%;
+        background: white;
+        border: 4px solid black;
+        height: 64px;
+        padding: 0 70px 0 20px;
+        font-weight: 500;
+        font-size: 16px;
+        color: black;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        outline: none;
+        text-align: left;
+    }
+    .custom-dropdown-btn:focus {
+        box-shadow: 4px 4px 0px #000000;
+    }
+    .dropdown-arrow-wrapper {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 56px;
+        border-left: 4px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+    }
+    .dropdown-arrow-svg {
+        width: 24px;
+        height: 24px;
+        transition: transform 0.2s ease;
+    }
+    .dropdown-options-container {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background: white;
+        border: 4px solid black;
+        box-shadow: 8px 8px 0px black;
+        z-index: 40;
+        overflow: hidden;
+    }
+    .dropdown-option-item {
+        padding: 16px 20px;
+        cursor: pointer;
+        font-weight: 500;
+        border-bottom: 2px solid black;
+        transition: background-color 0.2s ease;
+    }
+    .dropdown-option-item:hover {
+        background-color: #ffd700 !important;
+    }
+    @keyframes dropIn {
+        0% { transform: translateY(-10px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+    .animate-drop {
+        display: block !important;
+        animation: dropIn 0.2s ease-out forwards;
+    }
+
+    /* Gallery Styles */
+    .gallery-card {
+        background-color: black;
+        border: 4px solid black;
+        box-shadow: 12px 12px 0px #000000;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    .gallery-card:hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 16px 16px 0px #000000;
+    }
+    .gallery-image-wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border: 4px solid black;
+    }
+    .gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+    }
+    .gallery-label {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        background: white;
+        border: 4px solid black;
+        padding: 8px 16px;
+        font-family: var(--font-lexend);
+        font-weight: 900;
+        font-size: 14px;
+        text-transform: uppercase;
+        box-shadow: 6px 6px 0px #000000;
+        z-index: 10;
+    }
     @keyframes marquee {
         0% { transform: translateX(0%); }
         100% { transform: translateX(-100%); }
     }
 </style>
+
+<script is:inline>
+    // Logic Initialization
+    const initForm = () => {
+        const button = document.getElementById('dropdown-button');
+        const list = document.getElementById('options-list');
+        const selectedText = document.getElementById('selected-value');
+        const arrow = document.getElementById('dropdown-arrow');
+        const hiddenSelect = document.getElementById('type');
+        const options = document.querySelectorAll('.dropdown-option-item');
+        const form = document.getElementById('wa-form');
+        const waNumber = "6281234567890";
+
+        // Dropdown Toggle
+        button?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isShowing = list?.classList.contains('animate-drop');
+            if (!isShowing) {
+                list?.classList.remove('hidden');
+                list?.classList.add('animate-drop');
+                if (arrow) arrow.style.transform = 'rotate(180deg)';
+            } else {
+                list?.classList.remove('animate-drop');
+                list?.classList.add('hidden');
+                if (arrow) arrow.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Dropdown Selection
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                const val = option.getAttribute('data-value');
+                if (selectedText) selectedText.innerText = val;
+                if (hiddenSelect) hiddenSelect.value = val;
+                list?.classList.remove('animate-drop');
+                list?.classList.add('hidden');
+                if (arrow) arrow.style.transform = 'rotate(0deg)';
+            });
+        });
+
+        // Close dropdown on click outside
+        document.addEventListener('click', () => {
+            list?.classList.remove('animate-drop');
+            list?.classList.add('hidden');
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
+        });
+
+        // WhatsApp Form Submission
+        form?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name')?.value;
+            const type = document.getElementById('type')?.value;
+            const message = document.getElementById('message')?.value;
+            const text = `Halo, saya ${name}.%0A%0ASaya ingin diskusi mengenai ${type}.%0A%0A${message}`;
+            window.open(`https://wa.me/${waNumber}?text=${text}`, '_blank');
+        });
+    };
+
+    // Run on load and on any DOM changes (Astro transitions)
+    initForm();
+    document.addEventListener('astro:page-load', initForm);
+</script>

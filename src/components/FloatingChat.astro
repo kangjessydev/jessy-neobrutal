@@ -1,0 +1,124 @@
+---
+---
+<div class="fixed bottom-6 right-6 z-50 font-lexend print:hidden flex flex-col items-end">
+    <!-- Chat Window -->
+    <div 
+        id="chat-window" 
+        class="absolute bottom-24 right-0 opacity-0 pointer-events-none scale-0 w-[320px] bg-white border-4 border-black shadow-[10px_10px_0px_#000000] overflow-hidden transition-all duration-300 origin-bottom-right lg:w-[350px]"
+    >
+        <!-- Header -->
+        <div class="bg-black text-white p-4 flex justify-between items-center border-b-4 border-black">
+            <div class="flex items-center gap-3">
+                <div class="w-3 h-3 bg-[#ADFF2F] animate-pulse"></div>
+                <span class="font-black uppercase text-xs tracking-widest">JESSY'S TERMINAL</span>
+            </div>
+            <button id="close-chat" class="bg-[#FF6B00] text-black border-2 border-black p-0.5 hover:bg-white transition-colors flex items-center justify-center">
+                <span class="material-symbols-outlined text-sm font-black">close</span>
+            </button>
+        </div>
+        
+        <!-- Content -->
+        <div class="p-5 space-y-5">
+            <!-- Bot Message -->
+            <div class="relative">
+                <div class="bg-[#eeeeee] p-4 border-2 border-black font-bold text-xs leading-relaxed shadow-[4px_4px_0px_#000000]">
+                    "Ready to skip the small talk and build something massive? Choose your weapon below."
+                </div>
+                <!-- Tail -->
+                <div class="absolute -bottom-2 right-6 w-4 h-4 bg-[#eeeeee] border-r-2 border-b-2 border-black rotate-45"></div>
+            </div>
+            
+            <div class="space-y-3 pt-2">
+                <a 
+                    href="https://wa.me/6281234567890" 
+                    target="_blank"
+                    class="flex items-center justify-between bg-[#ADFF2F] text-black px-4 py-3 border-4 border-black font-black uppercase text-sm shadow-[6px_6px_0px_#000000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all group"
+                >
+                    <span class="flex items-center gap-2">
+                        <span class="material-symbols-outlined font-black">chat</span>
+                        WhatsApp
+                    </span>
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">east</span>
+                </a>
+                
+                <a 
+                    href="mailto:hi.kangjessy@gmail.com" 
+                    class="flex items-center justify-between bg-[#FFD700] text-black px-4 py-3 border-4 border-black font-black uppercase text-sm shadow-[6px_6px_0px_#000000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all group"
+                >
+                    <span class="flex items-center gap-2">
+                        <span class="material-symbols-outlined font-black">alternate_email</span>
+                        Email Direct
+                    </span>
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">east</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Decorative Caution Tape -->
+         <div class="h-4 bg-black w-full flex overflow-hidden">
+            <div class="flex animate-[caution_2s_linear_infinite] whitespace-nowrap">
+                <div class="w-8 h-full bg-[#ffd700] skew-x-[45deg] mr-4"></div>
+                <div class="w-8 h-full bg-[#ffd700] skew-x-[45deg] mr-4"></div>
+                <div class="w-8 h-full bg-[#ffd700] skew-x-[45deg] mr-4"></div>
+                <div class="w-8 h-full bg-[#ffd700] skew-x-[45deg] mr-4"></div>
+                <div class="w-8 h-full bg-[#ffd700] skew-x-[45deg] mr-4"></div>
+                <div class="w-8 h-full bg-[#ffd700] skew-x-[45deg] mr-4"></div>
+            </div>
+         </div>
+    </div>
+
+    <!-- Trigger Button -->
+    <button 
+        id="chat-trigger"
+        class="w-16 h-16 bg-[#ADFF2F] text-black border-4 border-black shadow-[8px_8px_0px_#000000] flex items-center justify-center hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all group relative overflow-hidden"
+    >
+        <!-- Background hover effect -->
+        <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+        <span class="material-symbols-outlined font-black text-3xl group-hover:scale-125 transition-transform relative z-10">forum</span>
+    </button>
+</div>
+
+<style>
+    @keyframes caution {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-40px); }
+    }
+</style>
+
+<script>
+    const trigger = document.getElementById('chat-trigger');
+    const chatWindow = document.getElementById('chat-window');
+    const closeBtn = document.getElementById('close-chat');
+
+    const toggleChat = () => {
+        const isOpen = chatWindow?.classList.contains('scale-100');
+        
+        if (!isOpen) {
+            // Open
+            chatWindow?.classList.remove('scale-0', 'opacity-0', 'pointer-events-none');
+            chatWindow?.classList.add('scale-100', 'opacity-100', 'pointer-events-auto');
+        } else {
+            // Close
+            chatWindow?.classList.add('scale-0', 'opacity-0', 'pointer-events-none');
+            chatWindow?.classList.remove('scale-100', 'opacity-100', 'pointer-events-auto');
+        }
+    };
+
+    trigger?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleChat();
+    });
+
+    closeBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleChat();
+    });
+
+    // Close on click outside
+    document.addEventListener('click', (event) => {
+        const isClickInside = chatWindow?.contains(event.target as Node) || trigger?.contains(event.target as Node);
+        if (!isClickInside && chatWindow?.classList.contains('scale-100')) {
+            toggleChat();
+        }
+    });
+</script>

@@ -153,12 +153,11 @@ import Button from '../components/Button.astro';
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-7xl font-black uppercase mb-8">Ready to Build?</h2>
             <p class="text-xl text-[#e2e2e2] mb-12">I'm currently taking on new projects for Q3 and Q4. If you have a vision that requires precision and a bold visual voice, let's talk.</p>
-            <form class="flex flex-col md:flex-row gap-6">
-                <input class="flex-grow bg-white text-black border-4 border-white p-6 font-lexend font-bold placeholder-[#5d5f5f] focus:outline-none focus:border-[#ffd700]" placeholder="YOUR EMAIL ADDRESS" type="email"/>
-                <Button type="submit" variant="yellow" size="lg">
+            <div class="flex justify-center">
+                <Button href="/contact" variant="yellow" size="lg">
                     GET IN TOUCH
                 </Button>
-            </form>
+            </div>
         </div>
     </section>
 </BaseLayout>
