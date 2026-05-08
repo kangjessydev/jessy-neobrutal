@@ -1,9 +1,11 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 import Button from '@/components/ui/Button';
 
 const FloatingChat = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [parent] = useAutoAnimate();
 
   const toggleChat = () => setIsOpen(!isOpen);
 
@@ -22,14 +24,13 @@ const FloatingChat = () => {
   }, [isOpen]);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 font-lexend print:hidden flex flex-col items-end">
+    <div ref={parent} className="fixed bottom-6 right-6 z-50 font-lexend print:hidden flex flex-col items-end">
       {/* Chat Window */}
-      <div 
-        id="chat-window" 
-        className={`absolute bottom-24 right-0 w-[320px] bg-white border-4 border-black shadow-[10px_10px_0px_#000000] overflow-hidden transition-all duration-300 origin-bottom-right lg:w-[350px] ${
-          isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'
-        }`}
-      >
+      {isOpen && (
+        <div 
+          id="chat-window" 
+          className="absolute bottom-24 right-0 w-[320px] bg-white border-4 border-black shadow-[10px_10px_0px_#000000] overflow-hidden lg:w-[350px]"
+        >
         {/* Header */}
         <div className="bg-black text-white p-4 flex justify-between items-center border-b-4 border-black">
           <div className="flex items-center gap-3">
@@ -95,6 +96,7 @@ const FloatingChat = () => {
           </div>
         </div>
       </div>
+      )}
 
       {/* Trigger Button */}
       <Button 

@@ -17,22 +17,27 @@ export default function ResumePage() {
                     onClick={handlePrint}
                     variant="secondary"
                     size="sm"
+                    className="gap-2"
                 >
+                    <i className="ph-bold ph-file-pdf text-lg"></i>
                     Save as PDF (Designer View)
                 </Button>
                 <Button 
                     variant="tertiary" 
                     size="sm" 
-                    className="opacity-50 cursor-not-allowed"
+                    className="opacity-50 cursor-not-allowed gap-2"
                     onClick={() => {}}
                 >
+                    <i className="ph-bold ph-google-drive-logo text-lg"></i>
                     Standard Version (GDrive)
                 </Button>
                 <Button 
                     href="/about" 
                     variant="primary" 
                     size="sm"
+                    className="gap-2"
                 >
+                    <i className="ph-bold ph-arrow-left text-lg"></i>
                     Back to About
                 </Button>
             </div>
@@ -52,9 +57,9 @@ export default function ResumePage() {
                             </p>
                         </div>
                         <div className="flex flex-col gap-2 font-lexend font-bold text-xs md:text-sm uppercase tracking-tight text-right md:items-end text-black">
-                            <span className="flex items-center gap-2">hi.kangjessy@gmail.com <span className="material-symbols-outlined text-[14px] font-black">alternate_email</span></span>
-                            <span className="flex items-center gap-2">Bandung, Indonesia <span className="material-symbols-outlined text-[14px] font-black">location_on</span></span>
-                            <span className="flex items-center gap-2">github.com/kangjessydev <span className="material-symbols-outlined text-[14px] font-black">terminal</span></span>
+                            <span className="flex items-center gap-2">hi.kangjessy@gmail.com <i className="ph-bold ph-envelope text-sm"></i></span>
+                            <span className="flex items-center gap-2">Bandung, Indonesia <i className="ph-bold ph-map-pin text-sm"></i></span>
+                            <span className="flex items-center gap-2">github.com/kangjessydev <i className="ph-bold ph-terminal-window text-sm"></i></span>
                         </div>
                     </header>
 
@@ -99,7 +104,7 @@ export default function ResumePage() {
                         <div className="flex-grow space-y-12">
                             <section>
                                 <h3 className="font-lexend font-black text-2xl uppercase mb-8 flex items-center gap-3 text-black">
-                                    <span className="material-symbols-outlined font-black text-3xl">work</span> 
+                                    <i className="ph-bold ph-briefcase text-3xl"></i> 
                                     Experience
                                 </h3>
                                 <div className="space-y-10">
@@ -117,7 +122,7 @@ export default function ResumePage() {
 
                             <section>
                                 <h3 className="font-lexend font-black text-2xl uppercase mb-6 flex items-center gap-3 text-black">
-                                    <span className="material-symbols-outlined font-black text-3xl">school</span> 
+                                    <i className="ph-bold ph-student text-3xl"></i> 
                                     Education
                                 </h3>
                                 <div className="relative pl-8 border-l-4 border-black">

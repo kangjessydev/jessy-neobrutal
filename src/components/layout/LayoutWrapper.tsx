@@ -13,11 +13,10 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
   return (
     <>
       {!isStandalone && <Navbar />}
-      <main className="flex-grow">
+      <main className={`flex-grow ${!isStandalone ? 'pt-[104px]' : ''}`}>
         {children}
       </main>
       {!isStandalone && <Footer />}
-      {!isStandalone && <FloatingChat />}
     </>
   );
 }

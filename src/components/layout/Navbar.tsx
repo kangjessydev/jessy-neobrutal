@@ -2,34 +2,73 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 import Button from '../ui/Button';
 
 const Navbar = () => {
     const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('default');
-    const [isNetworkOpen, setIsNetworkOpen] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+    const lastScrollYRef = React.useRef(0);
+    const scrollTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+    const [parent] = useAutoAnimate();
 
     function isActive(href: string) {
         if (href === "/") return pathname === "/";
         return pathname?.startsWith(href);
     }
 
+    // Smart Navbar Logic
+    useEffect(() => {
+        const controlNavbar = () => {
+            if (typeof window !== 'undefined') {
+                const currentScrollY = window.scrollY;
+
+                // Clear any existing timeout
+                if (scrollTimeoutRef.current) {
+                    clearTimeout(scrollTimeoutRef.current);
+                }
+
+                if (currentScrollY > lastScrollYRef.current && currentScrollY > 120 && !isMenuOpen) {
+                    // Scrolling down - Hide
+                    setIsVisible(false);
+                } else {
+                    // Scrolling up - Show
+                    setIsVisible(true);
+                }
+                
+                lastScrollYRef.current = currentScrollY;
+
+                // Set a timeout to show navbar after scrolling stops
+                scrollTimeoutRef.current = setTimeout(() => {
+                    setIsVisible(true);
+                }, 800); // Shorter wait for better response
+            }
+        };
+
+        window.addEventListener('scroll', controlNavbar);
+        return () => {
+            window.removeEventListener('scroll', controlNavbar);
+            if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+        };
+    }, [isMenuOpen]);
+
+    // Close menu when pathname changes
+    useEffect(() => {
+        setIsMenuOpen(false);
+        setIsVisible(true); // Ensure navbar is visible on new page
+    }, [pathname]);
+
     // Handle body scroll locking
     useEffect(() => {
         if (isMenuOpen) {
             document.body.style.overflow = 'hidden';
+            setIsVisible(true);
         } else {
             document.body.style.overflow = '';
         }
     }, [isMenuOpen]);
-
-    // Close network dropdown on click outside
-    useEffect(() => {
-        const handleClickOutside = () => setIsNetworkOpen(false);
-        document.addEventListener('click', handleClickOutside);
-        return () => document.removeEventListener('click', handleClickOutside);
-    }, []);
 
     const toggleMenu = () => {
         setActiveTab('default');
@@ -37,8 +76,10 @@ const Navbar = () => {
     };
 
     return (
-        <>
-            <header className="bg-white border-b-8 border-black flex justify-between items-center w-full px-8 py-6 sticky top-0 z-[100]">
+        <div ref={parent}>
+            <header className={`bg-white border-b-8 border-black flex justify-between items-center w-full px-8 py-6 fixed top-0 left-0 right-0 z-[100] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+                isVisible ? 'translate-y-0' : '-translate-y-full shadow-none'
+            }`}>
                 {/* Logo & Network Switcher */}
                 <div className="flex items-center gap-2">
                     <Link
@@ -47,7 +88,6 @@ const Navbar = () => {
                     >
                         KANGJESSY_DEV
                     </Link>
-
                 </div>
 
                 {/* Main Nav (Slimming down) */}
@@ -72,133 +112,162 @@ const Navbar = () => {
             </header>
 
             {/* Full Screen Overlay Menu */}
-            <div
-                className={`fixed inset-0 bg-white z-[200] flex-col border-[12px] border-black transition-transform duration-500 ease-[cubic-bezier(0.8,0,0.2,1)] ${
-                    isMenuOpen ? 'flex translate-x-0' : 'hidden'
-                }`}
-            >
-                <div className="flex justify-between items-center p-8 border-b-8 border-black bg-[#ADFF2F]">
-                    <span className="font-lexend font-black uppercase text-2xl tracking-tighter">NAVIGATION</span>
-                    <Button
-                        onClick={() => setIsMenuOpen(false)}
-                        variant="black"
-                        size="md"
-                        className="!w-12 !h-12 !p-0"
-                    >
-                        <i className="ph-bold ph-x text-2xl"></i>
-                    </Button>
-                </div>
-
-                <div className="flex-grow flex flex-col md:flex-row divide-y-8 md:divide-y-0 md:divide-x-8 divide-black overflow-y-auto">
-                    {/* Main Links (Left Side) */}
-                    <div className={`flex-grow p-12 py-12 flex flex-col justify-start gap-6 overflow-y-auto no-scrollbar transition-all duration-400 ${
-                        isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-                    }`}>
-                        {[
-                            { label: 'Home', href: '/', target: 'default' },
-                            { label: 'About', href: '/about', target: 'default' },
-                            { label: 'Projects', href: '/projects', target: 'projects' },
-                            { label: 'Blog', href: '/blog', target: 'default' },
-                        ].map((link, i) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                onClick={() => setIsMenuOpen(false)}
-                                onMouseEnter={() => setActiveTab(link.target)}
-                                className={`font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block ${
-                                    isActive(link.href) ? 'italic underline underline-offset-8 decoration-8 decoration-[#ADFF2F] translate-x-4' : ''
-                                }`}
-                                style={{ transitionDelay: `${0.1 + i * 0.05}s` }}
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
-                        
-                        <button
-                            onMouseEnter={() => setActiveTab('network')}
-                            onClick={() => setActiveTab('network')}
-                            className="text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block focus:outline-none"
-                            style={{ transitionDelay: '0.3s' }}
+            {isMenuOpen && (
+                <div
+                    className="fixed inset-0 bg-white z-[200] flex flex-col border-[12px] border-black"
+                >
+                    <div className="flex justify-between items-center p-8 border-b-8 border-black bg-[#ADFF2F]">
+                        <span className="font-lexend font-black uppercase text-2xl tracking-tighter">NAVIGATION</span>
+                        <Button
+                            onClick={() => setIsMenuOpen(false)}
+                            variant="black"
+                            size="md"
+                            className="!w-12 !h-12 !p-0"
                         >
-                            Network
-                        </button>
-                        <button
-                            onMouseEnter={() => setActiveTab('other')}
-                            onClick={() => setActiveTab('other')}
-                            className="text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block focus:outline-none"
-                            style={{ transitionDelay: '0.35s' }}
-                        >
-                            Other
-                        </button>
+                            <i className="ph-bold ph-x text-2xl"></i>
+                        </Button>
                     </div>
 
-                    {/* Dynamic Sidebar Panel */}
-                    <div className={`w-full md:w-[450px] bg-[#f0f0f0] transition-all duration-300 border-l-0 md:border-l-8 border-black overflow-hidden relative ${
-                        activeTab !== 'default' ? 'flex' : 'hidden md:flex'
-                    }`}>
-                        {/* Default Content */}
-                        <div className={`side-content animate-side-in flex flex-col justify-between h-full p-12 w-full transition-all duration-400 ${activeTab === 'default' ? 'flex' : 'hidden'}`}>
-                            <div>
-                                <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">CONNECT</h4>
-                                <div className="flex flex-col gap-6">
-                                    <a href="#" className="text-3xl font-black uppercase hover:text-[#ADFF2F] transition-colors flex items-center gap-4 group">
-                                        LinkedIn <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
-                                    </a>
-                                    <a href="#" className="text-3xl font-black uppercase hover:text-[#ADFF2F] transition-colors flex items-center gap-4 group">
-                                        Github <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
-                                    </a>
-                                    <a href="#" className="text-3xl font-black uppercase hover:text-[#FFD700] transition-colors flex items-center gap-4 group">
-                                        Twitter <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="mt-20 text-center">
-                                <Button href="/contact" variant="primary" size="lg" fullWidth>Get In Touch</Button>
-                            </div>
-                        </div>
-
-                        {/* Network Submenu */}
-                        <div className={`side-content animate-side-in flex-col h-full bg-[#ADFF2F] p-12 w-full ${activeTab === 'network' ? 'flex' : 'hidden'}`}>
-                            <button onClick={() => setActiveTab('default')} className="md:hidden mb-8 font-black uppercase text-xs flex items-center gap-2 underline">← Back to Menu</button>
-                            <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">EXPLORE NETWORK</h4>
-                            <div className="flex flex-col gap-8">
-                                <a href="https://mejadaring.id" target="_blank" rel="noopener noreferrer" className="block group">
-                                    <span className="text-xs font-bold text-black/60 block mb-1">Education Portal</span>
-                                    <span className="text-4xl font-lexend font-black uppercase hover:translate-x-2 transition-transform block">MEJADARING.ID</span>
-                                </a>
-                                <a href="https://skincluv.id" target="_blank" rel="noopener noreferrer" className="block group">
-                                    <span className="text-xs font-bold text-black/60 block mb-1">Skincare Analytics</span>
-                                    <span className="text-4xl font-lexend font-black uppercase hover:translate-x-2 transition-transform block">SKINCLUV.ID</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        {/* Projects Submenu */}
-                        <div className={`side-content animate-side-in flex-col h-full bg-[#FFD700] p-12 w-full ${activeTab === 'projects' ? 'flex' : 'hidden'}`}>
-                            <button onClick={() => setActiveTab('default')} className="md:hidden mb-8 font-black uppercase text-xs flex items-center gap-2 underline">← Back to Menu</button>
-                            <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">PORTFOLIO</h4>
-                            <div className="flex flex-col gap-6">
-                                <Link href="/projects" className="text-3xl font-black uppercase hover:translate-x-2 transition-transform block">Web Development</Link>
-                                <Link href="/projects" className="text-3xl font-black uppercase hover:translate-x-2 transition-transform block">Mobile apps</Link>
-                                <Link href="/projects" className="text-3xl font-black uppercase hover:translate-x-2 transition-transform block">UI/UX Design</Link>
-                            </div>
-                        </div>
-
-                        {/* Other Submenu */}
-                        <div className={`side-content animate-side-in flex-col h-full bg-[#E0B0FF] p-12 w-full ${activeTab === 'other' ? 'flex' : 'hidden'}`}>
-                            <button onClick={() => setActiveTab('default')} className="md:hidden mb-8 font-black uppercase text-xs flex items-center gap-2 underline">← Back to Menu</button>
-                            <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">LINKS & MORE</h4>
-                            <div className="flex flex-col gap-8">
-                                <Link href="/bio" className="block group">
-                                    <span className="text-xs font-bold text-black/60 block mb-1">Quick Access</span>
-                                    <span className="text-4xl font-lexend font-black uppercase hover:translate-x-2 transition-transform block italic">BIO LINK</span>
+                    <div className="flex-grow flex flex-col md:flex-row divide-y-8 md:divide-y-0 md:divide-x-8 divide-black overflow-y-auto">
+                        {/* Main Links (Left Side) */}
+                        <div className="flex-grow p-12 py-12 flex flex-col justify-start gap-6 overflow-y-auto no-scrollbar transition-all duration-400">
+                            {[
+                                { label: 'Home', href: '/', target: 'default' },
+                                { label: 'About', href: '/about', target: 'default' },
+                                { label: 'Projects', href: '/projects', target: 'projects' },
+                                { label: 'Blog', href: '/blog', target: 'default' },
+                            ].map((link, i) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={() => setIsMenuOpen(false)}
+                                    onMouseEnter={() => setActiveTab(link.target)}
+                                    className={`font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block ${
+                                        isActive(link.href) ? 'italic underline underline-offset-8 decoration-8 decoration-[#ADFF2F] translate-x-4' : ''
+                                    }`}
+                                    style={{ transitionDelay: `${0.1 + i * 0.05}s` }}
+                                >
+                                    {link.label}
                                 </Link>
-                            </div>
+                            ))}
+                            
+                            <button
+                                onMouseEnter={() => setActiveTab('network')}
+                                onClick={() => setActiveTab('network')}
+                                className="text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block focus:outline-none"
+                                style={{ transitionDelay: '0.3s' }}
+                            >
+                                Network
+                            </button>
+                            <button
+                                onMouseEnter={() => setActiveTab('other')}
+                                onClick={() => setActiveTab('other')}
+                                className="text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block focus:outline-none"
+                                style={{ transitionDelay: '0.35s' }}
+                            >
+                                Other
+                            </button>
+                        </div>
+
+                        {/* Dynamic Sidebar Panel */}
+                        <div 
+                            ref={parent}
+                            className={`w-full md:w-[450px] bg-[#f0f0f0] transition-all duration-300 border-l-0 md:border-l-8 border-black overflow-hidden relative ${
+                                activeTab !== 'default' ? 'flex' : 'hidden md:flex'
+                            }`}
+                        >
+                            {/* Default Content */}
+                            {activeTab === 'default' && (
+                                <div className="side-content animate-side-in flex flex-col justify-between h-full p-12 w-full transition-all duration-400">
+                                    <div>
+                                        <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">CONNECT</h4>
+                                        <div className="flex flex-col gap-6">
+                                            <a href="#" className="text-3xl font-black uppercase hover:text-[#ADFF2F] transition-colors flex items-center gap-4 group">
+                                                LinkedIn <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+                                            </a>
+                                            <a href="#" className="text-3xl font-black uppercase hover:text-[#ADFF2F] transition-colors flex items-center gap-4 group">
+                                                Github <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+                                            </a>
+                                            <a href="#" className="text-3xl font-black uppercase hover:text-[#FFD700] transition-colors flex items-center gap-4 group">
+                                                Twitter <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className="mt-20 text-center">
+                                        <Button 
+                                            href="/contact" 
+                                            variant="primary" 
+                                            size="lg" 
+                                            fullWidth
+                                            onClick={() => setIsMenuOpen(false)}
+                                        >
+                                            Get In Touch
+                                        </Button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Network Submenu */}
+                            {activeTab === 'network' && (
+                                <div className="side-content animate-side-in flex flex-col h-full bg-[#ADFF2F] p-12 w-full">
+                                    <button onClick={() => setActiveTab('default')} className="md:hidden mb-8 font-black uppercase text-xs flex items-center gap-2 underline">← Back to Menu</button>
+                                    <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">EXPLORE NETWORK</h4>
+                                    <div className="flex flex-col gap-8">
+                                        <a 
+                                            href="https://mejadaring.id" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className="block group"
+                                            onClick={() => setIsMenuOpen(false)}
+                                        >
+                                            <span className="text-xs font-bold text-black/60 block mb-1">Education Portal</span>
+                                            <span className="text-4xl font-lexend font-black uppercase hover:translate-x-2 transition-transform block">MEJADARING.ID</span>
+                                        </a>
+                                        <a 
+                                            href="https://skincluv.id" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className="block group"
+                                            onClick={() => setIsMenuOpen(false)}
+                                        >
+                                            <span className="text-xs font-bold text-black/60 block mb-1">Skincare Analytics</span>
+                                            <span className="text-4xl font-lexend font-black uppercase hover:translate-x-2 transition-transform block">SKINCLUV.ID</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Projects Submenu */}
+                            {activeTab === 'projects' && (
+                                <div className="side-content animate-side-in flex flex-col h-full bg-[#FFD700] p-12 w-full">
+                                    <button onClick={() => setActiveTab('default')} className="md:hidden mb-8 font-black uppercase text-xs flex items-center gap-2 underline">← Back to Menu</button>
+                                    <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">PORTFOLIO</h4>
+                                    <div className="flex flex-col gap-6">
+                                        <Link href="/projects" className="text-3xl font-black uppercase hover:translate-x-2 transition-transform block" onClick={() => setIsMenuOpen(false)}>Web Development</Link>
+                                        <Link href="/projects" className="text-3xl font-black uppercase hover:translate-x-2 transition-transform block" onClick={() => setIsMenuOpen(false)}>Mobile apps</Link>
+                                        <Link href="/projects" className="text-3xl font-black uppercase hover:translate-x-2 transition-transform block" onClick={() => setIsMenuOpen(false)}>UI/UX Design</Link>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Other Submenu */}
+                            {activeTab === 'other' && (
+                                <div className="side-content animate-side-in flex flex-col h-full bg-[#E0B0FF] p-12 w-full">
+                                    <button onClick={() => setActiveTab('default')} className="md:hidden mb-8 font-black uppercase text-xs flex items-center gap-2 underline">← Back to Menu</button>
+                                    <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">LINKS & MORE</h4>
+                                    <div className="flex flex-col gap-8">
+                                        <Link href="/bio" className="block group" onClick={() => setIsMenuOpen(false)}>
+                                            <span className="text-xs font-bold text-black/60 block mb-1">Quick Access</span>
+                                            <span className="text-4xl font-lexend font-black uppercase hover:translate-x-2 transition-transform block italic">BIO LINK</span>
+                                        </Link>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
-            </div>
-        </>
+            )}
+        </div>
     );
 };
 
