@@ -15,11 +15,11 @@ export default function Home() {
               <p className="font-body-lg text-xl text-[#5d5f5f] max-w-2xl mx-auto mb-12">
                   I build robust, high-performance web applications with a focus on structural integrity and distinctive aesthetic choices. No fluff. Just clean code and loud design.
               </p>
-              <div className="flex flex-wrap justify-center gap-6">
-                  <Button href="#projects" variant="primary" size="lg">
+              <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-6 w-full max-w-sm md:max-w-none mx-auto">
+                  <Button href="#projects" variant="primary" size="lg" className="w-full md:w-auto">
                       VIEW MY WORK
                   </Button>
-                  <Button href="#tech" variant="tertiary" size="lg">
+                  <Button href="#tech" variant="tertiary" size="lg" className="w-full md:w-auto">
                       MY STACK
                   </Button>
               </div>

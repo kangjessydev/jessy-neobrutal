@@ -1,0 +1,21 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Accent Shadow / Double Line Effect (Neobrutalist Yellow) -->
+  <g transform="translate(15, 15)">
+    <path d="M100 100 H160 V350 H100 Z" fill="#FFD700" />
+    <path d="M160 100 L280 100 L160 220 Z" fill="#FFD700" />
+    <path d="M160 250 L280 400 H200 C150 400 140 380 140 350 V250 H160 Z" fill="#FFD700" />
+  </g>
+  
+  <!-- Main Logo Body (Solid Black) -->
+  <g>
+    <!-- K vertical bar -->
+    <path d="M100 100 H160 V350 H100 Z" fill="black" />
+    
+    <!-- K top arm (Triangle) -->
+    <path d="M160 100 L280 100 L160 220 Z" fill="black" />
+    
+    <!-- J interlocked leg (The Hook) -->
+    <!-- This part accurately mimics the hook shape from your image -->
+    <path d="M160 250 L280 400 H200 C150 400 140 380 140 350 V250 H160 Z" fill="black" />
+  </g>
+</svg>

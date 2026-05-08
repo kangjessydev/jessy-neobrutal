@@ -1,0 +1,55 @@
+{
+  "profile": {
+    "avatar": "/avatar.jpg",
+    "name": "KANGJESSY DEV",
+    "profession": "AI-Driven Engineer",
+    "status": {
+      "icon": "ph-bold ph-terminal-window",
+      "text": "Online"
+    }
+  },
+  "skills": ["REACT", "VUE", "TYPESCRIPT", "TAILWIND", "NODE.JS", "NEXT.JS", "NUXT.JS"],
+  "links": [
+    {
+      "title": "My Portfolio",
+      "href": "/projects",
+      "icon": "ph-bold ph-rocket-launch",
+      "variant": "primary"
+    },
+    {
+      "title": "Latest Blog Post",
+      "href": "/blog",
+      "icon": "ph-bold ph-article",
+      "variant": "tertiary"
+    },
+    {
+      "title": "GitHub Repos",
+      "href": "https://github.com/kangjessydev",
+      "icon": "ph-bold ph-github-logo",
+      "variant": "black"
+    },
+    {
+      "title": "LinkedIn Profile",
+      "href": "https://linkedin.com/in/kangjessy",
+      "icon": "ph-bold ph-linkedin-logo",
+      "variant": "secondary"
+    }
+  ],
+  "socials": [
+    {
+      "icon": "ph-bold ph-envelope",
+      "href": "mailto:hi.kangjessy@gmail.com",
+      "variant": "primary"
+    },
+    {
+      "icon": "ph-bold ph-instagram-logo",
+      "href": "https://instagram.com/kangjessy",
+      "variant": "secondary"
+    },
+    {
+      "icon": "ph-bold ph-tiktok-logo",
+      "href": "https://tiktok.com/kangjessy",
+      "variant": "tertiary"
+    }
+  ]
+}
