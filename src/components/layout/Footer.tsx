@@ -24,8 +24,14 @@ const Footer = () => {
                 <Link href="/" className="font-lexend font-black italic text-xl uppercase text-black hover:text-[#FFD700] transition-colors">
                     KANGJESSY_DEV
                 </Link>
-                <div className="font-lexend font-bold uppercase text-black text-center">
-                    © {currentYear} PORTFOLIO. BUILT WITH COFFEE AND BRUTALISM.
+                <div className="flex flex-col items-center gap-2">
+                    <div className="font-lexend font-bold uppercase text-black text-center">
+                        © {currentYear} PORTFOLIO. BUILT WITH COFFEE AND BRUTALISM.
+                    </div>
+                    <div className="flex gap-4">
+                        <Link href="/terms" className="text-[10px] font-black uppercase border-b-2 border-black hover:bg-[#FFD700] leading-none">Terms</Link>
+                        <Link href="/privacy" className="text-[10px] font-black uppercase border-b-2 border-black hover:bg-[#ADFF2F] leading-none">Privacy</Link>
+                    </div>
                 </div>
                 {/* Single button trigger */}
                 <button

@@ -5,6 +5,7 @@ import Button from "@/components/ui/Button";
 const ContactPage = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState('Project Inquiry');
+    const dropdownRef = React.useRef<HTMLDivElement>(null);
     const waNumber = "6281234567890";
 
     const subjects = [
@@ -23,11 +24,15 @@ const ContactPage = () => {
         window.open(`https://wa.me/${waNumber}?text=${text}`, '_blank');
     };
 
-    // Close dropdown on click outside
+    // Close dropdown on click outside using Ref
     useEffect(() => {
-        const handleClickOutside = () => setIsDropdownOpen(false);
-        document.addEventListener('click', handleClickOutside);
-        return () => document.removeEventListener('click', handleClickOutside);
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsDropdownOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
     return (
@@ -48,9 +53,9 @@ const ContactPage = () => {
                         <div className="space-y-6">
                             <div className="flex items-center gap-4">
                                 <div className="border-4 border-black p-2 bg-white shadow-[4px_4px_0px_#000000]">
-                                    <span className="material-symbols-outlined text-3xl">alternate_email</span>
+                                    <i className="ph-bold ph-envelope-simple text-3xl text-black"></i>
                                 </div>
-                                <div>
+                                <div className="flex-1">
                                     <h3 className="font-black uppercase text-xs text-[#5d5f5f]">Email Me</h3>
                                     <a href="mailto:HELLO@DEVPORT.IO" className="font-lexend font-black text-2xl text-black hover:text-[#ffd700] transition-colors">
                                         HELLO@DEVPORT.IO
@@ -60,9 +65,9 @@ const ContactPage = () => {
 
                             <div className="flex items-center gap-4">
                                 <div className="border-4 border-black p-2 bg-white shadow-[4px_4px_0px_#000000]">
-                                    <span className="material-symbols-outlined text-3xl">location_on</span>
+                                    <i className="ph-bold ph-map-pin text-3xl text-black"></i>
                                 </div>
-                                <div>
+                                <div className="flex-1">
                                     <h3 className="font-black uppercase text-xs text-[#5d5f5f]">Location</h3>
                                     <p className="font-lexend font-black text-2xl text-black">
                                         BERLIN, DE
@@ -77,15 +82,15 @@ const ContactPage = () => {
                             <h3 className="font-black uppercase text-xl mb-6 text-black">Connect</h3>
                             <div className="flex flex-wrap gap-4">
                                 <a href="https://github.com/kangjessy" target="_blank" rel="noopener noreferrer" className="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm">
-                                    <span className="material-symbols-outlined text-lg">terminal</span>
+                                    <i className="ph-bold ph-github-logo text-lg text-black"></i>
                                     GITHUB
                                 </a>
                                 <a href="#" target="_blank" rel="noopener noreferrer" className="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm">
-                                     <span className="material-symbols-outlined text-lg">work</span>
+                                     <i className="ph-bold ph-linkedin-logo text-lg text-black"></i>
                                      LINKEDIN
                                 </a>
                                 <a href="#" target="_blank" rel="noopener noreferrer" className="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm">
-                                    <span className="material-symbols-outlined text-lg">podcasts</span>
+                                    <i className="ph-bold ph-x-logo text-lg text-black"></i>
                                     TWITTER
                                 </a>
                             </div>
@@ -127,24 +132,22 @@ const ContactPage = () => {
                             </div>
 
                             {/* Custom Dropdown */}
-                            <div className="flex flex-col gap-3 relative">
+                            <div className="flex flex-col gap-3 relative z-[60]" ref={dropdownRef}>
                                 <label className="font-bold uppercase text-xs text-black">SUBJECT</label>
                                 <div className="relative">
                                     <button 
                                         type="button"
-                                        onClick={(e) => { e.stopPropagation(); setIsDropdownOpen(!isDropdownOpen); }}
-                                        className="w-full bg-white border-4 border-black h-[64px] px-5 py-0 font-medium text-base text-black flex items-center cursor-pointer outline-none text-left relative focus:shadow-[4px_4px_0px_#000000]"
+                                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                        className="w-full bg-white border-4 border-black h-[64px] px-5 py-0 font-medium text-base text-black flex items-center cursor-pointer outline-none text-left relative focus:shadow-[4px_4px_0px_#000000] z-10"
                                     >
                                         <span>{selectedValue}</span>
-                                        <div className="absolute right-0 top-0 bottom-0 w-[56px] border-l-4 border-black flex items-center justify-center bg-white">
-                                            <svg className={`w-6 h-6 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none">
-                                                <path d="M6 9L12 15L18 9" stroke="black" strokeWidth="3" strokeLinecap="square"/>
-                                            </svg>
+                                        <div className="absolute right-0 top-0 bottom-0 w-[56px] border-l-4 border-black flex items-center justify-center bg-white pointer-events-none">
+                                            <i className={`ph-bold ph-caret-down text-xl transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}></i>
                                         </div>
                                     </button>
                                     
                                     {isDropdownOpen && (
-                                        <div className="absolute top-[72px] left-0 w-full bg-white border-4 border-black shadow-[8px_8px_0px_black] z-40 overflow-hidden animate-drop-in">
+                                        <div className="absolute top-full left-0 w-full bg-white border-4 border-black shadow-[8px_8px_0px_black] z-[100] overflow-hidden mt-2">
                                             {subjects.map(subject => (
                                                 <div 
                                                     key={subject}

@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { getProjectBySlug, getProjects, Project } from '@/data/projects';
 import { notFound } from 'next/navigation';
 import Button from '@/components/ui/Button';
@@ -13,6 +14,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
     const project = getProjectBySlug(slug);
 
     const [activeIndex, setActiveIndex] = useState(0);
+    const [parent] = useAutoAnimate();
 
     if (!project) {
         notFound();
@@ -252,9 +254,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                             <li>Scalable component library for future protocol integration.</li>
                         </ul>
 
-                        <blockquote className="border-l-8 border-black pl-6 py-4 italic text-2xl font-bold bg-[#f0f0f0] mb-10">
-                            &quot;Brutalism in web design isn&apos;t about being ugly; it&apos;s about being unapologetically functional.&quot;
-                        </blockquote>
+                        <blockquote className="border-l-8 border-black pl-6 py-4 italic text-2xl font-bold bg-[#f0f0f0] mb-10">&quot;Brutalism in web design isn&apos;t about being ugly; it&apos;s about being unapologetically functional.&quot;</blockquote>
 
                         <h4 className="text-2xl font-black mb-4 uppercase text-black">System Performance:</h4>
                         <div className="my-10 overflow-x-auto border-4 border-black">
