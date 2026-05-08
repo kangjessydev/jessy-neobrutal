@@ -1,12 +1,13 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import Button from '../ui/Button';
 
 const Navbar = () => {
     const pathname = usePathname();
+    const router = useRouter();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('default');
     const [isVisible, setIsVisible] = useState(true);
@@ -116,8 +117,33 @@ const Navbar = () => {
                 <div
                     className="fixed inset-0 bg-white z-[200] flex flex-col border-[12px] border-black"
                 >
-                    <div className="flex justify-between items-center p-8 border-b-8 border-black bg-[#ADFF2F]">
-                        <span className="font-lexend font-black uppercase text-2xl tracking-tighter">NAVIGATION</span>
+                    <div 
+                        className={`flex justify-between items-center p-8 border-b-8 border-black transition-colors duration-500 ${
+                            activeTab === 'projects' ? 'bg-[#FFD700]' : 
+                            activeTab === 'network' ? 'bg-[#ADFF2F]' : 
+                            activeTab === 'other' ? 'bg-[#E0B0FF]' : 
+                            'bg-[#ADFF2F]'
+                        }`}
+                    >
+                        <div className="flex items-center gap-4" ref={parent}>
+                            {activeTab !== 'default' && (
+                                <button 
+                                    onClick={() => setActiveTab('default')}
+                                    className="md:hidden w-12 h-12 flex items-center justify-center bg-black text-white border-4 border-black shadow-[4px_4px_0px_#ffffff] active:shadow-none active:translate-x-1 active:translate-y-1 transition-all"
+                                >
+                                    <i className="ph-bold ph-arrow-left text-xl"></i>
+                                </button>
+                            )}
+                            <span 
+                                key={activeTab}
+                                className="font-lexend font-black uppercase text-2xl tracking-tighter"
+                            >
+                                {activeTab === 'projects' ? 'PORTFOLIO' : 
+                                 activeTab === 'network' ? 'EXPLORE' : 
+                                 activeTab === 'other' ? 'LINKS' : 
+                                 'NAVIGATION'}
+                            </span>
+                        </div>
                         <Button
                             onClick={() => setIsMenuOpen(false)}
                             variant="black"
@@ -128,52 +154,70 @@ const Navbar = () => {
                         </Button>
                     </div>
 
-                    <div className="flex-grow flex flex-col md:flex-row divide-y-8 md:divide-y-0 md:divide-x-8 divide-black overflow-y-auto">
+                    <div className="flex-grow flex flex-col md:flex-row md:divide-x-8 divide-black overflow-y-auto relative overflow-x-hidden" ref={parent}>
                         {/* Main Links (Left Side) */}
-                        <div className="flex-grow p-12 py-12 flex flex-col justify-start gap-6 overflow-y-auto no-scrollbar transition-all duration-400">
+                        <div className={`flex-grow p-12 py-12 flex flex-col justify-start gap-6 overflow-y-auto no-scrollbar transition-all duration-300 md:translate-x-0 ${
+                            activeTab !== 'default' ? '-translate-x-full absolute opacity-0 pointer-events-none md:relative md:opacity-100 md:pointer-events-auto' : 'translate-x-0'
+                        }`}>
                             {[
                                 { label: 'Home', href: '/', target: 'default' },
                                 { label: 'About', href: '/about', target: 'default' },
-                                { label: 'Projects', href: '/projects', target: 'projects' },
+                                { label: 'Projects', href: '/projects', target: 'projects', hasSub: true },
                                 { label: 'Blog', href: '/blog', target: 'default' },
                             ].map((link, i) => (
-                                <Link
+                                <button
                                     key={link.href}
-                                    href={link.href}
-                                    onClick={() => setIsMenuOpen(false)}
-                                    onMouseEnter={() => setActiveTab(link.target)}
-                                    className={`font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block ${
+                                    onClick={() => {
+                                        // On mobile, if it has sub content, open the drill-down
+                                        if (window.innerWidth < 768 && link.hasSub) {
+                                            setActiveTab(link.target);
+                                        } else {
+                                            // Otherwise navigate
+                                            setIsMenuOpen(false);
+                                            router.push(link.href);
+                                        }
+                                    }}
+                                    onMouseEnter={() => {
+                                        // Restore hover behavior for desktop only
+                                        if (window.innerWidth >= 768) {
+                                            setActiveTab(link.target);
+                                        }
+                                    }}
+                                    className={`text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block w-fit group flex items-center gap-4 ${
                                         isActive(link.href) ? 'italic underline underline-offset-8 decoration-8 decoration-[#ADFF2F] translate-x-4' : ''
                                     }`}
                                     style={{ transitionDelay: `${0.1 + i * 0.05}s` }}
                                 >
-                                    {link.label}
-                                </Link>
+                                    <span>{link.label}</span>
+                                </button>
                             ))}
                             
                             <button
-                                onMouseEnter={() => setActiveTab('network')}
+                                onMouseEnter={() => {
+                                    if (window.innerWidth >= 768) setActiveTab('network');
+                                }}
                                 onClick={() => setActiveTab('network')}
-                                className="text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block focus:outline-none"
+                                className="text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic group flex items-center gap-4 hover:translate-x-4 transition-all"
                                 style={{ transitionDelay: '0.3s' }}
                             >
-                                Network
+                                <span>Network</span>
                             </button>
                             <button
-                                onMouseEnter={() => setActiveTab('other')}
+                                onMouseEnter={() => {
+                                    if (window.innerWidth >= 768) setActiveTab('other');
+                                }}
                                 onClick={() => setActiveTab('other')}
-                                className="text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block focus:outline-none"
+                                className="text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic group flex items-center gap-4 hover:translate-x-4 transition-all"
                                 style={{ transitionDelay: '0.35s' }}
                             >
-                                Other
+                                <span>Other</span>
                             </button>
                         </div>
 
                         {/* Dynamic Sidebar Panel */}
                         <div 
-                            ref={parent}
-                            className={`w-full md:w-[450px] bg-[#f0f0f0] transition-all duration-300 border-l-0 md:border-l-8 border-black overflow-hidden relative ${
-                                activeTab !== 'default' ? 'flex' : 'hidden md:flex'
+                            className={`w-full md:w-[450px] bg-[#f0f0f0] transition-all duration-300 border-l-0 md:border-l-8 border-black overflow-hidden relative flex-shrink-0 ${
+                                activeTab !== 'default' ? 'translate-x-0 opacity-100 flex h-full' : 'translate-x-full absolute opacity-0 pointer-events-none md:relative md:opacity-100 md:pointer-events-auto md:translate-x-0 hidden md:flex'
                             }`}
                         >
                             {/* Default Content */}
@@ -210,8 +254,7 @@ const Navbar = () => {
                             {/* Network Submenu */}
                             {activeTab === 'network' && (
                                 <div className="side-content animate-side-in flex flex-col h-full bg-[#ADFF2F] p-12 w-full">
-                                    <button onClick={() => setActiveTab('default')} className="md:hidden mb-8 font-black uppercase text-xs flex items-center gap-2 underline">← Back to Menu</button>
-                                    <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">EXPLORE NETWORK</h4>
+                                    <h4 className="hidden md:inline-block font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white">EXPLORE NETWORK</h4>
                                     <div className="flex flex-col gap-8">
                                         <a 
                                             href="https://mejadaring.id" 
@@ -240,8 +283,7 @@ const Navbar = () => {
                             {/* Projects Submenu */}
                             {activeTab === 'projects' && (
                                 <div className="side-content animate-side-in flex flex-col h-full bg-[#FFD700] p-12 w-full">
-                                    <button onClick={() => setActiveTab('default')} className="md:hidden mb-8 font-black uppercase text-xs flex items-center gap-2 underline">← Back to Menu</button>
-                                    <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">PORTFOLIO</h4>
+                                    <h4 className="hidden md:inline-block font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white">PORTFOLIO</h4>
                                     <div className="flex flex-col gap-6">
                                         <Link href="/projects" className="text-3xl font-black uppercase hover:translate-x-2 transition-transform block" onClick={() => setIsMenuOpen(false)}>Web Development</Link>
                                         <Link href="/projects" className="text-3xl font-black uppercase hover:translate-x-2 transition-transform block" onClick={() => setIsMenuOpen(false)}>Mobile apps</Link>
@@ -253,8 +295,7 @@ const Navbar = () => {
                             {/* Other Submenu */}
                             {activeTab === 'other' && (
                                 <div className="side-content animate-side-in flex flex-col h-full bg-[#E0B0FF] p-12 w-full">
-                                    <button onClick={() => setActiveTab('default')} className="md:hidden mb-8 font-black uppercase text-xs flex items-center gap-2 underline">← Back to Menu</button>
-                                    <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">LINKS & MORE</h4>
+                                    <h4 className="hidden md:inline-block font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white">LINKS & MORE</h4>
                                     <div className="flex flex-col gap-8">
                                         <Link href="/bio" className="block group" onClick={() => setIsMenuOpen(false)}>
                                             <span className="text-xs font-bold text-black/60 block mb-1">Quick Access</span>
