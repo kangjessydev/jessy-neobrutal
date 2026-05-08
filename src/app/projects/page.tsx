@@ -86,19 +86,19 @@ export default function ProjectsPage() {
                     <h2 className="font-lexend font-black text-5xl uppercase mb-12">TECHNICAL STACK</h2>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                         <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_#000000] flex flex-col items-center justify-center text-center min-h-[160px]">
-                            <span className="material-symbols-outlined text-5xl mb-4">terminal</span>
+                            <i className="ph-bold ph-terminal text-5xl mb-4"></i>
                             <span className="font-black uppercase tracking-widest text-sm">Frontend</span>
                         </div>
                         <div className="bg-[#ffd700] border-4 border-black p-8 shadow-[8px_8px_0px_#000000] flex flex-col items-center justify-center text-center min-h-[160px]">
-                            <span className="material-symbols-outlined text-5xl mb-4">database</span>
+                            <i className="ph-bold ph-database text-5xl mb-4"></i>
                             <span className="font-black uppercase tracking-widest text-sm">Backend</span>
                         </div>
                         <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_#000000] flex flex-col items-center justify-center text-center min-h-[160px]">
-                            <span className="material-symbols-outlined text-5xl mb-4">palette</span>
+                            <i className="ph-bold ph-palette text-5xl mb-4"></i>
                             <span className="font-black uppercase tracking-widest text-sm">UI / UX</span>
                         </div>
                         <div className="bg-[#ffd700] border-4 border-black p-8 shadow-[8px_8px_0px_#000000] flex flex-col items-center justify-center text-center min-h-[160px]">
-                            <span className="material-symbols-outlined text-5xl mb-4">cloud_sync</span>
+                            <i className="ph-bold ph-cloud-arrow-up text-5xl mb-4"></i>
                             <span className="font-black uppercase tracking-widest text-sm">DevOps</span>
                         </div>
                     </div>

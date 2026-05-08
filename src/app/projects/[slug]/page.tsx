@@ -12,8 +12,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
     const { slug } = React.use(params);
     const project = getProjectBySlug(slug);
 
-    const [probIndex, setProbIndex] = useState(0);
-    const [solIndex, setSolIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     if (!project) {
         notFound();
@@ -22,8 +21,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
     // Auto-slide logic
     useEffect(() => {
         const timer = setInterval(() => {
-            setProbIndex((prev) => (prev + 1) % 3);
-            setSolIndex((prev) => (prev + 1) % 3);
+            setActiveIndex((prev) => (prev + 1) % 3);
         }, 4000);
         return () => clearInterval(timer);
     }, []);
@@ -34,10 +32,22 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         "Latensi Data Per detik Sangat Lambat"
     ];
 
+    const problemDetails = [
+        "Dashboard lama menggunakan framework yang sudah deprecated, menyebabkan bundle size membengkak dan rendering yang terhambat di device low-end.",
+        "Arsitektur state management yang tidak efisien mengakibatkan race condition pada setiap transaksi finansial yang dilakukan pengguna.",
+        "Sistem monitoring menggunakan polling periodik 5 detik, yang mengakibatkan lag visual yang signifikan saat pergerakan pasar sedang volatil."
+    ];
+
     const solutionPoints = [
         "Arsitektur Modular & Ringan",
         "Validasi Transaksi Real-time",
         "Optimasi GraphQL Subscription"
+    ];
+
+    const solutionDetails = [
+        "Kami membangun ulang seluruh sistem menggunakan Next.js dengan arsitektur server component untuk meminimalkan beban di sisi client.",
+        "Implementasi xState untuk management transaksi yang lebih prediktif, memastikan setiap step tervalidasi sebelum masuk ke database.",
+        "Migrasi ke GraphQL Subscription (Websocket) yang memberikan update data secara instan (<100ms) tanpa membebani browser pengguna."
     ];
 
     return (
@@ -121,9 +131,9 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                     {[...Array(5)].map((_, i) => (
                         <div key={i} className="flex gap-8 items-center shrink-0">
                             <span className="font-lexend font-black text-2xl uppercase italic">DESIGN WITH PURPOSE</span>
-                            <span className="material-symbols-outlined text-4xl">star</span>
+                            <i className="ph-bold ph-star text-4xl"></i>
                             <span className="font-lexend font-black text-2xl uppercase italic">RAW LOGIC ONLY</span>
-                            <span className="material-symbols-outlined text-4xl">bolt</span>
+                            <i className="ph-bold ph-lightning text-4xl"></i>
                         </div>
                     ))}
                 </div>
@@ -141,13 +151,13 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                         <div className="p-8 flex-grow flex flex-col">
                             <p className="text-lg font-medium leading-relaxed mb-8 text-black">{project.problem || "Traditional crypto-wallets and dashboards were cluttered with unnecessarily complex navigation patterns."}</p>
                             
-                            <ul className="space-y-3 mb-10">
+                            <ul className="space-y-3 mb-8">
                                 {problemPoints.map((point, i) => (
                                     <li 
                                         key={i}
-                                        onClick={() => setProbIndex(i)}
+                                        onClick={() => setActiveIndex(i)}
                                         className={`cursor-pointer border-2 border-black p-3 font-bold flex gap-3 items-center transition-all ${
-                                            probIndex === i ? 'bg-[#ff69b4] text-white translate-x-2.5 shadow-[-4px_0px_0px_black]' : 'hover:bg-[#ff69b4] hover:text-white'
+                                            activeIndex === i ? 'bg-[#ff69b4] text-white translate-x-2.5 shadow-[-4px_0px_0px_black]' : 'hover:bg-[#ff69b4] hover:text-white'
                                         }`}
                                     >
                                         <span className="w-6 h-6 bg-black text-white text-[10px] flex items-center justify-center">0{i+1}</span>
@@ -156,8 +166,18 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                                 ))}
                             </ul>
 
+                            {/* Dynamic Description Box (Problem) */}
+                            <div className="mb-8 border-4 border-black p-5 bg-[#f0f0f0] min-h-[100px] flex items-center relative overflow-hidden" ref={parent}>
+                                <div key={activeIndex} className="animate-side-in">
+                                    <h5 className="text-[10px] font-black uppercase opacity-60 mb-1 tracking-[0.2em]">Context / Observation</h5>
+                                    <p className="text-sm font-bold text-black leading-snug italic">
+                                        &quot;{problemDetails[activeIndex]}&quot;
+                                    </p>
+                                </div>
+                            </div>
+
                             <div className="mt-auto relative border-4 border-black bg-black overflow-hidden aspect-video">
-                                <div className="flex w-full h-full transition-transform duration-500 ease-out" style={{ transform: `translateX(-${probIndex * 100}%)` }}>
+                                <div className="flex w-full h-full transition-transform duration-500 ease-out" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
                                     <img src={project.image} className="w-full h-full object-cover shrink-0" alt="Problem 1" />
                                     <img src="/images/the_lab_keyboard_neobrutal_1778062567814.png" className="w-full h-full object-cover shrink-0" alt="Problem 2" />
                                     <img src="/images/our_studio_photography_neobrutal_1778062528096.png" className="w-full h-full object-cover shrink-0" alt="Problem 3" />
@@ -174,13 +194,13 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                         <div className="p-8 flex-grow flex flex-col">
                             <p className="text-lg font-medium leading-relaxed mb-8 text-black">{project.solution || "We implemented a strict Neobrutalist system that prioritizes data hierarchy and performance."}</p>
                             
-                            <ul className="space-y-3 mb-10">
+                            <ul className="space-y-3 mb-8">
                                 {solutionPoints.map((point, i) => (
                                     <li 
                                         key={i}
-                                        onClick={() => setSolIndex(i)}
+                                        onClick={() => setActiveIndex(i)}
                                         className={`cursor-pointer border-2 border-black p-3 font-bold flex gap-3 items-center transition-all ${
-                                            solIndex === i ? 'bg-[#adff2f] text-black translate-x-2.5 shadow-[-4px_0px_0px_black]' : 'hover:bg-[#adff2f]'
+                                            activeIndex === i ? 'bg-[#adff2f] text-black translate-x-2.5 shadow-[-4px_0px_0px_black]' : 'hover:bg-[#adff2f]'
                                         }`}
                                     >
                                         <span className="w-6 h-6 bg-black text-white text-[10px] flex items-center justify-center">0{i+1}</span>
@@ -189,8 +209,18 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                                 ))}
                             </ul>
 
+                            {/* Dynamic Description Box (Solution) */}
+                            <div className="mb-8 border-4 border-black p-5 bg-[#f0f0f0] min-h-[100px] flex items-center relative overflow-hidden" ref={parent}>
+                                <div key={activeIndex} className="animate-side-in">
+                                    <h5 className="text-[10px] font-black uppercase opacity-60 mb-1 tracking-[0.2em]">Strategy / Execution</h5>
+                                    <p className="text-sm font-bold text-black leading-snug italic">
+                                        &quot;{solutionDetails[activeIndex]}&quot;
+                                    </p>
+                                </div>
+                            </div>
+
                             <div className="mt-auto relative border-4 border-black bg-black overflow-hidden aspect-video">
-                                <div className="flex w-full h-full transition-transform duration-500 ease-out" style={{ transform: `translateX(-${solIndex * 100}%)` }}>
+                                <div className="flex w-full h-full transition-transform duration-500 ease-out" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
                                     <img src={project.image} className="w-full h-full object-cover shrink-0" alt="Solution 1" />
                                     <img src="/images/playground_components_neobrutal_1778062798068.png" className="w-full h-full object-cover shrink-0" alt="Solution 2" />
                                     <img src={project.image} className="w-full h-full object-cover shrink-0" alt="Solution 3" />
