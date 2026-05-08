@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary: #ffd700;
+  --color-secondary: #ADFF2F;
+  --color-accent: #ff69b4;
+  --color-dark: #000000;
+  --color-surface: #ffffff;
+  --color-neutral: #eeeeee;
+
+  /* Fonts */
+  --font-lexend: "Lexend", sans-serif;
+  --font-space: "Space Grotesk", sans-serif;
+
+  /* Shorthand Shadows */
+  --shadow-neo: 8px 8px 0px #000000;
+  --shadow-neo-sm: 4px 4px 0px #000000;
+  --shadow-neo-lg: 12px 12px 0px #000000;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-space);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .btn-neo {
+    @apply inline-flex items-center justify-center border-4 border-black font-lexend font-black uppercase transition-all relative gap-2;
+  }
+  
+  .btn-neo:hover {
+    @apply -translate-x-1 -translate-y-1 shadow-neo;
+  }
+  
+  .btn-neo:active {
+    @apply translate-x-1 translate-y-1 shadow-none;
+  }
+
+  .caution-tape {
+    background: repeating-linear-gradient(
+      -45deg,
+      #ffd700,
+      #ffd700 20px,
+      #000000 20px,
+      #000000 40px
+    );
+  }
+
+  /* Core Animations */
+  @keyframes caution-scroll {
+    from { background-position: 0 0; }
+    to { background-position: 56.5px 0; }
+  }
+
+  @keyframes caution-tape-move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-40px); }
+  }
+
+  @keyframes sideIn {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes dropIn {
+    0% { transform: translateY(-10px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Utility Animation Classes */
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-drop-in {
+    animation: dropIn 0.2s ease-out forwards;
+  }
+
+  .animate-caution-scroll {
+    animation: caution-scroll 2s linear infinite;
+  }
+
+  .animate-caution-tape {
+    animation: caution-tape-move 2s linear infinite;
+  }
+
+  .animate-side-in {
+    animation: sideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+/* Print Enhancements */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  body {
+    background: white !important;
+    margin: 0;
+    padding: 0;
+  }
+  .print-hidden {
+    display: none !important;
+  }
+}
+
+/* Prose-Neo System */
+.prose-neo h2 {
+  font-family: var(--font-lexend);
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  letter-spacing: -0.05em;
+}
+
+.prose-neo p {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.prose-neo blockquote {
+  border-left: 8px solid #000000;
+  padding: 1.5rem;
+  margin: 2.5rem 0;
+  background-color: #eeeeee;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 1.5rem;
+}

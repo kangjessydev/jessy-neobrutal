@@ -1,0 +1,18 @@
+@theme {
+  /* Colors */
+  --color-primary: #ffd700;
+  --color-secondary: #ADFF2F;
+  --color-accent: #ff69b4;
+  --color-dark: #000000;
+  --color-surface: #ffffff;
+  --color-neutral: #eeeeee;
+
+  /* Fonts */
+  --font-lexend: "Lexend", sans-serif;
+  --font-space: "Space Grotesk", sans-serif;
+
+  /* Shorthand Shadows */
+  --shadow-neo: 8px 8px 0px #000000;
+  --shadow-neo-sm: 4px 4px 0px #000000;
+  --shadow-neo-lg: 12px 12px 0px #000000;
+}
