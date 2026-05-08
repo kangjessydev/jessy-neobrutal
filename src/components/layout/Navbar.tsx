@@ -48,48 +48,6 @@ const Navbar = () => {
                         KANGJESSY_DEV
                     </Link>
 
-                    {/* Network Dropdown Trigger */}
-                    <div className="relative">
-                        <Button
-                            onClick={(e) => {
-                                e?.stopPropagation();
-                                setIsNetworkOpen(!isNetworkOpen);
-                            }}
-                            variant="black"
-                            size="sm"
-                            className="!w-8 !h-8 !px-0 !py-0"
-                            title="Our Network"
-                        >
-                            <span className={`transition-transform duration-200 text-xl font-black ${isNetworkOpen ? 'rotate-180' : ''}`}>▾</span>
-                        </Button>
-
-                        {/* Network Dropdown Content */}
-                        <div
-                            className={`absolute top-[calc(100%+12px)] left-0 bg-white border-4 border-black shadow-[8px_8px_0px_#000000] min-w-[220px] z-50 origin-top-left transition-all ${
-                                isNetworkOpen ? 'block' : 'hidden'
-                            }`}
-                        >
-                            <div className="bg-black text-white px-4 py-2 text-[10px] font-black uppercase tracking-widest border-b-4 border-black">
-                                Connected Networks
-                            </div>
-                            <a
-                                href="https://mejadaring.id"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block px-6 py-4 font-lexend font-black uppercase text-xs tracking-tighter text-black hover:bg-[#ADFF2F] border-b-4 border-black transition-colors"
-                            >
-                                mejadaring.id <span className="material-symbols-outlined text-xs align-middle">open_in_new</span>
-                            </a>
-                            <a
-                                href="https://skincluv.id"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block px-6 py-4 font-lexend font-black uppercase text-xs tracking-tighter text-black hover:bg-[#ADFF2F] transition-colors"
-                            >
-                                skincluv.id <span className="material-symbols-outlined text-xs align-middle">open_in_new</span>
-                            </a>
-                        </div>
-                    </div>
                 </div>
 
                 {/* Main Nav (Slimming down) */}
@@ -105,8 +63,10 @@ const Navbar = () => {
                         onClick={toggleMenu}
                         variant="primary"
                         size="md"
+                        className="gap-2"
                     >
-                        MENU <span className="text-xl">☰</span>
+                        <span>MENU</span>
+                        <i className={`ph-bold ${isMenuOpen ? 'ph-x' : 'ph-list'} text-xl`}></i>
                     </Button>
                 </div>
             </header>
@@ -114,7 +74,7 @@ const Navbar = () => {
             {/* Full Screen Overlay Menu */}
             <div
                 className={`fixed inset-0 bg-white z-[200] flex-col border-[12px] border-black transition-transform duration-500 ease-[cubic-bezier(0.8,0,0.2,1)] ${
-                    isMenuOpen ? 'flex translate-x-0' : 'hidden translate-x-full'
+                    isMenuOpen ? 'flex translate-x-0' : 'hidden'
                 }`}
             >
                 <div className="flex justify-between items-center p-8 border-b-8 border-black bg-[#ADFF2F]">
@@ -125,7 +85,7 @@ const Navbar = () => {
                         size="md"
                         className="!w-12 !h-12 !p-0"
                     >
-                        ✕
+                        <i className="ph-bold ph-x text-2xl"></i>
                     </Button>
                 </div>
 
@@ -182,13 +142,13 @@ const Navbar = () => {
                                 <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">CONNECT</h4>
                                 <div className="flex flex-col gap-6">
                                     <a href="#" className="text-3xl font-black uppercase hover:text-[#ADFF2F] transition-colors flex items-center gap-4 group">
-                                        LinkedIn <span className="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0">arrow_outward</span>
+                                        LinkedIn <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
                                     </a>
                                     <a href="#" className="text-3xl font-black uppercase hover:text-[#ADFF2F] transition-colors flex items-center gap-4 group">
-                                        Github <span className="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0">arrow_outward</span>
+                                        Github <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
                                     </a>
                                     <a href="#" className="text-3xl font-black uppercase hover:text-[#FFD700] transition-colors flex items-center gap-4 group">
-                                        Twitter <span className="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0">arrow_outward</span>
+                                        Twitter <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
                                     </a>
                                 </div>
                             </div>

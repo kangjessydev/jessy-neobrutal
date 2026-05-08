@@ -84,14 +84,14 @@ export default function ProductsPage() {
                         All digital goods are delivered instantly to your dashboard upon successful payment. No waiting, just building.
                     </p>
                     <div className="inline-flex items-center gap-4 bg-black text-[#ADFF2F] px-4 py-2 font-lexend font-black uppercase text-sm">
-                        <span className="material-symbols-outlined font-black">bolt</span>
+                        <i className="ph-bold ph-lightning text-xl"></i>
                         READY IN 0.2S
                     </div>
                 </div>
 
                 <div className="bg-white border-4 border-black p-10 flex flex-col items-center justify-center text-center shadow-[12px_12px_0px_#000000]">
                     <div className="w-16 h-16 bg-[#f0f0f0] border-4 border-black mb-6 flex items-center justify-center">
-                        <span className="material-symbols-outlined text-3xl font-black text-black">terminal</span>
+                        <i className="ph-bold ph-terminal-window text-3xl text-black"></i>
                     </div>
                     <h3 className="font-lexend font-black text-2xl uppercase mb-2 text-black">DEV-FIRST</h3>
                     <p className="font-bold text-black/60 text-sm">By developers, for developers.</p>

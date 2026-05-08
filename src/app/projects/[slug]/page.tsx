@@ -70,11 +70,11 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                         {/* Action Buttons */}
                         <div className="flex flex-wrap gap-6">
                             <Button href={project.demoUrl} variant="primary" size="md">
-                                <span className="material-symbols-outlined font-black">launch</span>
+                                <i className="ph-bold ph-arrow-square-out text-xl"></i>
                                 LIVE DEMO
                             </Button>
                             <Button href={project.githubUrl} variant="tertiary" size="md">
-                                <span className="material-symbols-outlined font-black">code</span>
+                                <i className="ph-bold ph-code text-xl"></i>
                                 VIEW CODE
                             </Button>
                         </div>
@@ -111,9 +111,9 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                     {[...Array(5)].map((_, i) => (
                         <div key={i} className="flex gap-8 items-center shrink-0">
                             <span className="font-lexend font-black text-2xl uppercase italic">DESIGN WITH PURPOSE</span>
-                            <span className="material-symbols-outlined text-4xl">star</span>
+                            <i className="ph-bold ph-star text-4xl"></i>
                             <span className="font-lexend font-black text-2xl uppercase italic">RAW LOGIC ONLY</span>
-                            <span className="material-symbols-outlined text-4xl">bolt</span>
+                            <i className="ph-bold ph-lightning text-4xl"></i>
                         </div>
                     ))}
                 </div>
@@ -273,21 +273,21 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                             
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
                                 <div className="flex flex-col gap-6">
-                                    <span className="material-symbols-outlined text-[#ffd700] text-4xl font-black">grid_view</span>
+                                    <i className="ph-bold ph-squares-four text-[#ffd700] text-4xl"></i>
                                     <div>
                                         <h4 className="font-lexend font-black text-2xl uppercase mb-4 tracking-tight">FRONTEND</h4>
                                         <p className="text-[#cccccc] text-sm leading-relaxed">{project.technical?.frontend}</p>
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-6">
-                                    <span className="material-symbols-outlined text-[#ffd700] text-4xl font-black">database</span>
+                                    <i className="ph-bold ph-database text-[#ffd700] text-4xl"></i>
                                     <div>
                                         <h4 className="font-lexend font-black text-2xl uppercase mb-4 tracking-tight">REAL-TIME</h4>
                                         <p className="text-[#cccccc] text-sm leading-relaxed">{project.technical?.realtime}</p>
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-6">
-                                    <span className="material-symbols-outlined text-[#ffd700] text-4xl font-black">verified_user</span>
+                                    <i className="ph-bold ph-shield-check text-[#ffd700] text-4xl"></i>
                                     <div>
                                         <h4 className="font-lexend font-black text-2xl uppercase mb-4 tracking-tight">SECURITY</h4>
                                         <p className="text-[#cccccc] text-sm leading-relaxed">{project.technical?.security}</p>

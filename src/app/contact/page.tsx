@@ -179,7 +179,7 @@ const ContactPage = () => {
                                 className="mt-2"
                             >
                                 <span>SEND MESSAGE</span>
-                                <span className="material-symbols-outlined font-black">send</span>
+                                <i className="ph-bold ph-paper-plane-tilt text-xl"></i>
                             </Button>
                             <p className="text-xs font-black uppercase text-center text-black">
                                 *This will redirect you to WhatsApp

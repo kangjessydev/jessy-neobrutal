@@ -35,7 +35,7 @@ export default function AboutPage() {
         {/* Journey */}
         <div className="flex-[2] p-12 border-b-8 lg:border-b-0 lg:border-r-8 border-black bg-white">
           <div className="flex items-center gap-6 mb-16">
-            <span className="material-symbols-outlined text-6xl bg-black text-[#A5F624] p-4 border-4 border-black shadow-[4px_4px_0px_#A5F624]">history_edu</span>
+            <i className="ph-bold ph-scroll text-5xl bg-black text-[#A5F624] p-4 border-4 border-black shadow-[4px_4px_0px_#A5F624]"></i>
             <h2 className="text-5xl font-black uppercase">My Journey</h2>
           </div>
           
@@ -69,7 +69,7 @@ export default function AboutPage() {
       {/* Experience & Education */}
       <section className="p-12">
         <h2 className="text-5xl font-black uppercase mb-16 flex items-center gap-6">
-          <span className="material-symbols-outlined text-5xl">work_history</span>
+          <i className="ph-bold ph-briefcase text-5xl"></i>
           Experience & Education
         </h2>
         
@@ -81,7 +81,7 @@ export default function AboutPage() {
                 <h3 className="text-4xl font-black uppercase mb-2">Senior Full-Stack Engineer</h3>
                 <p className="font-bold text-[#705d00] uppercase tracking-wider">TechFrontier Labs</p>
               </div>
-              <span className="material-symbols-outlined text-6xl text-black group-hover:rotate-12 transition-transform">terminal</span>
+              <i className="ph-bold ph-terminal-window text-6xl text-black group-hover:rotate-12 transition-transform"></i>
             </div>
             <p className="text-lg leading-relaxed text-[#5d5f5f]">
               Leading the core engineering team in developing a high-scale data visualization platform. Implemented a custom neobrutalist UI component library that increased user engagement by 40%.

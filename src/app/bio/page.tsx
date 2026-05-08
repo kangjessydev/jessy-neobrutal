@@ -10,38 +10,38 @@ const BioPage = () => {
         {
             title: "My Portfolio",
             href: "/",
-            icon: "rocket_launch",
-            actionIcon: "arrow_forward",
+            icon: "ph-bold ph-rocket-launch",
+            actionIcon: "ph-bold ph-arrow-right",
             variant: "bg-[#FFD700]",
         },
         {
             title: "Latest Blog Post",
             href: "/blog",
-            icon: "article",
-            actionIcon: "open_in_new",
+            icon: "ph-bold ph-article",
+            actionIcon: "ph-bold ph-arrow-square-out",
             variant: "bg-white",
         },
         {
             title: "GitHub Repos",
             href: "https://github.com/kangjessy",
-            icon: "code",
-            actionIcon: "link",
+            icon: "ph-bold ph-github-logo",
+            actionIcon: "ph-bold ph-link",
             variant: "bg-black text-white",
             iconClass: "text-[#FFD700]"
         },
         {
             title: "LinkedIn Profile",
             href: "https://linkedin.com/in/kangjessy",
-            icon: "account_circle",
-            actionIcon: "arrow_forward",
+            icon: "ph-bold ph-linkedin-logo",
+            actionIcon: "ph-bold ph-arrow-right",
             variant: "bg-white",
         },
     ];
 
     const socials = [
-        { icon: "alternate_email", href: "mailto:hello@jessy.dev", variant: "bg-[#FFD700]" },
-        { icon: "rss_feed", href: "/rss", variant: "bg-white" },
-        { icon: "share", href: "#", variant: "bg-white" },
+        { icon: "ph-bold ph-envelope", href: "mailto:hello@jessy.dev", variant: "bg-[#FFD700]" },
+        { icon: "ph-bold ph-rss", href: "/rss", variant: "bg-white" },
+        { icon: "ph-bold ph-share-network", href: "#", variant: "bg-white" },
     ];
 
     const tags = ["REACT", "TYPESCRIPT", "TAILWIND", "NODE.JS"];
@@ -59,7 +59,7 @@ const BioPage = () => {
                             className="w-full h-full object-cover grayscale-[1] contrast-[1.25] block border-l border-t border-black/10"
                         />
                         <div className="absolute -bottom-[22px] -right-[12px] p-1.5 bg-[#FFD700] border-4 border-black shadow-[4px_4px_0px_#000000] flex items-center justify-center z-20">
-                            <span className="material-symbols-outlined text-2xl font-black">terminal</span>
+                            <i className="ph-bold ph-terminal-window text-2xl"></i>
                         </div>
                     </div>
                 </div>
@@ -92,15 +92,11 @@ const BioPage = () => {
                             href={link.href} 
                             className={`flex items-center w-full px-6 py-4 border-4 border-black no-underline text-black font-lexend font-medium uppercase tracking-[0.05em] relative transition-all shadow-[6px_6px_0px_#000000] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[8px_8px_0px_#000000] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none group ${link.variant}`}
                         >
-                            <span className={`material-symbols-outlined text-2xl mr-4 ${link.iconClass || ''}`}>
-                                {link.icon}
-                            </span>
+                            <i className={`${link.icon} text-2xl mr-4 ${link.iconClass || ''}`}></i>
                             <span className="flex-grow">
                                 {link.title}
                             </span>
-                            <span className="material-symbols-outlined text-2xl ml-auto transition-transform duration-200 group-hover:translate-x-1">
-                                {link.actionIcon}
-                            </span>
+                            <i className={`${link.actionIcon} text-2xl ml-auto transition-transform duration-200 group-hover:translate-x-1`}></i>
                         </a>
                     ))}
                 </div>
@@ -113,7 +109,7 @@ const BioPage = () => {
                             href={social.href}
                             className={`w-16 h-16 border-4 border-black flex items-center justify-center transition-all shadow-[4px_4px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:scale-95 ${social.variant}`}
                         >
-                            <span className="material-symbols-outlined text-3xl font-bold">{social.icon}</span>
+                            <i className={`${social.icon} text-3xl`}></i>
                         </a>
                     ))}
                 </div>

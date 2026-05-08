@@ -42,7 +42,7 @@ const FloatingChat = () => {
             size="sm"
             className="!p-1 !border-2 !shadow-none hover:bg-white hover:text-black"
           >
-            <span className="material-symbols-outlined text-sm font-black">close</span>
+            <i className="ph-bold ph-x text-sm"></i>
           </Button>
         </div>
         
@@ -64,10 +64,10 @@ const FloatingChat = () => {
               className="justify-between"
             >
               <span className="flex items-center gap-2">
-                <span className="material-symbols-outlined font-black">chat</span>
+                <i className="ph-bold ph-whatsapp-logo text-xl"></i>
                 WhatsApp
               </span>
-              <span className="material-symbols-outlined">east</span>
+              <i className="ph-bold ph-arrow-right"></i>
             </Button>
             
             <Button 
@@ -78,10 +78,10 @@ const FloatingChat = () => {
               className="justify-between"
             >
               <span className="flex items-center gap-2">
-                <span className="material-symbols-outlined font-black">alternate_email</span>
+                <i className="ph-bold ph-envelope text-xl"></i>
                 Email Direct
               </span>
-              <span className="material-symbols-outlined">east</span>
+              <i className="ph-bold ph-arrow-right"></i>
             </Button>
           </div>
         </div>
@@ -104,7 +104,7 @@ const FloatingChat = () => {
         size="lg"
         className="!w-16 !h-16 !p-0 !shadow-[8px_8px_0px_#000000]"
       >
-        <span className="material-symbols-outlined font-black text-3xl">forum</span>
+        <i className="ph-bold ph-chats-teardrop text-3xl"></i>
       </Button>
     </div>
   );

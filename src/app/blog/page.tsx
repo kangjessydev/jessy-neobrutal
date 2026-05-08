@@ -41,8 +41,8 @@ export default function BlogPage() {
                         
                         {/* Stay Sharp Card */}
                         <div className="w-full lg:w-96 border-8 border-black p-10 bg-white shadow-[8px_8px_0px_#000000]">
-                            <div className="flex items-center gap-3 mb-6">
-                                <span className="material-symbols-outlined font-black text-3xl">mail</span>
+                            <div className="flex items-center gap-3 mb-6 font-black">
+                                <i className="ph-bold ph-envelope text-3xl"></i>
                                 <h3 className="font-lexend font-black text-3xl uppercase leading-none text-black">STAY SHARP</h3>
                             </div>
                             <p className="font-space font-medium text-sm text-[#5d5f5f] mb-8 leading-relaxed">
@@ -176,7 +176,7 @@ export default function BlogPage() {
                             >
                                 {sortBy}
                                 <div className="absolute right-0 top-0 bottom-0 w-10 border-l-4 border-black flex items-center justify-center">
-                                    <span className={`material-symbols-outlined transition-transform duration-200 ${isSortOpen ? 'rotate-180' : ''}`}>expand_more</span>
+                                    <i className={`ph-bold ph-caret-down transition-transform duration-200 ${isSortOpen ? 'rotate-180' : ''}`}></i>
                                 </div>
                             </button>
                             

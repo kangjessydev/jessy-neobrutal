@@ -49,50 +49,51 @@ export default function Home() {
               
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
                   {/* Large Bento Card */}
-                  <div className="md:col-span-2 lg:col-span-2 bg-white border-4 border-black shadow-[8px_8px_0px_#000000] p-8 flex flex-col justify-between">
+                  <div className="md:col-span-2 lg:col-span-2 bg-white border-4 border-black shadow-[8px_8px_0px_#000000] p-10 flex flex-col justify-between">
                       <div>
-                          <span className="material-symbols-outlined text-6xl text-[#705d00] mb-4" style={{ fontVariationSettings: "'FILL' 1" }}>deployed_code</span>
-                          <h3 className="text-3xl font-black uppercase mb-4">Core Frameworks</h3>
-                          <p className="text-[#5d5f5f]">Specializing in React and Next.js for building scalable, component-based architectures that prioritize performance and developer experience.</p>
+                          <i className="ph-bold ph-cube text-6xl text-[#705d00] mb-6 block"></i>
+                          <h3 className="text-4xl font-black uppercase mb-4 tracking-tighter">Core Frameworks</h3>
+                          <p className="text-xl text-[#5d5f5f] leading-relaxed">Specializing in React and Next.js for building scalable, component-based architectures that prioritize performance and developer experience.</p>
                       </div>
                       <div className="mt-8 flex gap-4">
-                          <span className="border-2 border-black px-3 py-1 font-bold text-xs uppercase bg-[#ffd700]">React</span>
-                          <span className="border-2 border-black px-3 py-1 font-bold text-xs uppercase bg-[#a5f624]">Next.js</span>
+                          <span className="border-2 border-black px-4 py-1 font-black text-sm uppercase bg-[#ffd700]">React</span>
+                          <span className="border-2 border-black px-4 py-1 font-black text-sm uppercase bg-[#a5f624]">Next.js</span>
                       </div>
                   </div>
                   
                   {/* Medium Bento Card */}
-                  <div className="bg-[#ffd700] border-4 border-black shadow-[8px_8px_0px_#000000] p-8 flex flex-col items-center justify-center text-center">
-                      <span className="material-symbols-outlined text-7xl text-black mb-4">palette</span>
-                      <h3 className="text-3xl font-black uppercase mb-2">Tailwind</h3>
-                      <p className="font-bold uppercase text-sm">Utility-first styling</p>
+                  <div className="bg-[#ffd700] border-4 border-black shadow-[8px_8px_0px_#000000] p-10 flex flex-col items-center justify-center text-center">
+                      <i className="ph-bold ph-palette text-black text-8xl mb-6"></i>
+                      <h3 className="text-4xl font-black uppercase mb-2 tracking-tighter">Tailwind</h3>
+                      <p className="font-bold uppercase text-sm tracking-widest">Utility-first styling</p>
                   </div>
 
                   {/* Small Icon Grid */}
                   <div className="bg-white border-4 border-black shadow-[8px_8px_0px_#000000] p-8">
-                      <h4 className="font-bold uppercase mb-6 border-b-4 border-black pb-2">Toolbox</h4>
-                      <div className="grid grid-cols-2 gap-4">
+                      <h4 className="font-bold uppercase mb-8 border-b-4 border-black pb-2 text-center tracking-widest text-xs">TOOLBOX</h4>
+                      <div className="grid grid-cols-2 gap-y-10 gap-x-4">
                           <div className="flex flex-col items-center">
-                              <span className="material-symbols-outlined text-3xl mb-1">javascript</span>
-                              <span className="text-[10px] font-bold">NODE.JS</span>
+                              <i className="ph-bold ph-file-js text-3xl mb-1"></i>
+                              <span className="text-[10px] font-black uppercase">NODE.JS</span>
                           </div>
                           <div className="flex flex-col items-center">
-                              <span className="material-symbols-outlined text-3xl mb-1">database</span>
-                              <span className="text-[10px] font-bold">PRISMA</span>
+                              <i className="ph-bold ph-database text-3xl mb-1"></i>
+                              <span className="text-[10px] font-black uppercase">PRISMA</span>
                           </div>
                           <div className="flex flex-col items-center">
-                              <span className="material-symbols-outlined text-3xl mb-1">terminal</span>
-                              <span className="text-[10px] font-bold">DOCKER</span>
+                              <i className="ph-bold ph-terminal-window text-3xl mb-1"></i>
+                              <span className="text-[10px] font-black uppercase">DOCKER</span>
                           </div>
                           <div className="flex flex-col items-center">
-                              <span className="material-symbols-outlined text-3xl mb-1">cloud</span>
-                              <span className="text-[10px] font-bold">AWS</span>
+                              <i className="ph-bold ph-cloud-arrow-up text-3xl mb-1"></i>
+                              <span className="text-[10px] font-black uppercase">AWS</span>
                           </div>
                       </div>
                   </div>
+              </div>
 
                   {/* Full Width Bottom Bento */}
-                  <div className="md:col-span-3 lg:col-span-4 bg-[#a5f624] border-4 border-black shadow-[8px_8px_0px_#000000] p-8 flex flex-col md:flex-row items-center justify-between gap-8">
+                  <div className="bg-[#a5f624] border-4 border-black shadow-[8px_8px_0px_#000000] p-8 flex flex-col md:flex-row items-center justify-between gap-8 mt-8">
                       <div className="max-w-2xl">
                           <h3 className="text-3xl font-black uppercase mb-2">Architecture First</h3>
                           <p className="text-black">I don't just write code; I design systems. My focus is on creating maintainable, documented, and type-safe codebases using TypeScript and rigorous testing patterns.</p>
@@ -102,8 +103,7 @@ export default function Home() {
                       </div>
                   </div>
               </div>
-          </div>
-      </section>
+          </section>
 
       {/* Work Showcase Section */}
       <section id="projects" className="py-32 px-6 bg-white border-t-8 border-black">
