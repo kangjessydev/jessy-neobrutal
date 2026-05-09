@@ -93,8 +93,8 @@ const Navbar = () => {
 
                 {/* Main Nav (Slimming down) */}
                 <div className="flex items-center gap-4">
-                    {/* Language Switcher */}
-                    <div className="hidden sm:flex border-4 border-black bg-black p-1 shadow-[4px_4px_0px_#000000] overflow-hidden">
+                    {/* Language Switcher — hidden until multilingual is ready */}
+                    <div className="hidden border-4 border-black bg-black p-1 shadow-[4px_4px_0px_#000000] overflow-hidden">
                         <Button variant="secondary" size="sm" className="!px-3 !py-1 !shadow-none hover:translate-x-0 hover:translate-y-0">ID</Button>
                         <Button variant="black" size="sm" className="!px-3 !py-1 !shadow-none hover:bg-[#ADFF2F] hover:text-black hover:translate-x-0 hover:translate-y-0">EN</Button>
                     </div>
