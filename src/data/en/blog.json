@@ -1,0 +1,115 @@
+[
+  {
+    "slug": "why-clean-code-is-a-lie-we-tell-seniors",
+    "title": "Why Clean Code is a Lie We Tell Seniors.",
+    "excerpt": "Exploring the pragmatism of 'good enough' code over academic perfection in high-growth startups.",
+    "blocks": [
+      {
+        "type": "text",
+        "level": 2,
+        "heading": "The Perfection Trap",
+        "body": "Clean code is often sold as an objective truth, a set of rules that, if followed, will lead to software immortality. But in the trenches of a <b>high-growth startup</b>, 'clean' is a moving target. What looks like an elegant abstraction today is often a rigid cage tomorrow."
+      },
+      {
+        "type": "quote",
+        "text": "Code is a liability, not an asset. The less of it you have to maintain, the better. Academic purity is for textbooks; production is for value."
+      },
+      {
+        "type": "text",
+        "level": 2,
+        "heading": "The Cost of Over-Engineering",
+        "body": "Many seniors fall into the trap of over-abstracting before they even understand the domain. They build complex generic factories for logic that will only ever run in one place. This isn't just wasted time—it's a maintenance nightmare."
+      },
+      {
+        "type": "table",
+        "headers": ["Approach", "Velocity", "Maintainability", "Mindset"],
+        "rows": [
+          ["Dogmatic Clean", "Slow", "High (Theoretical)", "Academic"],
+          ["Pragmatic Logic", "Fast", "High (Contextual)", "Result-Oriented"],
+          ["Quick & Dirty", "Instant", "Extremely Low", "Short-sighted"]
+        ]
+      },
+      {
+        "type": "text",
+        "level": 3,
+        "heading": "Don't Repeat Yourself (DRY) vs WET",
+        "body": "We've been taught that duplication is the root of all evil. But <b>premature abstraction</b> is far more dangerous. Duplication is cheap; the wrong abstraction is expensive. Sometimes, it's better to Write Everything Twice (WET) before you find the true pattern."
+      },
+      {
+        "type": "code",
+        "language": "typescript",
+        "code": "// DOGMATIC: The 'Clean' but rigid way\ninterface BaseHandler<T> { ... }\nclass UserHandler extends BaseHandler<User> { ... }\n\n// PRAGMATIC: Just solve the problem\nfunction updateProfile(userId: string, data: any) {\n  const user = db.find(userId);\n  if (!user) return;\n  // Direct, readable, and easy to delete later\n  db.update(userId, { ...user, ...data });\n}"
+      },
+      {
+        "type": "list",
+        "heading": "The 3 Pillars of Pragmatic Code",
+        "items": [
+          "Delete-ability: Can I remove this code in 5 minutes without the system collapsing?",
+          "Readability: Can a junior developer understand this on their first day?",
+          "Value: Does this line of code actually move the needle for the product?"
+        ],
+        "ordered": false
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000",
+        "caption": "The reality of production: Structure is essential, but flexibility is survival."
+      },
+      {
+        "type": "text",
+        "level": 2,
+        "heading": "Conclusion",
+        "body": "Stop chasing the ghost of perfect code. Aim for <b>boring, predictable, and simple</b>. Your job isn't to be an artist; it's to be an architect who builds things that don't fall down when the requirements inevitably change next week."
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000",
+    "tags": ["CRAFT", "ARCHITECTURE", "STARTUP"],
+    "date": "MAY 08, 2026",
+    "readTime": "12 MIN READ",
+    "featured": true
+  },
+  {
+    "slug": "mastering-the-subgrid-a-guide",
+    "title": "Mastering the Subgrid: A Guide.",
+    "excerpt": "Finally, layouts that don't break when your content changes. Dive deep into CSS Subgrid.",
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "The Grid Problem",
+        "body": "For years, aligning nested elements across different grid items was a nightmare."
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&q=80&w=1000",
+    "tags": ["CSS", "DEVELOPMENT"],
+    "date": "MAY 05, 2026",
+    "readTime": "8 MIN READ",
+    "featured": false
+  },
+  {
+    "slug": "design-system-kitchen-sink",
+    "title": "Design System: The Kitchen Sink Test.",
+    "excerpt": "A comprehensive test page for every possible Neobrutalist UI element in our blog system.",
+    "blocks": [
+      {
+        "type": "text",
+        "level": 2,
+        "heading": "Typography & Headings",
+        "body": "This section tests our heading hierarchy and paragraph spacing."
+      },
+      {
+        "type": "list",
+        "heading": "Unordered List Test",
+        "items": [
+          "Solid 4px borders on all components",
+          "Zero-blur high-contrast shadows"
+        ],
+        "ordered": false
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=1000",
+    "tags": ["DESIGN", "TESTING", "SYSTEM"],
+    "date": "MAY 09, 2026",
+    "readTime": "15 MIN READ",
+    "featured": false
+  }
+]

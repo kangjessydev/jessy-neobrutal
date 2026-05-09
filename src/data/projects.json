@@ -1,0 +1,163 @@
+[
+  {
+    "slug": "neo-ledger",
+    "title": "NEO-LEDGER",
+    "category": "Fintech App",
+    "tagColor": "yellow",
+    "description": "A decentralized financial dashboard reimagined for the brutalist web. Neo-Ledger tackles the complexity of multi-chain asset management.",
+    "tech": ["Next.js", "TypeScript", "WebSocket", "GraphQL", "Web3"],
+    "year": "2024",
+    "role": "Lead Developer",
+    "client": "Aether Ventures",
+    "problem": "Traditional crypto-wallets and dashboards were cluttered with unnecessarily complex navigation patterns.",
+    "problems": [
+      {
+        "point": "UI Dashboard Berantakan & Berat",
+        "detail": "Dashboard lama menggunakan framework yang sudah deprecated, menyebabkan bundle size membengkak dan rendering yang terhambat di device low-end.",
+        "image": "https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Fitur Transaksi Sering Error/Rusak",
+        "detail": "Arsitektur state management yang tidak efisien mengakibatkan race condition pada setiap transaksi finansial yang dilakukan pengguna.",
+        "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Latensi Data Per detik Sangat Lambat",
+        "detail": "Sistem monitoring menggunakan polling periodik 5 detik, yang mengakibatkan lag visual yang signifikan saat pergerakan pasar sedang volatil.",
+        "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "solution": "We implemented a strict Neobrutalist system that prioritizes data hierarchy and performance.",
+    "solutions": [
+      {
+        "point": "Arsitektur Modular & Ringan",
+        "detail": "Kami membangun ulang seluruh sistem menggunakan Next.js dengan arsitektur server component untuk meminimalkan beban di sisi client.",
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Validasi Transaksi Real-time",
+        "detail": "Implementasi xState untuk management transaksi yang lebih prediktif, memastikan setiap step tervalidasi sebelum masuk ke database.",
+        "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Optimasi GraphQL Subscription",
+        "detail": "Migrasi ke GraphQL Subscription (Websocket) yang memberikan update data secara instan (<100ms) tanpa membebani browser pengguna.",
+        "image": "https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "The Core Philosophy",
+        "body": "Dalam proyek NEO-LEDGER, kami menghapus semua elemen visual yang tidak esensial. Setiap komponen harus lulus uji <em>'Raw Logic'</em>: jika sebuah border tidak mendefinisikan struktur, maka ia harus dibuang."
+      },
+      {
+        "type": "quote",
+        "text": "Brutalism in web design isn't about being ugly; it's about being unapologetically functional."
+      },
+      {
+        "type": "text",
+        "level": 3,
+        "heading": "Technical Architecture",
+        "body": "Sistem ini dibangun dengan fokus pada sinkronisasi data real-time antar berbagai protokol blockchain. Kami menggunakan arsitektur yang <b>event-driven</b>."
+      },
+      {
+        "type": "code",
+        "language": "typescript",
+        "code": "const socket = new WebSocket('wss://api.neo-ledger.io/v1/stream');\n\nsocket.onmessage = (event) => {\n  const { price, pair } = JSON.parse(event.data);\n  // Fast state update with zero-clutter rendering\n  updateAssetPrice(pair, price);\n};"
+      },
+      {
+        "type": "list",
+        "heading": "Key Performance Indicators:",
+        "items": [
+          "Sub-100ms latency for all data visualizers.",
+          "Zero dependencies on external UI libraries.",
+          "Mobile-first responsive architecture.",
+          "Hardware wallet compatibility layer."
+        ],
+        "ordered": false
+      },
+      {
+        "type": "table",
+        "headers": ["Metric", "Legacy System", "Neo-Ledger"],
+        "rows": [
+          ["Initial Load", "4.2s", "0.8s"],
+          ["Bundle Size", "1.2MB", "145KB"],
+          ["API Latency", "350ms", "42ms"],
+          ["User Engagement", "Low", "Critical"]
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=1000",
+        "caption": "Figure 1.0: Technical visualization of the decentralized node clusters."
+      },
+      {
+        "type": "text",
+        "level": 4,
+        "heading": "Future Roadmap",
+        "body": "Kami berencana mengintegrasikan AI untuk prediksi volatilitas pasar secara real-time di versi berikutnya."
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBoTiV-V4IHdDGSZhG0NtPXMkfdkohMHh2l2-mdFHHSZZo0c09HJdOErl3-DGndLCu7joJ0BvRaB_rcvSt0cAfF25QW5yiqFi7QZdCczHZLlfy-X7XVjXNQ79sjQyDhqostoNKGg5zjfhBLjQN2k7pKCNYmHMRb13h7rLOYqTjChwakJAo6xmIzfK8Jo0jvl4s9n8ZccgIW8OndUYC3V1e8O_KcGf7Ujyz2C5a9pBhdsm5nxzOT9a7Ljf5g9BvRLSboO9fxCAQ2tWyw",
+    "demoUrl": "#",
+    "githubUrl": "#",
+    "technical": {
+      "frontend": "Built on Next.js 14 for server-side rendering performance.",
+      "realtime": "Leveraging WebSockets and Apollo Client.",
+      "security": "End-to-end encrypted session management."
+    }
+  },
+  {
+    "slug": "brutalist-ui-kit",
+    "title": "BRUTALIST UI KIT",
+    "category": "Digital Product",
+    "tagColor": "lime",
+    "description": "A collection of 50+ neobrutalist components for Figma and Webflow, designed for high-impact landing pages.",
+    "tech": ["Vanilla CSS", "Figma", "Webflow"],
+    "year": "2023",
+    "role": "UI Designer",
+    "client": "Standard.io",
+    "problem": "Modern UI kits often focus on 'safe' aesthetics which fail to capture raw energy.",
+    "problems": [
+      {
+        "point": "Desain Terlalu 'Aman'",
+        "detail": "Kebanyakan UI kit saat ini terlihat sama saja, tidak ada pembeda visual yang kuat.",
+        "image": "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Visual Tidak Berkarakter",
+        "detail": "Penggunaan shadow lembut membuat website terlihat tidak profesional untuk audiens hardcore dev.",
+        "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "solution": "We broke the rules by introducing heavy 8px borders.",
+    "solutions": [
+      {
+        "point": "Garis Tepi 8px Solid",
+        "detail": "Memberikan struktur visual yang sangat kuat sehingga informasi mudah dicerna.",
+        "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Warna High-Saturated",
+        "detail": "Menggunakan palet warna yang berani untuk menarik perhatian instan.",
+        "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "Visual Identity",
+        "body": "Kami percaya bahwa desain harus memiliki opini. Brutalist UI Kit bukan untuk semua orang, tapi untuk mereka yang berani tampil beda."
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuD2KtNuu7v1qvY2llAc_yIc6yM5NhhOj0Gpbup84Sv56L-6VpL10woWVYzcLqmgTHX8-impzL7G_i9ZKmrEiCULaPFIVCj3D0Ru0C6sY_Vgi0bHBJEJLcpaSqrk1ldAeUBPqLOSKVmngipzXCQfKXJx6wFvAnpzMJHZ_6-Ms_eJYJ7GJPdnAayoaIoJA6R28PyZBSrjs8Wsc8SWdK74S1aZutRdd_1jP4jPoM97nDFZNZtT6oA_my6m-RvvVLIfcZzXeaOQYLCpmJu2",
+    "demoUrl": "#",
+    "githubUrl": "#",
+    "technical": {
+      "frontend": "Pure CSS with zero abstraction layers.",
+      "realtime": "N/A",
+      "security": "Clean code architecture."
+    }
+  }
+]
