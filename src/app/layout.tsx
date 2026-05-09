@@ -17,8 +17,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "KANGJESSY DEV - Portfolio",
-  description: "I build robust, high-performance web applications with a focus on structural integrity and distinctive aesthetic choices.",
+  title: "KANGJESSY DEV | Full-Stack Developer — Web Systems & Architecture",
+  description: "Architecting high-performance web systems and scalable digital solutions. Professional portfolio of Jessy Mutajhifjudin.",
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light scroll-smooth">
-      <body className={`${lexend.variable} ${spaceGrotesk.variable} bg-[#f9f9f9] text-[#1b1b1b] font-space overflow-x-hidden m-0 p-0 antialiased min-h-screen flex flex-col`}>
+      <body className={`${lexend.variable} ${spaceGrotesk.variable} bg-[#eeeeee] text-[#1b1b1b] font-space overflow-x-hidden m-0 p-0 antialiased min-h-screen flex flex-col`}>
         <LayoutWrapper>
           {children}
         </LayoutWrapper>

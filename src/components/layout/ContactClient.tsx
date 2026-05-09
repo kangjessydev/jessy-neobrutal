@@ -48,9 +48,9 @@ const ContactClient = ({ dict, locale }: ContactClientProps) => {
                     {/* Left Info Side */}
                     <div className="flex-1">
                         <h1 className="font-lexend font-black text-6xl md:text-8xl text-black uppercase mb-8 leading-[1.1] tracking-tighter">
-                            {dict.about.contact.heroTitle} <span className="bg-[#a5f624] px-4 shadow-[6px_6px_0px_#000000] border-4 border-black inline-block mt-2">{dict.about.contact.heroBadge}</span>
+                            {dict.about.contact.heroTitle} <span className="bg-[#adff2f] px-4 shadow-[6px_6px_0px_#000000] border-4 border-black inline-block mt-2">{dict.about.contact.heroBadge}</span>
                         </h1>
-                        <p className="text-xl font-medium uppercase text-[#5d5f5f] mb-16 leading-relaxed">
+                        <p className="text-xl font-medium uppercase text-[#000000] mb-16 leading-relaxed">
                             {dict.about.contact.heroDesc}
                         </p>
 
@@ -60,7 +60,7 @@ const ContactClient = ({ dict, locale }: ContactClientProps) => {
                                     <i className="ph-bold ph-envelope-simple text-3xl text-black"></i>
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="font-black uppercase text-xs text-[#5d5f5f]">{dict.about.contact.emailLabel}</h3>
+                                    <h3 className="font-black uppercase text-xs text-[#000000]">{dict.about.contact.emailLabel}</h3>
                                     <a href="mailto:HELLO@DEVPORT.IO" className="font-lexend font-black text-2xl text-black hover:text-[#ffd700] transition-colors">
                                         HELLO@DEVPORT.IO
                                     </a>
@@ -72,7 +72,7 @@ const ContactClient = ({ dict, locale }: ContactClientProps) => {
                                     <i className="ph-bold ph-map-pin text-3xl text-black"></i>
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="font-black uppercase text-xs text-[#5d5f5f]">{dict.about.contact.locationLabel}</h3>
+                                    <h3 className="font-black uppercase text-xs text-[#000000]">{dict.about.contact.locationLabel}</h3>
                                     <p className="font-lexend font-black text-2xl text-black uppercase">
                                         {dict.about.contact.locationValue}
                                     </p>
@@ -197,7 +197,7 @@ const ContactClient = ({ dict, locale }: ContactClientProps) => {
             </section>
             
             {/* Image Gallery */}
-            <section className="py-16 px-6 bg-[#f9f9f9] border-b-8 border-black">
+            <section className="py-16 px-6 bg-[#eeeeee] border-b-8 border-black">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
                     {[
                         { src: '/images/our_studio_photography_neobrutal_1778062528096.png', label: dict.about.contact.gallery.studio },

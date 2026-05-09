@@ -51,6 +51,7 @@ export interface Project {
     realtime: string;
     security: string;
   };
+  taxonomy?: string[];
 }
 
 export const projects: Project[] = projectData as Project[];

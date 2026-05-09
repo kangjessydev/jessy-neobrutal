@@ -27,6 +27,7 @@ export interface Post {
   blocks?: ContentBlock[];
   image: string;
   tags: string[];
+  category: string;
   date: string;
   readTime: string;
   featured?: boolean;

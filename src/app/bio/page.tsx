@@ -10,8 +10,8 @@ const BioPage = () => {
     // Color mapping for variants
     const getVariantClass = (variant: string) => {
         switch (variant) {
-            case 'primary': return 'bg-[#FFD700]';
-            case 'secondary': return 'bg-[#ADFF2F]';
+            case 'primary': return 'bg-[#ffd700]';
+            case 'secondary': return 'bg-[#adff2f]';
             case 'tertiary': return 'bg-white';
             case 'black': return 'bg-black text-white';
             default: return 'bg-white';
@@ -19,22 +19,22 @@ const BioPage = () => {
     };
 
     const getIconClass = (variant: string) => {
-        return variant === 'black' ? 'text-[#FFD700]' : 'text-black';
+        return variant === 'black' ? 'text-[#ffd700]' : 'text-black';
     };
 
     return (
-        <div className="min-h-screen bg-[#f9f9f9] flex items-center justify-center p-6 py-20">
+        <div className="min-h-screen bg-[#eeeeee] flex items-center justify-center p-6 py-20">
             <main className="max-w-[500px] w-full flex flex-col items-center">
                 
                 {/* Profile Section */}
                 <div className="mb-10 lg:ml-[-12px]">
-                    <div className="w-32 h-32 border-4 border-black bg-[#FFD700] relative shadow-[6px_6px_0px_#000000] pl-[2px] overflow-visible">
+                    <div className="w-32 h-32 border-4 border-black bg-[#ffd700] relative shadow-[6px_6px_0px_#000000] pl-[2px] overflow-visible">
                         <img 
                             src={bioData.profile.avatar} 
                             alt={bioData.profile.name} 
                             className="w-full h-full object-cover grayscale-[1] contrast-[1.25] block border-l border-t border-black/10"
                         />
-                        <div className="absolute -bottom-[22px] -right-[12px] p-1.5 bg-[#FFD700] border-4 border-black shadow-[4px_4px_0px_#000000] flex items-center justify-center z-20">
+                        <div className="absolute -bottom-[22px] -right-[12px] p-1.5 bg-[#ffd700] border-4 border-black shadow-[4px_4px_0px_#000000] flex items-center justify-center z-20">
                             <i className={`${bioData.profile.status.icon} text-2xl`}></i>
                         </div>
                     </div>
@@ -46,14 +46,14 @@ const BioPage = () => {
                         {bioData.profile.name.split(' ')[0]}<span className="text-black">_</span>{bioData.profile.name.split(' ').slice(1).join('_')}
                     </h1>
                     <div className="inline-block bg-black mt-4 px-6 py-2 border-2 border-black mb-10">
-                        <p className="font-lexend font-black text-xl md:text-2xl text-[#FFD700] uppercase tracking-tight">
+                        <p className="font-lexend font-black text-xl md:text-2xl text-[#ffd700] uppercase tracking-tight">
                             {bioData.profile.profession}
                         </p>
                     </div>
                     
                     <div className="flex flex-wrap justify-center gap-3">
                         {bioData.skills.map(tag => (
-                            <span key={tag} className="border-2 border-black px-4 py-1 font-lexend font-bold bg-white text-[10px] tracking-widest text-[#5d5f5f]">
+                            <span key={tag} className="border-2 border-black px-4 py-1 font-lexend font-bold bg-white text-[10px] tracking-widest text-[#000000]">
                                 {tag}
                             </span>
                         ))}

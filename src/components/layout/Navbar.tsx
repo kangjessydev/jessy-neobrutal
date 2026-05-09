@@ -85,7 +85,7 @@ const Navbar = () => {
                 <div className="flex items-center gap-2">
                     <Link
                         href="/"
-                        className="text-2xl font-black bg-[#FFD700] text-black px-4 py-1 border-4 border-black shadow-[4px_4px_0px_#000000] font-lexend uppercase tracking-tighter hover:translate-y-1 hover:shadow-none transition-all"
+                        className="text-2xl font-black bg-[#ffd700] text-black px-4 py-1 border-4 border-black shadow-[4px_4px_0px_#000000] font-lexend uppercase tracking-tighter hover:translate-y-1 hover:shadow-none transition-all"
                     >
                         KANGJESSY_DEV
                     </Link>
@@ -96,7 +96,7 @@ const Navbar = () => {
                     {/* Language Switcher — hidden until multilingual is ready */}
                     <div className="hidden border-4 border-black bg-black p-1 shadow-[4px_4px_0px_#000000] overflow-hidden">
                         <Button variant="secondary" size="sm" className="!px-3 !py-1 !shadow-none hover:translate-x-0 hover:translate-y-0">ID</Button>
-                        <Button variant="black" size="sm" className="!px-3 !py-1 !shadow-none hover:bg-[#ADFF2F] hover:text-black hover:translate-x-0 hover:translate-y-0">EN</Button>
+                        <Button variant="black" size="sm" className="!px-3 !py-1 !shadow-none hover:bg-[#adff2f] hover:text-black hover:translate-x-0 hover:translate-y-0">EN</Button>
                     </div>
 
                     {/* Menu Toggle Button */}
@@ -119,10 +119,10 @@ const Navbar = () => {
                 >
                     <div 
                         className={`flex justify-between items-center p-8 border-b-8 border-black transition-colors duration-500 ${
-                            activeTab === 'projects' ? 'bg-[#FFD700]' : 
-                            activeTab === 'network' ? 'bg-[#ADFF2F]' : 
-                            activeTab === 'other' ? 'bg-[#E0B0FF]' : 
-                            'bg-[#ADFF2F]'
+                            activeTab === 'projects' ? 'bg-[#ffd700]' : 
+                            activeTab === 'network' ? 'bg-[#adff2f]' : 
+                            activeTab === 'other' ? 'bg-[#a855f7]' : 
+                            'bg-[#adff2f]'
                         }`}
                     >
                         <div className="flex items-center gap-4" ref={parent}>
@@ -184,7 +184,7 @@ const Navbar = () => {
                                         }
                                     }}
                                     className={`text-left font-lexend font-black text-4xl md:text-7xl uppercase tracking-tighter text-black hover:italic hover:translate-x-4 transition-all inline-block w-fit group flex items-center gap-4 ${
-                                        isActive(link.href) ? 'italic underline underline-offset-8 decoration-8 decoration-[#ADFF2F] translate-x-4' : ''
+                                        isActive(link.href) ? 'italic underline underline-offset-8 decoration-8 decoration-[#adff2f] translate-x-4' : ''
                                     }`}
                                     style={{ transitionDelay: `${0.1 + i * 0.05}s` }}
                                 >
@@ -216,7 +216,7 @@ const Navbar = () => {
 
                         {/* Dynamic Sidebar Panel */}
                         <div 
-                            className={`w-full md:w-[450px] bg-[#f0f0f0] transition-all duration-300 border-l-0 md:border-l-8 border-black overflow-hidden relative flex-shrink-0 ${
+                            className={`w-full md:w-[450px] bg-[#eeeeee] transition-all duration-300 border-l-0 md:border-l-8 border-black overflow-hidden relative flex-shrink-0 ${
                                 activeTab !== 'default' ? 'translate-x-0 opacity-100 flex h-full' : 'translate-x-full absolute opacity-0 pointer-events-none md:relative md:opacity-100 md:pointer-events-auto md:translate-x-0 hidden md:flex'
                             }`}
                         >
@@ -226,13 +226,13 @@ const Navbar = () => {
                                     <div>
                                         <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">CONNECT</h4>
                                         <div className="flex flex-col gap-6">
-                                            <a href="#" className="text-3xl font-black uppercase hover:text-[#ADFF2F] transition-colors flex items-center gap-4 group">
+                                            <a href="#" className="text-3xl font-black uppercase hover:text-[#adff2f] transition-colors flex items-center gap-4 group">
                                                 LinkedIn <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
                                             </a>
-                                            <a href="#" className="text-3xl font-black uppercase hover:text-[#ADFF2F] transition-colors flex items-center gap-4 group">
+                                            <a href="#" className="text-3xl font-black uppercase hover:text-[#adff2f] transition-colors flex items-center gap-4 group">
                                                 Github <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
                                             </a>
-                                            <a href="#" className="text-3xl font-black uppercase hover:text-[#FFD700] transition-colors flex items-center gap-4 group">
+                                            <a href="#" className="text-3xl font-black uppercase hover:text-[#ffd700] transition-colors flex items-center gap-4 group">
                                                 Twitter <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
                                             </a>
                                         </div>
@@ -253,7 +253,7 @@ const Navbar = () => {
 
                             {/* Network Submenu */}
                             {activeTab === 'network' && (
-                                <div className="side-content animate-side-in flex flex-col h-full bg-[#ADFF2F] p-12 w-full">
+                                <div className="side-content animate-side-in flex flex-col h-full bg-[#adff2f] p-12 w-full">
                                     <h4 className="hidden md:inline-block font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white">EXPLORE NETWORK</h4>
                                     <div className="flex flex-col gap-8">
                                         <a 
@@ -282,7 +282,7 @@ const Navbar = () => {
 
                             {/* Projects Submenu */}
                             {activeTab === 'projects' && (
-                                <div className="side-content animate-side-in flex flex-col h-full bg-[#FFD700] p-12 w-full">
+                                <div className="side-content animate-side-in flex flex-col h-full bg-[#ffd700] p-12 w-full">
                                     <h4 className="hidden md:inline-block font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white">PORTFOLIO</h4>
                                     <div className="flex flex-col gap-6">
                                         <Link href="/projects" className="text-3xl font-black uppercase hover:translate-x-2 transition-transform block" onClick={() => setIsMenuOpen(false)}>Web Development</Link>
@@ -294,7 +294,7 @@ const Navbar = () => {
 
                             {/* Other Submenu */}
                             {activeTab === 'other' && (
-                                <div className="side-content animate-side-in flex flex-col h-full bg-[#E0B0FF] p-12 w-full">
+                                <div className="side-content animate-side-in flex flex-col h-full bg-[#a855f7] p-12 w-full">
                                     <h4 className="hidden md:inline-block font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white">LINKS & MORE</h4>
                                     <div className="flex flex-col gap-8">
                                         <Link href="/bio" className="block group" onClick={() => setIsMenuOpen(false)}>

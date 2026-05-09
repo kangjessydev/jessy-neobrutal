@@ -29,9 +29,9 @@ export default function ProductsPage() {
                 {products.map(product => (
                     <div key={product.id} className="bg-white border-4 border-black p-0 flex flex-col shadow-[12px_12px_0px_#000000] hover:translate-x-1 hover:translate-y-1 hover:shadow-[8px_8px_0px_#000000] transition-all group overflow-hidden">
                         {/* Product Image Container */}
-                        <div className="relative aspect-video border-b-4 border-black bg-[#f0f0f0] overflow-hidden">
+                        <div className="relative aspect-video border-b-4 border-black bg-[#eeeeee] overflow-hidden">
                             {/* Price Tag */}
-                            <div className="absolute top-4 right-4 bg-[#FFD700] border-4 border-black px-4 py-2 font-lexend font-black text-xl z-10 shadow-[4px_4px_0px_#000000]">
+                            <div className="absolute top-4 right-4 bg-[#ffd700] border-4 border-black px-4 py-2 font-lexend font-black text-xl z-10 shadow-[4px_4px_0px_#000000]">
                                 {product.price}
                             </div>
                             <div className="w-full h-full flex items-center justify-center p-8 bg-black/5 group-hover:bg-transparent transition-colors">
@@ -76,21 +76,21 @@ export default function ProductsPage() {
 
             {/* Bottom Features */}
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div className="md:col-span-3 bg-[#ADFF2F] border-4 border-black p-10 md:p-14 shadow-[12px_12px_0px_#000000]">
+                <div className="md:col-span-3 bg-[#adff2f] border-4 border-black p-10 md:p-14 shadow-[12px_12px_0px_#000000]">
                     <h2 className="font-lexend font-black text-4xl md:text-5xl uppercase mb-6 tracking-tighter text-black">
                         INSTANT ACCESS
                     </h2>
                     <p className="font-lexend font-bold text-lg md:text-xl text-black/80 max-w-2xl leading-relaxed mb-8">
                         All digital goods are delivered instantly to your dashboard upon successful payment. No waiting, just building.
                     </p>
-                    <div className="inline-flex items-center gap-4 bg-black text-[#ADFF2F] px-4 py-2 font-lexend font-black uppercase text-sm">
+                    <div className="inline-flex items-center gap-4 bg-black text-[#adff2f] px-4 py-2 font-lexend font-black uppercase text-sm">
                         <i className="ph-bold ph-lightning text-xl"></i>
                         READY IN 0.2S
                     </div>
                 </div>
 
                 <div className="bg-white border-4 border-black p-10 flex flex-col items-center justify-center text-center shadow-[12px_12px_0px_#000000]">
-                    <div className="w-16 h-16 bg-[#f0f0f0] border-4 border-black mb-6 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-[#eeeeee] border-4 border-black mb-6 flex items-center justify-center">
                         <i className="ph-bold ph-terminal-window text-3xl text-black"></i>
                     </div>
                     <h3 className="font-lexend font-black text-2xl uppercase mb-2 text-black">DEV-FIRST</h3>

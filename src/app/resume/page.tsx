@@ -53,13 +53,13 @@ export default function ResumePage() {
                                 JESSY MUTAJ<br/>HIFJUDIN
                             </h1>
                             <p className="font-lexend font-black text-base md:text-xl uppercase italic bg-[#ffd700] border-4 border-black px-4 py-1 inline-block -rotate-1 text-black">
-                                AI-Driven Engineer & Business Solutions Specialist
+                                Full-Stack Developer — Web Systems & Architecture
                             </p>
                         </div>
                         <div className="flex flex-col gap-2 font-lexend font-bold text-xs md:text-sm uppercase tracking-tight text-right md:items-end text-black">
                             <span className="flex items-center gap-2">hi.kangjessy@gmail.com <i className="ph-bold ph-envelope text-sm"></i></span>
                             <span className="flex items-center gap-2">Bandung, Indonesia <i className="ph-bold ph-map-pin text-sm"></i></span>
-                            <span className="flex items-center gap-2">github.com/kangjessydev <i className="ph-bold ph-terminal-window text-sm"></i></span>
+                            <span className="flex items-center gap-2">github.com/kangjessy <i className="ph-bold ph-terminal-window text-sm"></i></span>
                         </div>
                     </header>
 
@@ -70,7 +70,7 @@ export default function ResumePage() {
                             <section>
                                 <h3 className="font-lexend font-black text-xl uppercase mb-4 border-b-4 border-black pb-2 text-black">Profile</h3>
                                 <p className="font-bold text-xs leading-relaxed text-[#444]">
-                                    An AI-driven engineer focused on strategic business solutions through high-performance code and intelligent architecture. Pushing boundaries in tech.
+                                    A Full-Stack Developer focused on architecting scalable web systems. Specializing in bridging high-performance frontend interfaces with robust backend infrastructures. Committed to technical excellence and clean, maintainable code.
                                 </p>
                             </section>
 
@@ -90,7 +90,7 @@ export default function ResumePage() {
                                 <div className="space-y-2">
                                     <div className="flex justify-between items-center bg-black text-white p-2 border-2 border-black">
                                         <span className="font-bold text-[10px] uppercase">Indonesian</span>
-                                        <span className="font-black italic text-[10px] text-[#A5F624]">Native</span>
+                                        <span className="font-black italic text-[10px] text-[#adff2f]">Native</span>
                                     </div>
                                     <div className="flex justify-between items-center bg-white text-black p-2 border-2 border-black">
                                         <span className="font-bold text-[10px] uppercase">English</span>
@@ -126,7 +126,7 @@ export default function ResumePage() {
                                     Education
                                 </h3>
                                 <div className="relative pl-8 border-l-4 border-black">
-                                    <div className="absolute -left-[14px] top-0 w-6 h-6 bg-[#A5F624] border-4 border-black"></div>
+                                    <div className="absolute -left-[14px] top-0 w-6 h-6 bg-[#adff2f] border-4 border-black"></div>
                                     <span className="text-[10px] font-black uppercase text-[#888] mb-1 block tracking-widest">2018 - 2023</span>
                                     <h4 className="font-lexend font-black text-xl uppercase m-0 leading-tight text-black">S.Kom</h4>
                                     <p className="font-bold text-xs uppercase tracking-wider text-black">Universitas Kebangsaan Republik Indonesia</p>

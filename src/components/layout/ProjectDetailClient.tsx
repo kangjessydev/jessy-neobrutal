@@ -48,7 +48,7 @@ export default function ProjectDetailClient({ project, dict, locale }: ProjectDe
                         <h1 className="font-lexend font-black text-6xl md:text-8xl text-black uppercase mb-8 leading-[1.1] tracking-tighter">
                             {project.title}
                         </h1>
-                        <p className="text-xl md:text-2xl text-[#5d5f5f] mb-10 max-w-2xl leading-relaxed">
+                        <p className="text-xl md:text-2xl text-[#000000] mb-10 max-w-2xl leading-relaxed">
                             {project.description}
                         </p>
 
@@ -81,15 +81,15 @@ export default function ProjectDetailClient({ project, dict, locale }: ProjectDe
                             
                             <div className="space-y-6">
                                 <div>
-                                    <span className="block text-xs font-bold uppercase text-[#7e775f] mb-1 tracking-widest">{dict.projectDetail.year}</span>
+                                    <span className="block text-xs font-bold uppercase text-[#000000] mb-1 tracking-widest">{dict.projectDetail.year}</span>
                                     <span className="text-2xl font-black uppercase text-black">{project.year || "2024"}</span>
                                 </div>
                                 <div>
-                                    <span className="block text-xs font-bold uppercase text-[#7e775f] mb-1 tracking-widest">{dict.projectDetail.role}</span>
+                                    <span className="block text-xs font-bold uppercase text-[#000000] mb-1 tracking-widest">{dict.projectDetail.role}</span>
                                     <span className="text-2xl font-black uppercase text-black">{project.role || "Lead Developer"}</span>
                                 </div>
                                 <div>
-                                    <span className="block text-xs font-bold uppercase text-[#7e775f] mb-1 tracking-widest">{dict.projectDetail.client}</span>
+                                    <span className="block text-xs font-bold uppercase text-[#000000] mb-1 tracking-widest">{dict.projectDetail.client}</span>
                                     <span className="text-2xl font-black uppercase text-black">{project.client || "External Project"}</span>
                                 </div>
                             </div>
@@ -127,7 +127,7 @@ export default function ProjectDetailClient({ project, dict, locale }: ProjectDe
             </div>
 
             {/* Problem & Solution Cards */}
-            <section className="py-32 px-6 bg-[#f9f9f9]">
+            <section className="py-32 px-6 bg-[#eeeeee]">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
                     
                     {/* THE PROBLEM CARD */}
@@ -154,7 +154,7 @@ export default function ProjectDetailClient({ project, dict, locale }: ProjectDe
                             </ul>
 
                             {/* Dynamic Description Box (Problem) */}
-                            <div className="mb-8 border-4 border-black p-5 bg-[#f0f0f0] min-h-[100px] flex items-center relative overflow-hidden" ref={parent}>
+                            <div className="mb-8 border-4 border-black p-5 bg-[#eeeeee] min-h-[100px] flex items-center relative overflow-hidden" ref={parent}>
                                 <div key={activeIndex} className="animate-side-in">
                                     <h5 className="text-[10px] font-black uppercase opacity-60 mb-1 tracking-[0.2em]">Context / Observation</h5>
                                     <p className="text-sm font-bold text-black leading-snug italic">
@@ -204,7 +204,7 @@ export default function ProjectDetailClient({ project, dict, locale }: ProjectDe
                             </ul>
 
                             {/* Dynamic Description Box (Solution) */}
-                            <div className="mb-8 border-4 border-black p-5 bg-[#f0f0f0] min-h-[100px] flex items-center relative overflow-hidden" ref={parent}>
+                            <div className="mb-8 border-4 border-black p-5 bg-[#eeeeee] min-h-[100px] flex items-center relative overflow-hidden" ref={parent}>
                                 <div key={activeIndex} className="animate-side-in">
                                     <h5 className="text-[10px] font-black uppercase opacity-60 mb-1 tracking-[0.2em]">Strategy / Execution</h5>
                                     <p className="text-sm font-bold text-black leading-snug italic">
@@ -325,15 +325,15 @@ export default function ProjectDetailClient({ project, dict, locale }: ProjectDe
                                             {/* Terminal Style Header */}
                                             <div className="bg-white border-b-4 border-black p-3 flex justify-between items-center">
                                                 <div className="flex gap-2">
-                                                    <div className="w-3 h-3 rounded-full border-2 border-black bg-[#FF5F56]"></div>
-                                                    <div className="w-3 h-3 rounded-full border-2 border-black bg-[#FFBD2E]"></div>
-                                                    <div className="w-3 h-3 rounded-full border-2 border-black bg-[#27C93F]"></div>
+                                                    <div className="w-3 h-3 rounded-full border-2 border-black bg-[#ff69b4]"></div>
+                                                    <div className="w-3 h-3 rounded-full border-2 border-black bg-[#ffd700]"></div>
+                                                    <div className="w-3 h-3 rounded-full border-2 border-black bg-[#adff2f]"></div>
                                                 </div>
                                                 <div className="flex items-center gap-2">
                                                     <span className="font-lexend font-black text-[10px] uppercase text-gray-400 mr-2">{block.language || 'code'}</span>
                                                     <button 
                                                         className={`font-lexend font-black text-[10px] uppercase px-3 py-1 border-2 border-black transition-all active:translate-y-0.5 flex items-center gap-2 ${
-                                                            copiedIndex === idx ? 'bg-[#ADFF2F] text-black' : 'bg-[#FFD700] hover:bg-black hover:text-white'
+                                                            copiedIndex === idx ? 'bg-[#adff2f] text-black' : 'bg-[#ffd700] hover:bg-black hover:text-white'
                                                         }`}
                                                         onClick={() => handleCopy(block.code || '', idx)}
                                                     >
@@ -363,7 +363,7 @@ export default function ProjectDetailClient({ project, dict, locale }: ProjectDe
             </section>
 
              {/* Technical Architecture - WITH THEME SHADOW */}
-            <section className="py-32 px-6 bg-[#f0f0f0]">
+            <section className="py-32 px-6 bg-[#eeeeee]">
                 <div className="max-w-7xl mx-auto">
                     <div className="relative group">
                         {/* Shadow Layer - Now Dynamic Theme Color */}
@@ -389,7 +389,7 @@ export default function ProjectDetailClient({ project, dict, locale }: ProjectDe
                                             className="font-lexend font-black text-2xl uppercase mb-4 tracking-tight transition-colors"
                                             style={{ color: 'white' }}
                                         >FRONTEND</h4>
-                                        <p className="text-[#cccccc] text-sm leading-relaxed">{project.technical?.frontend}</p>
+                                        <p className="text-[#eeeeee] text-sm leading-relaxed">{project.technical?.frontend}</p>
                                     </div>
                                 </div>
 
@@ -404,7 +404,7 @@ export default function ProjectDetailClient({ project, dict, locale }: ProjectDe
                                             className="font-lexend font-black text-2xl uppercase mb-4 tracking-tight transition-colors"
                                             style={{ color: 'white' }}
                                         >REAL-TIME</h4>
-                                        <p className="text-[#cccccc] text-sm leading-relaxed">{project.technical?.realtime}</p>
+                                        <p className="text-[#eeeeee] text-sm leading-relaxed">{project.technical?.realtime}</p>
                                     </div>
                                 </div>
 
@@ -419,7 +419,7 @@ export default function ProjectDetailClient({ project, dict, locale }: ProjectDe
                                             className="font-lexend font-black text-2xl uppercase mb-4 tracking-tight transition-colors"
                                             style={{ color: 'white' }}
                                         >SECURITY</h4>
-                                        <p className="text-[#cccccc] text-sm leading-relaxed">{project.technical?.security}</p>
+                                        <p className="text-[#eeeeee] text-sm leading-relaxed">{project.technical?.security}</p>
                                     </div>
                                 </div>
                             </div>

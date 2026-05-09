@@ -63,7 +63,8 @@
       }
     ],
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000",
-    "tags": ["CRAFT", "ARCHITECTURE", "STARTUP"],
+    "tags": ["CLEAN CODE", "ARCHITECTURE", "STARTUP"],
+    "category": "CRAFT",
     "date": "MAY 08, 2026",
     "readTime": "12 MIN READ",
     "featured": true
@@ -80,7 +81,8 @@
       }
     ],
     "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&q=80&w=1000",
-    "tags": ["CSS", "DEVELOPMENT"],
+    "tags": ["CSS", "GRID", "LAYOUT"],
+    "category": "DEVELOPMENT",
     "date": "MAY 05, 2026",
     "readTime": "8 MIN READ",
     "featured": false
@@ -107,9 +109,142 @@
       }
     ],
     "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=1000",
-    "tags": ["DESIGN", "TESTING", "SYSTEM"],
+    "tags": ["DESIGN SYSTEM", "UI KIT", "TESTING"],
+    "category": "DESIGN",
     "date": "MAY 09, 2026",
     "readTime": "15 MIN READ",
+    "featured": false
+  },
+  {
+    "slug": "ai-agents-the-new-standard-for-saas",
+    "title": "AI Agents: The New Standard for SaaS.",
+    "excerpt": "Moving beyond chatbots to autonomous agents that actually solve problems for users.",
+    "blocks": [
+      {
+        "type": "text",
+        "level": 2,
+        "heading": "The Agentic Shift",
+        "body": "The era of simple LLM wrappers is ending. The next wave of SaaS will be defined by <b>autonomous agents</b> that don't just talk, but execute. We're talking about systems that can plan, use tools, and correct their own mistakes."
+      },
+      {
+        "type": "code",
+        "language": "python",
+        "code": "def run_agent_workflow(task):\n    planner = AgentPlanner(role='Senior Architect')\n    steps = planner.generate_plan(task)\n    for step in steps:\n        result = executor.run(step)\n        if not validator.check(result):\n            executor.retry(step)"
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000",
+    "tags": ["AI", "SAAS", "AGENTS"],
+    "category": "TECH",
+    "date": "MAY 10, 2026",
+    "readTime": "10 MIN READ",
+    "featured": true
+  },
+  {
+    "slug": "brutalist-web-design-principles",
+    "title": "Brutalist Web Design Principles.",
+    "excerpt": "Why high-contrast, raw, and unapologetic UI is winning the attention economy.",
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "Raw Aesthetics",
+        "body": "Neobrutalism isn't just about bold colors. It's about honesty in digital construction."
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1000",
+    "tags": ["NEOBRUTALISM", "UI DESIGN", "TRENDS"],
+    "category": "DESIGN",
+    "date": "MAY 07, 2026",
+    "readTime": "6 MIN READ",
+    "featured": false
+  },
+  {
+    "slug": "serverless-is-not-what-you-think",
+    "title": "Serverless is Not What You Think.",
+    "excerpt": "De-bunking the myths of serverless scaling and the reality of the 'cold start' problem.",
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "The Illusion of Scale",
+        "body": "Serverless promised infinite scale, but delivered infinite complexity in debugging."
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000",
+    "tags": ["BACKEND", "AWS", "SERVERLESS"],
+    "category": "DEVELOPMENT",
+    "date": "MAY 04, 2026",
+    "readTime": "9 MIN READ",
+    "featured": false
+  },
+  {
+    "slug": "react-server-components-deep-dive",
+    "title": "React Server Components: Deep Dive.",
+    "excerpt": "Understanding the boundary between server and client in the modern React ecosystem.",
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "The New Paradigm",
+        "body": "RSCs are changing how we think about data fetching and bundle size forever."
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=1000",
+    "tags": ["REACT", "NEXTJS", "FRONTEND"],
+    "category": "DEVELOPMENT",
+    "date": "MAY 03, 2026",
+    "readTime": "14 MIN READ",
+    "featured": false
+  },
+  {
+    "slug": "the-death-of-the-junior-developer",
+    "title": "The Death of the Junior Developer?",
+    "excerpt": "How AI is changing the entry-level job market and what you need to do to survive.",
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "Survival of the Adaptable",
+        "body": "The bar for entry-level roles has shifted from 'can you code' to 'can you architect with AI'."
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1000",
+    "tags": ["CAREER", "AI", "EDUCATION"],
+    "category": "CAREER",
+    "date": "MAY 02, 2026",
+    "readTime": "7 MIN READ",
+    "featured": false
+  },
+  {
+    "slug": "postgresql-tricks-you-should-know",
+    "title": "PostgreSQL Tricks You Should Know.",
+    "excerpt": "Beyond simple SELECT statements: Common Table Expressions, JSONB, and Window Functions.",
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "Mastering the DB",
+        "body": "Your database is smarter than you think. Let it do the heavy lifting."
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1000",
+    "tags": ["SQL", "DATABASE", "POSTGRES"],
+    "category": "DEVELOPMENT",
+    "date": "MAY 01, 2026",
+    "readTime": "11 MIN READ",
+    "featured": false
+  },
+  {
+    "slug": "building-a-personal-brand-as-a-coder",
+    "title": "Building a Brand as a Coder.",
+    "excerpt": "Why shipping code isn't enough anymore. How to build an audience and leverage your skills.",
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "Visibility is Key",
+        "body": "In a sea of millions of developers, your unique voice is your strongest asset."
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&q=80&w=1000",
+    "tags": ["BRANDING", "FREELANCE", "MARKETING"],
+    "category": "CAREER",
+    "date": "APR 30, 2026",
+    "readTime": "5 MIN READ",
     "featured": false
   }
 ]

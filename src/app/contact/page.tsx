@@ -20,7 +20,7 @@ const ContactPage = () => {
         const formData = new FormData(e.currentTarget);
         const name = formData.get('name');
         const message = formData.get('message');
-        const text = `Halo, saya ${name}.%0A%0ASaya ingin diskusi mengenai ${selectedValue}.%0A%0A${message}`;
+        const text = `Hi, I'm ${name}.%0A%0AI'd like to discuss ${selectedValue}.%0A%0A${message}`;
         window.open(`https://wa.me/${waNumber}?text=${text}`, '_blank');
     };
 
@@ -44,9 +44,9 @@ const ContactPage = () => {
                     {/* Left Info Side */}
                     <div className="flex-1">
                         <h1 className="font-lexend font-black text-6xl md:text-8xl text-black uppercase mb-8 leading-[1.1] tracking-tighter">
-                            GET IN <span className="bg-[#a5f624] px-4 shadow-[6px_6px_0px_#000000] border-4 border-black inline-block mt-2">TOUCH.</span>
+                            GET IN <span className="bg-[#adff2f] px-4 shadow-[6px_6px_0px_#000000] border-4 border-black inline-block mt-2">TOUCH.</span>
                         </h1>
-                        <p className="text-xl font-medium uppercase text-[#5d5f5f] mb-16">
+                        <p className="text-xl font-medium uppercase text-[#000000] mb-16">
                             I&apos;M CURRENTLY OPEN TO NEW PROJECTS AND COLLABORATIONS. LET&apos;S BUILD SOMETHING THAT BREAKS THE INTERNET.
                         </p>
 
@@ -56,7 +56,7 @@ const ContactPage = () => {
                                     <i className="ph-bold ph-envelope-simple text-3xl text-black"></i>
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="font-black uppercase text-xs text-[#5d5f5f]">Email Me</h3>
+                                    <h3 className="font-black uppercase text-xs text-[#000000]">Email Me</h3>
                                     <a href="mailto:HELLO@DEVPORT.IO" className="font-lexend font-black text-2xl text-black hover:text-[#ffd700] transition-colors">
                                         HELLO@DEVPORT.IO
                                     </a>
@@ -68,7 +68,7 @@ const ContactPage = () => {
                                     <i className="ph-bold ph-map-pin text-3xl text-black"></i>
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="font-black uppercase text-xs text-[#5d5f5f]">Location</h3>
+                                    <h3 className="font-black uppercase text-xs text-[#000000]">Location</h3>
                                     <p className="font-lexend font-black text-2xl text-black">
                                         BERLIN, DE
                                     </p>
@@ -193,7 +193,7 @@ const ContactPage = () => {
             </section>
             
             {/* Image Gallery */}
-            <section className="py-16 px-6 bg-[#f9f9f9] border-b-8 border-black">
+            <section className="py-16 px-6 bg-[#eeeeee] border-b-8 border-black">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
                     {[
                         { src: '/images/our_studio_photography_neobrutal_1778062528096.png', label: 'OUR STUDIO' },

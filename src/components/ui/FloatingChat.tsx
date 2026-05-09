@@ -34,8 +34,8 @@ const FloatingChat = () => {
         {/* Header */}
         <div className="bg-black text-white p-4 flex justify-between items-center border-b-4 border-black">
           <div className="flex items-center gap-3">
-            <div className="w-3 h-3 bg-[#ADFF2F] animate-pulse"></div>
-            <span className="font-black uppercase text-xs tracking-widest text-[#ADFF2F]">JESSY'S TERMINAL</span>
+            <div className="w-3 h-3 bg-[#adff2f] animate-pulse"></div>
+            <span className="font-black uppercase text-xs tracking-widest text-[#adff2f]">JESSY'S TERMINAL</span>
           </div>
           <Button 
             onClick={() => setIsOpen(false)} 

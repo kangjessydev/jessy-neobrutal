@@ -28,9 +28,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language = 'css' }) => {
         {/* Terminal Header */}
         <div className="bg-white border-b-4 border-dark p-3 flex justify-between items-center">
           <div className="flex gap-2">
-            <div className="w-3 h-3 rounded-full border-2 border-dark bg-[#FF5F56]"></div>
-            <div className="w-3 h-3 rounded-full border-2 border-dark bg-[#FFBD2E]"></div>
-            <div className="w-3 h-3 rounded-full border-2 border-dark bg-[#27C93F]"></div>
+            <div className="w-3 h-3 rounded-full border-2 border-dark bg-[#ff69b4]"></div>
+            <div className="w-3 h-3 rounded-full border-2 border-dark bg-[#ffd700]"></div>
+            <div className="w-3 h-3 rounded-full border-2 border-dark bg-[#adff2f]"></div>
           </div>
           <button 
             onClick={handleCopy}

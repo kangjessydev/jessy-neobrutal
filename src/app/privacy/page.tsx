@@ -4,9 +4,9 @@ import Link from 'next/link';
 
 export default function PrivacyPage() {
     return (
-        <main className="bg-[#f9f9f9] min-h-screen pt-32 pb-20 px-6">
+        <main className="bg-[#eeeeee] min-h-screen pt-32 pb-20 px-6">
             <article className="max-w-4xl mx-auto">
-                <div className="inline-block bg-[#ADFF2F] border-4 border-black px-4 py-1 mb-8 shadow-[4px_4px_0px_#000000] font-lexend font-black uppercase text-xs tracking-widest text-black">
+                <div className="inline-block bg-[#adff2f] border-4 border-black px-4 py-1 mb-8 shadow-[4px_4px_0px_#000000] font-lexend font-black uppercase text-xs tracking-widest text-black">
                     PRIVACY PROTOCOL v1.0
                 </div>
                 
@@ -18,21 +18,21 @@ export default function PrivacyPage() {
                     <section className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_#000000]">
                         <h2 className="font-lexend font-black text-3xl uppercase mb-4">01. DATA COLLECTION</h2>
                         <p className="font-space font-medium leading-relaxed">
-                            Kami tidak haus data. Kami hanya mengumpulkan informasi dasar seperti alamat email jika Anda mengisi form kontak, atau data anonim lewat cookies untuk tahu bagian mana dari website ini yang paling sering diklik.
+                            I am not data-hungry. I only collect basic information such as your email address if you fill out the contact form, or anonymous usage data via cookies to understand which parts of this site are most effective.
                         </p>
                     </section>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <section className="border-4 border-black p-8 bg-white shadow-[8px_8px_0px_#FFD700]">
+                        <section className="border-4 border-black p-8 bg-white shadow-[8px_8px_0px_#ffd700]">
                             <h3 className="font-lexend font-black text-xl uppercase mb-3">Cookies</h3>
                             <p className="text-sm font-medium leading-relaxed opacity-80">
-                                Kami menggunakan teknologi standard cookies untuk meningkatkan performa halaman. Tidak ada data pribadi sensitif yang kami simpan di sini.
+                                I use standard cookie technology to improve page performance and user experience. No sensitive personal data is stored here.
                             </p>
                         </section>
                         <section className="border-4 border-black p-8 bg-white shadow-[8px_8px_0px_#ff69b4]">
                             <h3 className="font-lexend font-black text-xl uppercase mb-3">Contact Form</h3>
                             <p className="text-sm font-medium leading-relaxed opacity-80">
-                                Email yang Anda kirimkan hanya akan digunakan untuk komunikasi profesional antara saya dan Anda. No spam. No selling.
+                                Any information you provide via the contact form is strictly used for professional communication. No spam. No selling of your data.
                             </p>
                         </section>
                     </div>
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
                     <section className="space-y-6">
                         <h2 className="font-lexend font-black text-3xl uppercase tracking-tight">02. DATA SECURITY</h2>
                         <p className="font-space font-medium leading-relaxed text-gray-700">
-                            Kami menggunakan protokol Next.js yang aman untuk menjaga integritas website ini. Meskipun tidak ada sistem yang 100% kebal, kami berkomitmen untuk tidak mengekspos data Anda ke pihak ketiga yang tidak bertanggung jawab.
+                            I employ secure Next.js protocols to maintain site integrity. While no system is perfectly immune, I am committed to ensuring your data is not exposed to unauthorized third parties.
                         </p>
                     </section>
 
@@ -50,13 +50,13 @@ export default function PrivacyPage() {
                             &quot;Privacy is not an option, it is a human right.&quot;
                         </p>
                         <p className="font-space font-medium mt-4 text-gray-700">
-                            Jika Anda ingin data Anda dihapus dari database email saya, silakan hubungi saya langsung lewat tombol &apos;Get in Touch&apos;. Saya akan eksekusi permintaannya segera.
+                            If you wish to have your data removed from my records, please contact me directly via the &apos;Get in Touch&apos; button. I will process your request immediately.
                         </p>
                     </section>
 
                     <div className="pt-12 border-t-8 border-black flex justify-between items-center">
                         <p className="font-lexend font-bold uppercase text-xs text-gray-400">Last Updated: May 2024</p>
-                        <Link href="/" className="font-lexend font-black uppercase text-sm border-b-4 border-black hover:bg-[#ADFF2F] transition-all">
+                        <Link href="/" className="font-lexend font-black uppercase text-sm border-b-4 border-black hover:bg-[#adff2f] transition-all text-black no-underline">
                             Back to Home
                         </Link>
                     </div>

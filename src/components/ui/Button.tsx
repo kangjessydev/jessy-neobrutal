@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
   // Variant colors mapping
   const variants = {
     primary: 'bg-[#ffd700] text-black shadow-black',
-    secondary: 'bg-[#ADFF2F] text-black shadow-black',
+    secondary: 'bg-[#adff2f] text-black shadow-black',
     tertiary: 'bg-white text-black shadow-black',
     outline: 'bg-transparent text-black border-4 border-black shadow-black',
     black: 'bg-black text-white shadow-[#ffd700]'

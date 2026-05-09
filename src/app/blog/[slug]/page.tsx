@@ -59,7 +59,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
         {
             type: 'text',
             heading: 'Color and Contrast',
-            body: "In a Neobrutalist system, hierarchy is achieved through intensity rather than size alone. A high-contrast tag will grab more attention than a large, muted headline. We use colors like #ADFF2F and #FFD700 to guide the user's eye across the page."
+            body: "In a Neobrutalist system, hierarchy is achieved through intensity rather than size alone. A high-contrast tag will grab more attention than a large, muted headline. We use colors like #adff2f and #ffd700 to guide the user's eye across the page."
         }
     ];
 
@@ -102,7 +102,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                             )}
 
                             {block.type === 'quote' && (
-                                <div className="bg-[#FFD700] border-8 border-black p-10 md:p-16 relative overflow-hidden my-12 shadow-[12px_12px_0px_#000000]">
+                                <div className="bg-[#ffd700] border-8 border-black p-10 md:p-16 relative overflow-hidden my-12 shadow-[12px_12px_0px_#000000]">
                                     <span className="absolute top-2 left-4 font-lexend font-black text-7xl opacity-20 text-black select-none">“</span>
                                     <p className="font-lexend font-black text-3xl md:text-4xl italic leading-tight relative z-10 text-black">
                                         &ldquo;{block.text}&rdquo;
@@ -112,20 +112,20 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
 
                             {block.type === 'code' && (
                                 <div className="relative my-12 group">
-                                    <div className="absolute inset-0 bg-[#FFD700] translate-x-3 translate-y-3"></div>
+                                    <div className="absolute inset-0 bg-[#ffd700] translate-x-3 translate-y-3"></div>
                                     <div className="relative bg-black border-4 border-black overflow-hidden shadow-[8px_8px_0px_rgba(0,0,0,1)]">
                                         {/* Terminal Style Header */}
                                         <div className="bg-white border-b-4 border-black p-3 flex justify-between items-center">
                                             <div className="flex gap-2">
-                                                <div className="w-3 h-3 rounded-full border-2 border-black bg-[#FF5F56]"></div>
-                                                <div className="w-3 h-3 rounded-full border-2 border-black bg-[#FFBD2E]"></div>
-                                                <div className="w-3 h-3 rounded-full border-2 border-black bg-[#27C93F]"></div>
+                                                <div className="w-3 h-3 rounded-full border-2 border-black bg-[#ff69b4]"></div>
+                                                <div className="w-3 h-3 rounded-full border-2 border-black bg-[#ffd700]"></div>
+                                                <div className="w-3 h-3 rounded-full border-2 border-black bg-[#adff2f]"></div>
                                             </div>
                                             <div className="flex items-center gap-2">
                                                 <span className="font-lexend font-black text-[10px] uppercase text-gray-400 mr-2">{block.language}</span>
                                                 <button 
                                                     className={`font-lexend font-black text-[10px] uppercase px-3 py-1 border-2 border-black transition-all active:translate-y-0.5 flex items-center gap-2 ${
-                                                        copiedIndex === idx ? 'bg-[#ADFF2F] text-black' : 'bg-[#FFD700] hover:bg-black hover:text-white'
+                                                        copiedIndex === idx ? 'bg-[#adff2f] text-black' : 'bg-[#ffd700] hover:bg-black hover:text-white'
                                                     }`}
                                                     onClick={() => handleCopy(block.code || '', idx)}
                                                 >
@@ -154,14 +154,14 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                     {/* Feature Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8">
                         <div className="border-4 border-black p-8 bg-white shadow-[8px_8px_0px_#000000] flex flex-col gap-4 hover:-translate-y-1 transition-all group">
-                            <div className="bg-[#FFD700] border-4 border-black w-14 h-14 flex items-center justify-center shadow-[4px_4px_0px_#000000] group-hover:bg-[#ADFF2F] transition-colors">
+                            <div className="bg-[#ffd700] border-4 border-black w-14 h-14 flex items-center justify-center shadow-[4px_4px_0px_#000000] group-hover:bg-[#adff2f] transition-colors">
                                 <i className="ph-bold ph-bolt text-3xl text-black"></i>
                             </div>
                             <h4 className="font-lexend font-black uppercase text-xl text-black">High Impact</h4>
                             <p className="font-space font-medium text-sm text-gray-600 leading-relaxed">Vibrant colors and thick lines create an immediate sense of urgency and technical clarity.</p>
                         </div>
                         <div className="border-4 border-black p-8 bg-white shadow-[8px_8px_0px_#000000] flex flex-col gap-4 hover:-translate-y-1 transition-all group">
-                            <div className="bg-[#ADFF2F] border-4 border-black w-14 h-14 flex items-center justify-center shadow-[4px_4px_0px_#000000] group-hover:bg-[#FFD700] transition-colors">
+                            <div className="bg-[#adff2f] border-4 border-black w-14 h-14 flex items-center justify-center shadow-[4px_4px_0px_#000000] group-hover:bg-[#ffd700] transition-colors">
                                 <i className="ph-bold ph-code text-3xl text-black"></i>
                             </div>
                             <h4 className="font-lexend font-black uppercase text-xl text-black">Zero Gradients</h4>
@@ -180,7 +180,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                     <span className="font-lexend font-black text-sm uppercase tracking-widest text-gray-400 mb-4 block">Next Article</span>
                     <Link href={`/blog/mastering-neobrutalism`} className="group flex justify-between items-center bg-white border-8 border-black p-8 md:p-12 shadow-[12px_12px_0px_#000000] hover:translate-y-1 hover:shadow-none transition-all">
                         <h3 className="font-lexend font-black text-3xl md:text-5xl uppercase tracking-tighter group-hover:italic text-black">Mastering the Subgrid: A Guide.</h3>
-                        <div className="bg-black text-white w-14 h-14 hidden md:flex items-center justify-center border-4 border-black group-hover:bg-[#ADFF2F] group-hover:text-black transition-colors">
+                        <div className="bg-black text-white w-14 h-14 hidden md:flex items-center justify-center border-4 border-black group-hover:bg-[#adff2f] group-hover:text-black transition-colors">
                             <i className="ph-bold ph-arrow-right text-3xl"></i>
                         </div>
                     </Link>

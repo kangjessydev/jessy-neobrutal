@@ -42,7 +42,7 @@ export default function BlogClient({ allPosts, dict, locale }: BlogClientProps) 
                     <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12">
                         <div className="max-w-3xl">
                             <h1 className="font-lexend font-black text-6xl md:text-8xl leading-none tracking-tighter uppercase mb-6 text-black">
-                                {dict.about.blog.heroTitle} <span className="bg-[#ADFF2F] border-4 border-black inline-block px-4 py-0 -rotate-2 mx-1 shadow-[4px_4px_0px_#000000]">{dict.about.blog.heroBadge}</span>
+                                {dict.about.blog.heroTitle} <span className="bg-[#adff2f] border-4 border-black inline-block px-4 py-0 -rotate-2 mx-1 shadow-[4px_4px_0px_#000000]">{dict.about.blog.heroBadge}</span>
                             </h1>
                             <p className="font-space font-medium text-xl md:text-2xl max-w-2xl text-gray-700 leading-relaxed">
                                 {dict.about.blog.heroDesc}
@@ -55,7 +55,7 @@ export default function BlogClient({ allPosts, dict, locale }: BlogClientProps) 
                                 <i className="ph-bold ph-envelope text-3xl text-black"></i>
                                 <h3 className="font-lexend font-black text-3xl uppercase leading-none text-black">{dict.about.blog.newsletterTitle}</h3>
                             </div>
-                            <p className="font-space font-medium text-sm text-[#5d5f5f] mb-8 leading-relaxed">
+                            <p className="font-space font-medium text-sm text-[#000000] mb-8 leading-relaxed">
                                 {dict.about.blog.newsletterDesc}
                             </p>
                             <div className="flex flex-col gap-4">
@@ -138,8 +138,8 @@ export default function BlogClient({ allPosts, dict, locale }: BlogClientProps) 
                                                 onClick={() => handlePostSwitch(post)}
                                                 className={`group flex flex-col w-32 md:w-full flex-shrink-0 border-4 border-black bg-white transition-all text-left ${
                                                     featuredPost.slug === post.slug 
-                                                    ? 'shadow-none translate-x-1 translate-y-1 bg-[#ADFF2F]/10' 
-                                                    : 'shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#ADFF2F]'
+                                                    ? 'shadow-none translate-x-1 translate-y-1 bg-[#adff2f]/10' 
+                                                    : 'shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#adff2f]'
                                                 }`}
                                             >
                                                 <div className="h-20 md:h-24 w-full overflow-hidden border-b-4 border-black">
@@ -167,7 +167,7 @@ export default function BlogClient({ allPosts, dict, locale }: BlogClientProps) 
                                 onClick={() => setActiveFilter(filter)}
                                 className={`px-5 py-2.5 border-4 border-black font-lexend font-black uppercase text-xs transition-all cursor-pointer ${
                                     activeFilter === filter 
-                                    ? 'bg-[#ADFF2F] translate-x-1 translate-y-1 shadow-none' 
+                                    ? 'bg-[#adff2f] translate-x-1 translate-y-1 shadow-none' 
                                     : 'bg-white shadow-[4px_4px_0px_#000000] hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#000000]'
                                 }`}
                             >
@@ -196,7 +196,7 @@ export default function BlogClient({ allPosts, dict, locale }: BlogClientProps) 
                                         <div 
                                             key={opt}
                                             onClick={() => { setSortBy(opt); setIsSortOpen(false); }}
-                                            className={`p-3 font-black text-[11px] border-b-2 border-black uppercase cursor-pointer hover:bg-[#ADFF2F] last:border-b-0 text-black ${sortBy === opt ? 'bg-[#ADFF2F]' : ''}`}
+                                            className={`p-3 font-black text-[11px] border-b-2 border-black uppercase cursor-pointer hover:bg-[#adff2f] last:border-b-0 text-black ${sortBy === opt ? 'bg-[#adff2f]' : ''}`}
                                         >
                                             {opt}
                                         </div>
@@ -235,7 +235,7 @@ export default function BlogClient({ allPosts, dict, locale }: BlogClientProps) 
                         {dict.about.blog.paginationPrev}
                     </Button>
                     <div className="flex gap-3">
-                        <span className="w-12 h-12 flex items-center justify-center border-4 border-black bg-[#ADFF2F] font-black text-black shadow-[4px_4px_0px_#000000]">1</span>
+                        <span className="w-12 h-12 flex items-center justify-center border-4 border-black bg-[#adff2f] font-black text-black shadow-[4px_4px_0px_#000000]">1</span>
                         <span className="w-12 h-12 flex items-center justify-center border-4 border-black bg-white font-black text-black hover:bg-gray-100 cursor-pointer shadow-[4px_4px_0px_#000000]">2</span>
                     </div>
                     <Button variant="tertiary" size="md">
