@@ -13,6 +13,7 @@ interface ButtonProps {
   customBg?: string;
   customShadow?: string;
   fullWidth?: boolean;
+  disabled?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({ 
@@ -26,7 +27,8 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   customBg,
   customShadow,
-  fullWidth = false
+  fullWidth = false,
+  disabled = false
 }) => {
   
   // Variant colors mapping
@@ -58,6 +60,7 @@ const Button: React.FC<ButtonProps> = ({
     transition-all duration-200 active:scale-95
     hover:shadow-none
     ${fullWidth ? 'w-full' : ''}
+    ${disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}
     ${variants[variant]}
     ${sizes[size]}
     ${shadowOffsets[size]}
@@ -84,6 +87,7 @@ const Button: React.FC<ButtonProps> = ({
       style={styling}
       id={id} 
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>

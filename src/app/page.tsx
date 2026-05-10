@@ -3,7 +3,9 @@ import { getProjects } from "@/data/projects";
 import { getTagColor } from "@/utils/colors";
 
 export default function Home() {
-  const projects = getProjects().filter(p => p.taxonomy?.includes('masterpiece')).slice(0, 2); // Only first 2 masterpiece projects
+  const projects = getProjects()
+    .filter((p) => p.taxonomy?.includes("masterpiece"))
+    .slice(0, 2); // Only first 2 masterpiece projects
 
   return (
     <>
@@ -37,12 +39,12 @@ export default function Home() {
               VIEW SELECTED WORKS
             </Button>
             <Button
-              href="#tech"
+              href="/about"
               variant="tertiary"
               size="lg"
               className="w-full md:w-auto"
             >
-              TECH STACK
+              ABOUT ME
             </Button>
           </div>
         </div>
@@ -223,7 +225,9 @@ export default function Home() {
                       <span
                         key={tag}
                         className="border-2 border-black px-3 py-1 text-xs font-bold uppercase text-black"
-                        style={{ backgroundColor: getTagColor(project.tagColor) }}
+                        style={{
+                          backgroundColor: getTagColor(project.tagColor),
+                        }}
                       >
                         {tag}
                       </span>

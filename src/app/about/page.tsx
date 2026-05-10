@@ -85,14 +85,19 @@ export default function AboutPage() {
           <h2 className="text-4xl font-black uppercase mb-12">The Arsenal</h2>
           <div className="flex flex-wrap gap-4">
             {[
-              "FULL-STACK DEV",
-              "SYSTEM ARCHITECTURE",
-              "VUE / NUXT",
-              "LARAVEL",
-              "FILAMENT",
-              "MYSQL",
-              "GOOGLE APPS SCRIPT",
-              "AI INTEGRATION",
+              "Nuxt.js",
+              "Vue",
+              "Laravel",
+              // "Node.js",
+              "PostgreSQL",
+              "MySQL",
+              "Docker",
+              "Git",
+              "Tailwind CSS",
+              "Bootstrap",
+              "Figma",
+              "Sanity",
+              "Supabase",
             ].map((skill) => (
               <div
                 key={skill}
@@ -127,52 +132,95 @@ export default function AboutPage() {
             <div className="flex justify-between items-start mb-8">
               <div>
                 <span className="bg-black text-white px-3 py-1 text-sm font-bold uppercase mb-4 inline-block">
-                  2022 – PRESENT
+                  JUL 2024 – PRESENT
                 </span>
                 <h3 className="text-4xl font-black uppercase mb-2 text-black">
                   FULL-STACK DEVELOPER
                 </h3>
                 <p className="font-bold text-[#000000] uppercase tracking-wider">
-                  KANGJESSY — INDEPENDENT STUDIO
+                  Freelance / Project-Based
                 </p>
               </div>
               <i className="ph-bold ph-terminal-window text-6xl text-black group-hover:rotate-12 transition-transform"></i>
             </div>
             <p className="text-lg leading-relaxed text-[#000000]">
-              Building end-to-end web systems for UMKM and hospitality
-              businesses. From architecture to deployment, handled solo.
+              Architecting and deploying custom web systems. Focused on building
+              high-performance frontend interfaces and scalable backend
+              architectures for diverse client needs.
             </p>
           </div>
 
           <div className="border-4 border-black p-8 bg-[#ffd700] shadow-[8px_8px_0px_#000000]">
             <div className="mb-8 text-black">
               <span className="bg-black text-white px-3 py-1 text-sm font-bold uppercase mb-4 inline-block">
-                2021 – 2022
+                SEP 2023 – AUG 2024
               </span>
-              <h3 className="text-3xl font-black uppercase mb-2">IT SUPPORT</h3>
+              <h3 className="text-3xl font-black uppercase mb-2">
+                WEB & SYSTEMS DEV
+              </h3>
               <p className="font-bold uppercase tracking-wider">
-                NUR ALAM HOTEL LEMBANG
+                PT BANK USAHA RAKYAT
               </p>
             </div>
             <p className="text-lg leading-relaxed text-black">
-              Managed full IT infrastructure — network, reservation systems, and
-              cross-department technical support.
+              Engineered a professional banking portal and a semi-automated
+              WhatsApp Banking service leveraging cloud-based scripting for
+              enhanced operational efficiency.
             </p>
           </div>
 
           <div className="border-4 border-black p-8 bg-[#adff2f] shadow-[8px_8px_0px_#000000]">
             <div className="mb-8 text-black">
               <span className="bg-black text-white px-3 py-1 text-sm font-bold uppercase mb-4 inline-block">
-                2020 – 2021
+                SEP 2023 – AUG 2024
               </span>
-              <h3 className="text-3xl font-black uppercase mb-2">IT SUPPORT</h3>
+              <h3 className="text-3xl font-black uppercase mb-2">
+                WEB & SYSTEMS DEV
+              </h3>
               <p className="font-bold uppercase tracking-wider">
-                BANK USAHA RAKYAT
+                NUR ALAM HOTEL LEMBANG
               </p>
             </div>
             <p className="text-lg leading-relaxed text-black">
-              Maintained core banking systems, user access management, and
-              branch-level technical operations.
+              Developed a robust accounting and sales monitoring platform.
+              Managed end-to-end hotel IT infrastructure and digital presence.
+            </p>
+          </div>
+
+          <div className="border-4 border-black p-8 bg-white shadow-[8px_8px_0px_#000000]">
+            <div className="mb-8 text-black">
+              <span className="bg-black text-white px-3 py-1 text-sm font-bold uppercase mb-4 inline-block">
+                JUL 2023
+              </span>
+              <h3 className="text-3xl font-black uppercase mb-2">
+                BACKEND DEV INTERN
+              </h3>
+              <p className="font-bold uppercase tracking-wider">
+                EVERMOS X RAKAMIN ACADEMY
+              </p>
+            </div>
+            <p className="text-lg leading-relaxed text-black">
+              Learned Go (Golang) backend fundamentals — built transaction APIs
+              using the Fiber framework as part of an accelerated engineering
+              bootcamp.
+            </p>
+          </div>
+
+          <div className="border-4 border-black p-8 bg-[#eeeeee] shadow-[8px_8px_0px_#000000]">
+            <div className="mb-8 text-black">
+              <span className="bg-black text-white px-3 py-1 text-sm font-bold uppercase mb-4 inline-block">
+                JUN 2020 – SEP 2020
+              </span>
+              <h3 className="text-2xl md:text-3xl font-black uppercase mb-2">
+                EMBEDDED DEV INTERN
+              </h3>
+              <p className="font-bold uppercase tracking-wider">
+                PT. SAS AERO SISHAN
+              </p>
+            </div>
+            <p className="text-lg leading-relaxed text-black">
+              Built hardware-software prototypes using Arduino and .NET —
+              including fire control simulation systems integrated with Unity.
             </p>
           </div>
 
@@ -187,6 +235,7 @@ export default function AboutPage() {
                     { id: "01", title: "AI INTEGRATION & LLM APPLICATION" },
                     { id: "02", title: "WEB SYSTEMS ARCHITECTURE" },
                     { id: "03", title: "PRODUCT DEVELOPMENT SAAS" },
+                    { id: "04", title: "REACT & NEXT.JS ECOSYSTEM" },
                   ].map((item) => (
                     <div
                       key={item.id}

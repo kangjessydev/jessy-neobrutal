@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light scroll-smooth">
-      <body className={`${lexend.variable} ${spaceGrotesk.variable} bg-[#eeeeee] text-[#1b1b1b] font-space overflow-x-hidden m-0 p-0 antialiased min-h-screen flex flex-col`}>
+      <body className={`${lexend.variable} ${spaceGrotesk.variable} bg-[#eeeeee] text-[#1b1b1b] font-space overflow-x-hidden m-0 p-0 antialiased min-h-screen flex flex-col print:[print-color-adjust:exact] print:[-webkit-print-color-adjust:exact]`}>
         <LayoutWrapper>
           {children}
         </LayoutWrapper>

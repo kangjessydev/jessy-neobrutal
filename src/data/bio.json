@@ -8,7 +8,20 @@
       "text": "Online"
     }
   },
-  "skills": ["TYPESCRIPT", "NEXT.JS", "LARAVEL", "POSTGRESQL", "DOCKER", "AWS", "UI/UX"],
+  "skills": [
+    "Nuxt.js",
+    "Vue",
+    "Laravel",
+    "PostgreSQL",
+    "MySQL",
+    "Docker",
+    "Git",
+    "Tailwind CSS",
+    "Bootstrap",
+    "Figma",
+    "Sanity",
+    "Supabase"
+  ],
   "links": [
     {
       "title": "Selected Works",
@@ -24,7 +37,7 @@
     },
     {
       "title": "View Source (GitHub)",
-      "href": "https://github.com/kangjessy",
+      "href": "https://github.com/kangjessydev",
       "icon": "ph-bold ph-github-logo",
       "variant": "black"
     },
@@ -47,9 +60,14 @@
       "variant": "secondary"
     },
     {
-      "icon": "ph-bold ph-twitter-logo",
-      "href": "https://twitter.com/kangjessy",
+      "icon": "ph-bold ph-tiktok-logo",
+      "href": "https://tiktok.com/@kangjessy",
       "variant": "tertiary"
+    },
+    {
+      "icon": "ph-bold ph-threads-logo",
+      "href": "https://threads.net/@kangjessy",
+      "variant": "black"
     }
   ]
 }

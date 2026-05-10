@@ -58,7 +58,7 @@ const FloatingChat = () => {
           
           <div className="space-y-4 pt-2">
             <Button 
-              href="https://wa.me/6281234567890" 
+              href="https://wa.me/6288218705236" 
               variant="secondary"
               size="md"
               fullWidth

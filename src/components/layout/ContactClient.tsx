@@ -11,7 +11,7 @@ const ContactClient = ({ dict, locale }: ContactClientProps) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState(dict.about.contact.subjects[0]);
     const dropdownRef = React.useRef<HTMLDivElement>(null);
-    const waNumber = "6281234567890";
+    const waNumber = "6288218705236";
 
     const subjects = dict.about.contact.subjects;
 
@@ -61,8 +61,8 @@ const ContactClient = ({ dict, locale }: ContactClientProps) => {
                                 </div>
                                 <div className="flex-1">
                                     <h3 className="font-black uppercase text-xs text-[#000000]">{dict.about.contact.emailLabel}</h3>
-                                    <a href="mailto:HELLO@DEVPORT.IO" className="font-lexend font-black text-2xl text-black hover:text-[#ffd700] transition-colors">
-                                        HELLO@DEVPORT.IO
+                                    <a href="mailto:hi.kangjessy@gmail.com" className="font-lexend font-black text-2xl text-black hover:text-[#ffd700] transition-colors">
+                                        HI.KANGJESSY@GMAIL.COM
                                     </a>
                                 </div>
                             </div>
@@ -85,17 +85,25 @@ const ContactClient = ({ dict, locale }: ContactClientProps) => {
                         <div>
                             <h3 className="font-black uppercase text-xl mb-6 text-black">{dict.about.contact.connectTitle}</h3>
                             <div className="flex flex-wrap gap-4">
-                                <a href="https://github.com/kangjessy" target="_blank" rel="noopener noreferrer" className="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm text-black no-underline">
+                                <a href="https://github.com/kangjessydev" target="_blank" rel="noopener noreferrer" className="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm text-black no-underline">
                                     <i className="ph-bold ph-github-logo text-lg text-black"></i>
                                     GITHUB
                                 </a>
-                                <a href="#" target="_blank" rel="noopener noreferrer" className="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm text-black no-underline">
+                                <a href="https://linkedin.com/in/kangjessy" target="_blank" rel="noopener noreferrer" className="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm text-black no-underline">
                                      <i className="ph-bold ph-linkedin-logo text-lg text-black"></i>
                                      LINKEDIN
                                 </a>
-                                <a href="#" target="_blank" rel="noopener noreferrer" className="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm text-black no-underline">
-                                    <i className="ph-bold ph-x-logo text-lg text-black"></i>
-                                    TWITTER
+                                <a href="https://instagram.com/kangjessy" target="_blank" rel="noopener noreferrer" className="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm text-black no-underline">
+                                    <i className="ph-bold ph-instagram-logo text-lg text-black"></i>
+                                    INSTAGRAM
+                                </a>
+                                <a href="https://tiktok.com/@kangjessy" target="_blank" rel="noopener noreferrer" className="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm text-black no-underline">
+                                    <i className="ph-bold ph-tiktok-logo text-lg text-black"></i>
+                                    TIKTOK
+                                </a>
+                                <a href="https://threads.net/@kangjessy" target="_blank" rel="noopener noreferrer" className="border-4 border-black px-4 py-2 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-2 text-sm text-black no-underline">
+                                    <i className="ph-bold ph-threads-logo text-lg text-black"></i>
+                                    THREADS
                                 </a>
                             </div>
                         </div>

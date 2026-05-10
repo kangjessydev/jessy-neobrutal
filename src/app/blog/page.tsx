@@ -281,12 +281,14 @@ export default function BlogPage() {
 
                         {/* Reset Filter Button */}
                         {(filterValue !== 'ALL' || searchQuery !== '') && (
-                            <button 
+                            <Button 
                                 onClick={() => { setFilterValue('ALL'); setSearchQuery(''); setFilterType('all'); }}
-                                className="w-full md:w-auto font-lexend font-black text-xs uppercase bg-black text-white px-6 h-12 border-4 border-black shadow-[4px_4px_0px_#000000] hover:bg-[#ff69b4] hover:text-black transition-all"
+                                variant="black"
+                                className="w-full md:w-auto h-12"
+                                customBg="#000000"
                             >
-                                RESET
-                            </button>
+                                <span className="group-hover:text-[#ff69b4]">RESET</span>
+                            </Button>
                         )}
                     </div>
                 </div>
@@ -361,15 +363,14 @@ export default function BlogPage() {
                         </Button>
                         <div className="flex gap-3">
                             {Array.from({ length: totalPages }).map((_, i) => (
-                                <button
+                                <Button
                                     key={i}
                                     onClick={() => setCurrentPage(i + 1)}
-                                    className={`w-12 h-12 flex items-center justify-center border-4 border-black font-black text-black shadow-[4px_4px_0px_#000000] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#000000] ${
-                                        currentPage === i + 1 ? 'bg-[#adff2f]' : 'bg-white'
-                                    }`}
+                                    variant={currentPage === i + 1 ? 'secondary' : 'tertiary'}
+                                    className="w-12 h-12 px-0 py-0 flex items-center justify-center text-lg"
                                 >
                                     {i + 1}
-                                </button>
+                                </Button>
                             ))}
                         </div>
                         <Button 

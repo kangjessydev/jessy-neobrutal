@@ -144,14 +144,26 @@ const Navbar = () => {
                                  'NAVIGATION'}
                             </span>
                         </div>
-                        <Button
-                            onClick={() => setIsMenuOpen(false)}
-                            variant="black"
-                            size="md"
-                            className="!w-12 !h-12 !p-0"
-                        >
-                            <i className="ph-bold ph-x text-2xl"></i>
-                        </Button>
+                        <div className="flex items-center gap-4">
+                            <Button
+                                href="/contact"
+                                variant="tertiary"
+                                size="md"
+                                onClick={() => setIsMenuOpen(false)}
+                                className="!px-4 !py-2 h-12 flex items-center hover:bg-[#adff2f]"
+                            >
+                                <span className="font-bold uppercase tracking-widest text-sm hidden sm:inline">GET IN TOUCH</span>
+                                <i className="ph-bold ph-paper-plane-tilt text-xl sm:hidden"></i>
+                            </Button>
+                            <Button
+                                onClick={() => setIsMenuOpen(false)}
+                                variant="black"
+                                size="md"
+                                className="!w-12 !h-12 !p-0"
+                            >
+                                <i className="ph-bold ph-x text-2xl"></i>
+                            </Button>
+                        </div>
                     </div>
 
                     <div className="flex-grow flex flex-col md:flex-row md:divide-x-8 divide-black overflow-y-auto relative overflow-x-hidden" ref={parent}>
@@ -222,31 +234,27 @@ const Navbar = () => {
                         >
                             {/* Default Content */}
                             {activeTab === 'default' && (
-                                <div className="side-content animate-side-in flex flex-col justify-between h-full p-12 w-full transition-all duration-400">
-                                    <div>
-                                        <h4 className="font-black uppercase text-sm tracking-widest mb-12 py-1 px-4 bg-black text-white inline-block">CONNECT</h4>
-                                        <div className="flex flex-col gap-6">
-                                            <a href="#" className="text-3xl font-black uppercase hover:text-[#adff2f] transition-colors flex items-center gap-4 group">
-                                                LinkedIn <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
-                                            </a>
-                                            <a href="#" className="text-3xl font-black uppercase hover:text-[#adff2f] transition-colors flex items-center gap-4 group">
-                                                Github <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
-                                            </a>
-                                            <a href="#" className="text-3xl font-black uppercase hover:text-[#ffd700] transition-colors flex items-center gap-4 group">
-                                                Twitter <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
-                                            </a>
-                                        </div>
+                                <div className="side-content animate-side-in flex flex-col h-full p-12 w-full transition-all duration-400 overflow-y-auto no-scrollbar">
+                                    <div className="flex-shrink-0">
+                                        <h4 className="font-black uppercase text-sm tracking-widest mb-8 py-1 px-4 bg-black text-white inline-block">CONNECT</h4>
                                     </div>
-                                    <div className="mt-20 text-center">
-                                        <Button 
-                                            href="/contact" 
-                                            variant="primary" 
-                                            size="lg" 
-                                            fullWidth
-                                            onClick={() => setIsMenuOpen(false)}
-                                        >
-                                            Get In Touch
-                                        </Button>
+                                    
+                                    <div className="flex flex-col gap-6 pb-12">
+                                        <a href="https://github.com/kangjessydev" target="_blank" rel="noopener noreferrer" className="text-3xl font-black uppercase hover:text-[#adff2f] transition-colors flex items-center gap-4 group">
+                                            Github <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+                                        </a>
+                                        <a href="https://linkedin.com/in/kangjessy" target="_blank" rel="noopener noreferrer" className="text-3xl font-black uppercase hover:text-[#adff2f] transition-colors flex items-center gap-4 group">
+                                            LinkedIn <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+                                        </a>
+                                        <a href="https://instagram.com/kangjessy" target="_blank" rel="noopener noreferrer" className="text-3xl font-black uppercase hover:text-[#ff6b6b] transition-colors flex items-center gap-4 group">
+                                            Instagram <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+                                        </a>
+                                        <a href="https://tiktok.com/@kangjessy" target="_blank" rel="noopener noreferrer" className="text-3xl font-black uppercase hover:text-[#ffd700] transition-colors flex items-center gap-4 group">
+                                            TikTok <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+                                        </a>
+                                        <a href="https://threads.net/@kangjessy" target="_blank" rel="noopener noreferrer" className="text-3xl font-black uppercase hover:text-[#adff2f] transition-colors flex items-center gap-4 group">
+                                            Threads <i className="ph-bold ph-arrow-up-right opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"></i>
+                                        </a>
                                     </div>
                                 </div>
                             )}

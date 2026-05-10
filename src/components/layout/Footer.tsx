@@ -58,7 +58,7 @@ const Footer = () => {
                             </div>
                             <div className="flex flex-col gap-4">
                                 <a
-                                    href="https://github.com/kangjessy"
+                                    href="https://github.com/kangjessydev"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="border-4 border-black px-6 py-4 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-4"
@@ -67,7 +67,7 @@ const Footer = () => {
                                     GITHUB
                                 </a>
                                 <a
-                                    href="#"
+                                    href="https://linkedin.com/in/kangjessy"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="border-4 border-black px-6 py-4 font-black uppercase bg-[#ffd700] shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-4"
@@ -76,13 +76,31 @@ const Footer = () => {
                                     LINKEDIN
                                 </a>
                                 <a
-                                    href="#"
+                                    href="https://instagram.com/kangjessy"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="border-4 border-black px-6 py-4 font-black uppercase bg-[#ff6b6b] shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-4"
+                                >
+                                    <i className="ph-bold ph-instagram-logo text-2xl"></i>
+                                    INSTAGRAM
+                                </a>
+                                <a
+                                    href="https://tiktok.com/@kangjessy"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="border-4 border-black px-6 py-4 font-black uppercase bg-white shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-4"
+                                >
+                                    <i className="ph-bold ph-tiktok-logo text-2xl"></i>
+                                    TIKTOK
+                                </a>
+                                <a
+                                    href="https://threads.net/@kangjessy"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="border-4 border-black px-6 py-4 font-black uppercase bg-[#adff2f] shadow-[4px_4px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-4"
                                 >
-                                    <i className="ph-bold ph-x-logo text-2xl"></i>
-                                    TWITTER / X
+                                    <i className="ph-bold ph-threads-logo text-2xl"></i>
+                                    THREADS
                                 </a>
                             </div>
                         </div>
