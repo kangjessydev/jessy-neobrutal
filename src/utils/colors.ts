@@ -39,5 +39,6 @@ export const getTagColor = (colorName: string | BrandColor = "yellow"): string =
   if (colorName.startsWith("#")) return colorName;
   
   // Ambil dari palet, atau fallback ke yellow jika tidak ditemukan
-  return colorPalette[colorName.toLowerCase()] || colorPalette.yellow;
+  const normalizedColor = colorName.toLowerCase() as BrandColor;
+  return colorPalette[normalizedColor] || colorPalette.yellow;
 };
