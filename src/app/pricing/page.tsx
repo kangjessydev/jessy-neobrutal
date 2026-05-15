@@ -49,9 +49,11 @@ export default function PricingPage() {
               {service.description}
             </p>
 
-            <div className="flex items-baseline gap-2 mb-8">
-              <span className="font-space font-black text-2xl">{service.currency}</span>
-              <span className="font-lexend font-black text-5xl md:text-6xl tracking-tighter">{service.price}</span>
+            <div className="flex items-center gap-2 mb-8 flex-wrap">
+              <span className="font-space font-black text-lg md:text-xl bg-black text-white px-2 py-1 leading-none uppercase">{service.currency}</span>
+              <span className="font-lexend font-black text-3xl sm:text-4xl md:text-5xl tracking-tight break-all">
+                {service.price}
+              </span>
             </div>
 
             <div className="grid grid-cols-2 gap-4 mb-10 border-y-4 border-black py-6">
