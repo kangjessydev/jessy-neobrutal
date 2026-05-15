@@ -1,0 +1,149 @@
+[
+  {
+    "id": "starter",
+    "title": "Starter Essential",
+    "description": "Cocok untuk bisnis yang baru membangun kehadiran online — simpel, cepat, dan langsung bisa dipakai.",
+    "price": "1.500.000",
+    "currency": "Rp",
+    "tagline": "BEST FOR BEGINNERS",
+    "tagColor": "blue",
+    "estimation": "1-2 Minggu",
+    "revision": "2x Revisi",
+    "features": [
+      {
+        "category": "HALAMAN & KONTEN",
+        "items": [
+          "5 halaman utama",
+          "Desain responsif mobile & desktop",
+          "Copywriting dasar tiap halaman"
+        ]
+      },
+      {
+        "category": "FITUR TEKNIS",
+        "items": [
+          "Akses panel kelola konten",
+          "Form kontak + notifikasi email otomatis",
+          "SSL & proteksi login",
+          "Optimasi kecepatan loading",
+          "Setup Google Analytics & Search Console"
+        ]
+      },
+      {
+        "category": "BONUS",
+        "items": [
+          "Video panduan kelola website",
+          "Gratis domain 1 tahun",
+          "Panduan pilih hosting gratis",
+          "Setup hosting gratis"
+        ]
+      }
+    ],
+    "suitableFor": "UMKM, toko lokal, atau jasa perorangan yang butuh website pertama mereka — simpel, cepat, dan profesional.",
+    "ctaText": "Start Your Brand"
+  },
+  {
+    "id": "business",
+    "title": "Business Growth",
+    "description": "Untuk bisnis yang sudah berjalan dan butuh website yang bekerja aktif mendatangkan pelanggan & konversi.",
+    "price": "3.500.000",
+    "currency": "Rp",
+    "tagline": "MOST POPULAR",
+    "tagColor": "yellow",
+    "featured": true,
+    "estimation": "2-3 Minggu",
+    "revision": "3x Revisi",
+    "features": [
+      {
+        "category": "HALAMAN & KONTEN",
+        "items": [
+          "Semua Fitur Starter Essential",
+          "Hingga 3 halaman statis tambahan",
+          "Katalog / menu / portofolio dinamis",
+          "Landing page campaign",
+          "5 artikel konten awal"
+        ]
+      },
+      {
+        "category": "FITUR TEKNIS",
+        "items": [
+          "Sistem transaksi / pembayaran online",
+          "Otomasi notifikasi & follow-up",
+          "Optimasi kecepatan lanjutan",
+          "Pencadangan otomatis mingguan",
+          "Member area / akun pelanggan"
+        ]
+      },
+      {
+        "category": "BONUS",
+        "items": [
+          "Video panduan + dokumen serah terima sistem",
+          "Gratis domain 1 tahun",
+          "Hosting shared premium 1 tahun",
+          "Setup & konfigurasi penuh",
+          "1 bulan Basic Care maintenance gratis"
+        ]
+      },
+      {
+        "category": "BONUS OPSIONAL",
+        "items": [
+          "3 konten TikTok profesional untuk promosi launch website, bekerja sama dengan partner kami FCA."
+        ]
+      }
+    ],
+    "suitableFor": "Toko online, restoran, bisnis jasa yang butuh sistem pemasaran atau pembayaran online, dan UMKM yang ingin serius di digital.",
+    "ctaText": "Grow Your Business"
+  },
+  {
+    "id": "pro",
+    "title": "Pro Scale",
+    "description": "Solusi digital menyeluruh untuk bisnis yang butuh sistem kompleks, integrasi lanjutan, dan skalabilitas jangka panjang.",
+    "price": "7.500.000",
+    "currency": "Rp",
+    "tagline": "UNLIMITED SCALE",
+    "tagColor": "lime",
+    "estimation": "3-5 Minggu",
+    "revision": "5x Revisi",
+    "features": [
+      {
+        "category": "HALAMAN & KONTEN",
+        "items": [
+          "Semua Fitur Business Growth",
+          "Hingga 5 halaman statis tambahan",
+          "Hingga 3 jenis halaman dinamis",
+          "Desain UI dashboard custom",
+          "5 artikel konten awal (lebih panjang & terstruktur)"
+        ]
+      },
+      {
+        "category": "FITUR TEKNIS",
+        "items": [
+          "Arsitektur sistem terpisah",
+          "Integrasi sistem / software lama",
+          "Hak akses tim yang fleksibel",
+          "Integrasi hingga 2 layanan pihak ketiga",
+          "Enkripsi & proteksi data sensitif",
+          "Dibangun untuk trafik tinggi",
+          "Pencadangan harian + pantau uptime"
+        ]
+      },
+      {
+        "category": "BONUS",
+        "items": [
+          "Video panduan + dokumen serah terima sistem",
+          "Gratis domain 1 tahun",
+          "VPS entry level 1 tahun",
+          "Setup, konfigurasi & optimasi server",
+          "1 bulan Growth Care maintenance gratis"
+        ]
+      },
+      {
+        "category": "BONUS OPSIONAL",
+        "items": [
+          "4 konten TikTok profesional untuk promosi launch website, bekerja sama dengan partner kami FCA."
+        ]
+      }
+    ],
+    "suitableFor": "Startup, bisnis dengan sistem reservasi / inventori / CRM custom, atau perusahaan yang butuh platform digital sendiri yang bisa tumbuh.",
+    "ctaText": "Start Custom Project"
+  }
+]

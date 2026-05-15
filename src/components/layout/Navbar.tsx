@@ -174,6 +174,7 @@ const Navbar = () => {
                             {[
                                 { label: 'Home', href: '/', target: 'default' },
                                 { label: 'About', href: '/about', target: 'default' },
+                                { label: 'Pricing', href: '/pricing', target: 'default' },
                                 { label: 'Projects', href: '/projects', target: 'projects', hasSub: true },
                                 { label: 'Blog', href: '/blog', target: 'default' },
                             ].map((link, i) => (
