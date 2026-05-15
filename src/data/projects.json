@@ -1,308 +1,386 @@
 [
   {
-    "slug": "neo-ledger",
-    "title": "NEO-LEDGER",
-    "category": "Fintech App",
-    "tagColor": "yellow",
+    "slug": "beautyscan",
+    "title": "BEAUTYSCAN",
+    "category": "Company Landing Page",
+    "tagColor": "pink",
     "taxonomy": ["masterpiece", "featured"],
-    "description": "A decentralized financial dashboard reimagined for the brutalist web. Neo-Ledger tackles the complexity of multi-chain asset management with high-performance tracking.",
-    "tech": ["Next.js", "TypeScript", "WebSocket", "GraphQL", "Web3"],
+    "description": "Landing page premium untuk brand BeautyScan — platform AI analisis kulit berbasis mobile. Dirancang untuk mengkonversi pengunjung menjadi pengguna aplikasi melalui storytelling visual yang kuat dan CTA yang strategis.",
+    "tech": ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
     "year": "2024",
-    "role": "Lead Developer",
-    "client": "Aether Ventures",
-    "problem": "Traditional crypto-wallets and dashboards were cluttered with unnecessarily complex navigation patterns and heavy visual overhead.",
+    "role": "UI Designer & Frontend Developer",
+    "client": "BeautyScan Inc.",
+    "problem": "BeautyScan memiliki produk AI yang kuat, namun landing page lama tidak mampu mengkomunikasikan nilai produk secara efektif kepada calon pengguna.",
     "problems": [
       {
-        "point": "Bloated & Cluttered Dashboards",
-        "detail": "Legacy interfaces relied on deprecated frameworks, causing massive bundle sizes and sluggish rendering on low-end hardware.",
-        "image": "https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1000"
+        "point": "Landing Page Tidak Mengkonversi",
+        "detail": "Bounce rate mencapai 78% karena halaman lama terlalu teknikal dan tidak menjawab pertanyaan utama pengunjung: 'Kenapa saya harus pakai ini?'",
+        "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1000"
       },
       {
-        "point": "Fragile Transaction Flows",
-        "detail": "Inefficient state management led to frequent race conditions during high-volume financial transactions.",
-        "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=1000"
-      },
-      {
-        "point": "Extreme Data Latency",
-        "detail": "Monitoring systems used periodic 5-second polling, resulting in unacceptable lag during volatile market shifts.",
-        "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1000"
+        "point": "Komunikasi Value Proposition Lemah",
+        "detail": "Keunggulan teknologi AI BeautyScan tidak tersampaikan dengan baik, membuat pengunjung tidak memahami perbedaan produk ini dengan kompetitor.",
+        "image": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&q=80&w=1000"
       }
     ],
-    "solution": "We implemented a strict Neobrutalist system that prioritizes data hierarchy and performance over decorative fluff.",
+    "solution": "Redesign total landing page dengan pendekatan storytelling — dari pain point pengguna hingga solusi AI, disajikan dengan visual yang memukau dan copy yang persuasif.",
     "solutions": [
       {
-        "point": "Modular & Lean Architecture",
-        "detail": "Rebuilt the entire system using Next.js Server Components to minimize client-side load and maximize execution speed.",
+        "point": "Hero Section yang Berbicara",
+        "detail": "Animasi scan kulit interaktif di hero section langsung mendemonstrasikan produk tanpa pengguna perlu download apapun, meningkatkan engagement dan waktu di halaman.",
+        "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Social Proof & Trust Signals",
+        "detail": "Integrasi testimoni video, badge sertifikasi dermatologi, dan counter pengguna real-time yang membangun kepercayaan secara bertahap saat pengguna scroll.",
+        "image": "https://images.unsplash.com/photo-1556228720-da1b87e44de5?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "Conversion Rate Optimization",
+        "body": "Setiap elemen halaman dirancang berdasarkan data A/B testing. Mulai dari warna tombol CTA, panjang headline, hingga posisi form download — semua dioptimasi untuk memaksimalkan install rate aplikasi."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Bounce rate turun dari 78% menjadi 31%",
+          "App install conversion rate naik 3x lipat",
+          "Average session duration meningkat 4.5 menit",
+          "Mobile-first design dengan Core Web Vitals score 98/100"
+        ],
+        "ordered": false
+      }
+    ],
+    "image": "/images/portfolio/BeautyScan.webp",
+    "demoUrl": "#",
+    "githubUrl": "#",
+    "technical": {
+      "frontend": "Next.js dengan Framer Motion untuk animasi scroll yang cinematic dan performa Lighthouse 98/100.",
+      "realtime": "N/A — static site dengan ISR untuk kecepatan load maksimal.",
+      "security": "HTTPS enforced, no third-party trackers, GDPR-compliant analytics."
+    }
+  },
+  {
+    "slug": "beautyscan-dashboard",
+    "title": "BEAUTYSCAN DASHBOARD",
+    "category": "Web App Dashboard",
+    "tagColor": "purple",
+    "taxonomy": ["masterpiece", "featured"],
+    "description": "Web application dashboard untuk tim internal BeautyScan. Menampilkan analytics pengguna, monitoring performa AI model, manajemen produk rekomendasi, dan reporting bisnis dalam satu interface yang powerful.",
+    "tech": ["Next.js", "TypeScript", "Recharts", "Prisma", "PostgreSQL"],
+    "year": "2024",
+    "role": "Frontend Lead & Data Visualization Engineer",
+    "client": "BeautyScan Inc.",
+    "problem": "Tim internal BeautyScan tidak memiliki visibility terhadap performa AI model, tren penggunaan, dan efektivitas rekomendasi produk secara real-time.",
+    "problems": [
+      {
+        "point": "Blind Spot Data Operasional",
+        "detail": "Data analitik tersebar di berbagai sistem yang tidak terintegrasi, membuat tim kesulitan membuat keputusan berbasis data yang cepat.",
+        "image": "https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "solution": "Dashboard terpusat dengan visualisasi data real-time, monitoring performa AI, dan manajemen konten produk yang intuitif.",
+    "solutions": [
+      {
+        "point": "Unified Analytics Hub",
+        "detail": "Semua metric penting — dari jumlah scan harian hingga akurasi model AI — tersaji dalam satu layar dengan update otomatis setiap 30 detik.",
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "Data-Driven Decision Making",
+        "body": "Dashboard ini dirancang menggunakan prinsip neobrutalist — data is king, dekorasi adalah musuh. Setiap pixel di layar ini harus menyampaikan informasi yang actionable."
+      }
+    ],
+    "image": "/images/portfolio/BeautyScan Dashboard.webp",
+    "demoUrl": "#",
+    "githubUrl": "#",
+    "technical": {
+      "frontend": "Next.js App Router dengan React Server Components untuk performa optimal pada halaman data-heavy.",
+      "realtime": "WebSocket connection untuk live metric updates tanpa page refresh.",
+      "security": "Role-based access control (Admin, Analyst, Viewer) dengan audit log penuh."
+    }
+  },
+  {
+    "slug": "smartassist-bot",
+    "title": "SMARTASSIST BOT",
+    "category": "AI Chatbot",
+    "tagColor": "cyan",
+    "taxonomy": ["masterpiece", "featured"],
+    "description": "AI-powered customer service chatbot yang mampu menangani ribuan percakapan simultan. SmartAssist dibangun di atas LLM dengan knowledge base custom untuk masing-masing klien bisnis.",
+    "tech": ["Next.js", "OpenAI API", "Langchain", "Redis", "PostgreSQL"],
+    "year": "2024",
+    "role": "AI Engineer & Full-Stack Developer",
+    "client": "Multiple Enterprise Clients",
+    "problem": "Tim customer service kewalahan menghadapi volume pertanyaan yang tinggi, response time lambat, dan konsistensi jawaban yang buruk di luar jam kerja.",
+    "problems": [
+      {
+        "point": "Volume Tiket Tidak Terkendali",
+        "detail": "CS agent menangani ratusan pertanyaan repetitif per hari, mengakibatkan burnout dan response time rata-rata 4-6 jam.",
+        "image": "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Inkonsistensi Jawaban",
+        "detail": "Jawaban berbeda dari agent yang berbeda untuk pertanyaan yang sama merusak kepercayaan pelanggan terhadap brand.",
+        "image": "https://images.unsplash.com/photo-1553775927-a071d5a6a39a?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "solution": "Chatbot AI yang di-training dengan knowledge base spesifik bisnis, mampu menjawab 85% pertanyaan umum secara akurat dan melakukan eskalasi cerdas ke human agent.",
+    "solutions": [
+      {
+        "point": "Retrieval-Augmented Generation (RAG)",
+        "detail": "Sistem RAG memungkinkan bot mengakses knowledge base perusahaan secara real-time, memastikan jawaban selalu akurat dan up-to-date tanpa perlu re-training model.",
+        "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Smart Escalation System",
+        "detail": "Ketika bot mendeteksi sentimen negatif atau pertanyaan kompleks, sistem otomatis melakukan handoff ke agent manusia dengan konteks percakapan lengkap.",
+        "image": "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "Arsitektur Multi-Tenant",
+        "body": "SmartAssist dibangun dengan arsitektur multi-tenant yang memungkinkan satu infrastruktur melayani banyak klien bisnis secara terisolasi. Setiap klien mendapat namespace, knowledge base, dan konfigurasi bot yang terpisah sepenuhnya."
+      },
+      {
+        "type": "table",
+        "headers": ["Metric", "Sebelum", "Sesudah"],
+        "rows": [
+          ["Response Time", "4-6 jam", "< 5 detik"],
+          ["Tiket Terselesaikan Otomatis", "0%", "85%"],
+          ["Kepuasan Pelanggan (CSAT)", "3.2/5", "4.7/5"]
+        ]
+      }
+    ],
+    "image": "/images/portfolio/smartassist bot.webp",
+    "demoUrl": "#",
+    "githubUrl": "#",
+    "technical": {
+      "frontend": "Next.js dengan streaming response untuk tampilan chat yang smooth dan real-time.",
+      "realtime": "Redis untuk session management dan caching context percakapan aktif.",
+      "security": "Data percakapan dienkripsi at-rest dan in-transit, compliance dengan GDPR dan PDPA Indonesia."
+    }
+  },
+  {
+    "slug": "arkana-consultant",
+    "title": "ARKANA CONSULTANT",
+    "category": "Company Profile",
+    "tagColor": "yellow",
+    "taxonomy": ["featured"],
+    "description": "Website company profile premium untuk firma konsultasi bisnis Arkana. Dirancang untuk membangun kepercayaan dan mengkonversi prospek high-value melalui storytelling visual yang kuat.",
+    "tech": ["Next.js", "TypeScript", "Framer Motion", "Sanity CMS"],
+    "year": "2024",
+    "role": "Full-Stack Developer & UI Designer",
+    "client": "Arkana Consultant",
+    "problem": "Arkana Consultant kehilangan prospek potensial karena website lama mereka tidak merepresentasikan kualitas layanan premium yang mereka tawarkan.",
+    "problems": [
+      {
+        "point": "Website Tidak Mencerminkan Kualitas Premium",
+        "detail": "Desain website lama yang usang dan lambat memberikan kesan pertama yang buruk, membuat calon klien meragukan kompetensi firma.",
+        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "solution": "Membangun website baru dengan desain bersih, animasi elegan, dan konten yang dikurasi secara strategis untuk membangun otoritas dan kepercayaan.",
+    "solutions": [
+      {
+        "point": "Conversion-Optimized Design",
+        "detail": "Setiap elemen halaman dirancang dengan tujuan konversi — dari penempatan CTA hingga social proof, semua berdasarkan prinsip persuasive design.",
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "Desain yang Berbicara untuk Klien",
+        "body": "Untuk Arkana, kami menerapkan pendekatan 'less is more'. Whitespace yang luas, tipografi yang kuat, dan imagery yang dipilih dengan cermat menciptakan aura profesionalisme yang tak perlu banyak kata."
+      }
+    ],
+    "image": "/images/portfolio/Arkana Consultant(1).webp",
+    "demoUrl": "#",
+    "githubUrl": "#",
+    "technical": {
+      "frontend": "Next.js dengan Framer Motion untuk animasi scroll yang smooth dan berkesan.",
+      "realtime": "Sanity CMS memungkinkan tim Arkana memperbarui konten, case study, dan artikel blog tanpa developer.",
+      "security": "HTTPS enforced, bot protection, dan form submission rate limiting."
+    }
+  },
+  {
+    "slug": "digitmax",
+    "title": "DIGITMAX",
+    "category": "SaaS Platform",
+    "tagColor": "orange",
+    "taxonomy": ["masterpiece", "featured"],
+    "description": "Platform digital marketing all-in-one untuk UMKM Indonesia. Digitmax menyederhanakan pengelolaan iklan, analitik media sosial, dan laporan performa dalam satu dashboard terintegrasi.",
+    "tech": ["React", "Node.js", "Meta API", "Google Ads API", "MongoDB"],
+    "year": "2023",
+    "role": "Lead Developer",
+    "client": "Digitmax Indonesia",
+    "problem": "UMKM Indonesia kesulitan mengelola kehadiran digital mereka karena platform marketing yang ada terlalu kompleks dan mahal untuk bisnis skala kecil-menengah.",
+    "problems": [
+      {
+        "point": "Fragmentasi Tools Marketing",
+        "detail": "Pemilik UMKM harus membuka 5-7 platform berbeda (Meta Ads, Google Analytics, Instagram Insight, dll) hanya untuk memahami performa marketing mereka.",
+        "image": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Biaya Berlangganan Tidak Terjangkau",
+        "detail": "Tools enterprise seperti HubSpot dan Salesforce tidak dirancang untuk budget UMKM, memaksa mereka menggunakan spreadsheet manual.",
+        "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "solution": "Platform SaaS terjangkau yang mengintegrasikan semua channel marketing dalam satu dashboard sederhana, dirancang khusus untuk pola kerja UMKM Indonesia.",
+    "solutions": [
+      {
+        "point": "Unified Marketing Hub",
+        "detail": "Satu login untuk mengakses semua data: Meta Ads, Google Ads, TikTok Ads, Instagram, dan WhatsApp Business — semuanya tersinkronisasi otomatis.",
         "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000"
       },
       {
-        "point": "Real-time State Validation",
-        "detail": "Implemented robust state machines for transaction management, ensuring predictable outcomes and data integrity.",
-        "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1000"
-      },
-      {
-        "point": "GraphQL Subscription Sync",
-        "detail": "Migrated to WebSocket-based subscriptions for instant (<100ms) data updates without taxing the user's browser.",
+        "point": "AI-Generated Insights",
+        "detail": "Sistem AI otomatis menganalisis data dan memberikan rekomendasi actionable dalam Bahasa Indonesia yang mudah dipahami tanpa perlu keahlian marketing khusus.",
         "image": "https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1000"
       }
     ],
     "blocks": [
       {
         "type": "text",
-        "heading": "The Core Philosophy",
-        "body": "For NEO-LEDGER, we stripped away every non-essential visual element. Every component had to pass the <em>'Raw Logic'</em> test: if a border didn't define structure, it was removed."
+        "heading": "Membangun untuk Indonesia",
+        "body": "Digitmax lahir dari frustrasi nyata para pelaku UMKM. Kami merancang setiap fitur dengan wawancara langsung bersama 50+ pemilik usaha kecil di Bandung, Jakarta, dan Surabaya untuk memastikan solusi yang benar-benar relevan."
       }
     ],
-    "image": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=1000",
+    "image": "/images/portfolio/Digitmax.webp",
     "demoUrl": "#",
     "githubUrl": "#",
     "technical": {
-      "frontend": "Built on Next.js for high-performance server-side rendering.",
-      "realtime": "Leveraging WebSockets and reactive state management.",
-      "security": "End-to-end encrypted session and transaction protocols."
+      "frontend": "React dengan komponen yang dioptimasi untuk performa di jaringan 4G Indonesia.",
+      "realtime": "Webhook dari Meta & Google API untuk sinkronisasi data iklan setiap 15 menit.",
+      "security": "OAuth2 untuk koneksi platform iklan, data klien terisolasi per tenant."
     }
   },
   {
-    "slug": "brutalist-ui-kit",
-    "title": "BRUTALIST UI KIT",
-    "category": "Digital Product",
+    "slug": "herbal-insani",
+    "title": "HERBAL INSANI",
+    "category": "E-Commerce",
     "tagColor": "lime",
-    "taxonomy": ["masterpiece", "design-system"],
-    "description": "A collection of 50+ neobrutalist components for Figma and the Web, designed for high-impact engineering interfaces.",
-    "tech": ["Vanilla CSS", "Figma", "TypeScript"],
+    "taxonomy": ["featured"],
+    "description": "Platform e-commerce untuk brand herbal dan wellness lokal Indonesia. Herbal Insani menggabungkan toko online modern dengan edukasi konten seputar kesehatan herbal untuk membangun kepercayaan komunitas.",
+    "tech": ["Next.js", "WooCommerce API", "Midtrans", "MySQL", "Redis"],
     "year": "2023",
-    "role": "UI Designer & Engineer",
-    "client": "Standard.io",
-    "problem": "Modern UI kits often prioritize 'safe' and bland aesthetics that fail to capture the raw energy of engineering.",
+    "role": "Full-Stack Developer",
+    "client": "Herbal Insani",
+    "problem": "Brand herbal lokal kesulitan bersaing dengan produk impor di marketplace karena tidak memiliki platform sendiri yang membangun kepercayaan dan edukasi konsumen.",
     "problems": [
       {
-        "point": "Overly 'Safe' Design",
-        "detail": "Most UI kits look identical, lacking the strong visual distinction needed for bold tech products.",
-        "image": "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1000"
+        "point": "Ketergantungan pada Marketplace Pihak Ketiga",
+        "detail": "Bergantung sepenuhnya pada Tokopedia dan Shopee membuat brand kehilangan kontrol atas customer experience, data pelanggan, dan margin profit.",
+        "image": "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Kurangnya Kepercayaan pada Produk Herbal Lokal",
+        "detail": "Konsumen skeptis terhadap klaim produk herbal tanpa bukti ilmiah dan testimoni yang terpercaya, menghambat konversi penjualan.",
+        "image": "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1000"
       }
     ],
-    "solution": "We broke the conventions by introducing heavy borders and high-contrast layouts.",
+    "solution": "Website e-commerce mandiri dengan fokus pada content marketing, social proof, dan edukasi yang membangun kepercayaan jangka panjang dengan konsumen.",
     "solutions": [
       {
-        "point": "Solid 8px Borders",
-        "detail": "Provided an incredibly strong visual structure that ensures hierarchy is immediately apparent.",
-        "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=1000"
+        "point": "Content-Commerce Integration",
+        "detail": "Setiap halaman produk dilengkapi dengan artikel edukasi, kandungan bahan aktif, dan penelitian ilmiah yang relevan — mengubah toko online menjadi pusat pengetahuan herbal.",
+        "image": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Local Payment Integration",
+        "detail": "Integrasi penuh dengan Midtrans mendukung 30+ metode pembayaran lokal Indonesia — dari transfer bank, dompet digital, hingga cicilan — memaksimalkan konversi checkout.",
+        "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=1000"
       }
     ],
     "blocks": [
       {
         "type": "text",
-        "heading": "Visual Identity",
-        "body": "We believe design should have an opinion. The Brutalist UI Kit isn't for everyone—it's for those who dare to build different."
+        "heading": "Merayakan Kearifan Lokal",
+        "body": "Desain Herbal Insani terinspirasi dari estetika batik dan alam Indonesia — hangat, organik, namun tetap modern dan mudah digunakan. Kami ingin konsumen merasakan keaslian produk bahkan sebelum mencobanya."
+      },
+      {
+        "type": "list",
+        "items": [
+          "50+ SKU produk dengan halaman detail komprehensif",
+          "Sistem poin loyalitas untuk pelanggan setia",
+          "Blog edukasi herbal terintegrasi dengan toko",
+          "Notifikasi WhatsApp otomatis untuk update pesanan"
+        ],
+        "ordered": false
       }
     ],
-    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1000",
+    "image": "/images/portfolio/Herbal Insani.webp",
     "demoUrl": "#",
     "githubUrl": "#",
     "technical": {
-      "frontend": "Pure CSS components with zero external abstraction layers.",
-      "realtime": "N/A",
-      "security": "Clean, maintainable, and lightweight code architecture."
+      "frontend": "Next.js dengan static generation untuk halaman produk dan artikel — load time di bawah 1.5 detik.",
+      "realtime": "Redis caching untuk inventory stock dan harga yang selalu akurat.",
+      "security": "PCI-DSS compliant checkout flow melalui Midtrans, tanpa menyimpan data kartu kredit."
     }
   },
   {
-    "slug": "cipher-vault",
-    "title": "CIPHER VAULT",
-    "category": "Security Tool",
-    "tagColor": "cyan",
-    "taxonomy": ["archive"],
-    "description": "An encrypted password manager with zero-knowledge architecture and biometric authentication.",
-    "tech": ["React Native", "Go", "AES-256", "PostgreSQL"],
-    "year": "2022",
-    "role": "Lead Architect",
-    "client": "CyberDefense Inc.",
-    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000",
-    "demoUrl": "#",
-    "githubUrl": "#",
-    "technical": {
-      "frontend": "React Native for cross-platform secure access.",
-      "realtime": "gRPC for ultra-low latency sync.",
-      "security": "Zero-knowledge client-side encryption."
-    }
-  },
-  {
-    "slug": "zenith-erp",
-    "title": "ZENITH ERP",
-    "category": "Enterprise",
-    "tagColor": "purple",
-    "taxonomy": ["masterpiece"],
-    "description": "Comprehensive resource planning for manufacturing, featuring real-time supply chain tracking and AI forecasting.",
-    "tech": ["Angular", "Python", "Docker", "RabbitMQ"],
-    "year": "2023",
-    "role": "Full-Stack Developer",
-    "client": "Global Logicistics",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000",
-    "demoUrl": "#",
-    "githubUrl": "#",
-    "technical": {
-      "frontend": "Angular for enterprise-grade modularity.",
-      "realtime": "RabbitMQ for asynchronous task processing.",
-      "security": "Role-based access control (RBAC)."
-    }
-  },
-  {
-    "slug": "aero-track",
-    "title": "AERO-TRACK",
-    "category": "IOT Dashboard",
-    "tagColor": "orange",
-    "taxonomy": ["featured"],
-    "description": "Live telemetry monitoring for unmanned aerial vehicles with low-latency visual mapping.",
-    "tech": ["Vue.js", "C#", "SignalR", "MongoDB"],
-    "year": "2024",
-    "role": "Systems Engineer",
-    "client": "SkyReach Tech",
-    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=1000",
-    "demoUrl": "#",
-    "githubUrl": "#",
-    "technical": {
-      "frontend": "Vue.js for reactive telemetry updates.",
-      "realtime": "SignalR for persistent bi-directional communication.",
-      "security": "Hardware-level data encryption."
-    }
-  },
-  {
-    "slug": "nexus-api",
-    "title": "NEXUS GATEWAY",
-    "category": "Infrastructure",
+    "slug": "rupa",
+    "title": "RUPA",
+    "category": "Creative Platform",
     "tagColor": "blue",
-    "taxonomy": ["archive"],
-    "description": "High-throughput API gateway capable of handling 100k requests per second with integrated rate limiting.",
-    "tech": ["Rust", "Redis", "Prometheus", "Kubernetes"],
-    "year": "2023",
-    "role": "Backend Lead",
-    "client": "OpenData Corp",
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000",
-    "demoUrl": "#",
-    "githubUrl": "#",
-    "technical": {
-      "frontend": "N/A (CLI Driven)",
-      "realtime": "Redis Pub/Sub for distributed caching.",
-      "security": "OAuth2 + JWT standard integration."
-    }
-  },
-  {
-    "slug": "prism-crm",
-    "title": "PRISM CRM",
-    "category": "SaaS Platform",
-    "tagColor": "pink",
     "taxonomy": ["masterpiece"],
-    "description": "Automated sales pipeline with deep LinkedIn integration and sentiment analysis for lead scoring.",
-    "tech": ["React", "Node.js", "OpenAI API", "ElasticSearch"],
+    "description": "Platform marketplace kreatif untuk seniman dan desainer Indonesia. RUPA memungkinkan kreator menjual karya digital, print-on-demand, dan menerima project freelance dalam satu ekosistem.",
+    "tech": ["Next.js", "TypeScript", "Stripe", "Cloudinary", "Supabase"],
     "year": "2024",
-    "role": "Product Engineer",
-    "client": "Launchpad Sales",
-    "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000",
+    "role": "Lead Architect & Developer",
+    "client": "RUPA Creative",
+    "problem": "Seniman dan desainer Indonesia tidak memiliki platform lokal yang mengerti kebutuhan mereka — dari monetisasi karya digital hingga manajemen klien freelance.",
+    "problems": [
+      {
+        "point": "Tidak Ada Marketplace Kreator Lokal",
+        "detail": "Kreator Indonesia terpaksa menggunakan platform asing seperti Etsy atau Gumroad yang tidak mendukung mata uang Rupiah dan metode pembayaran lokal.",
+        "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Fragmentasi Alur Kerja Freelance",
+        "detail": "Kreator menggunakan berbagai tools terpisah untuk portfolio, kontrak, invoice, dan pembayaran — membuang waktu yang seharusnya untuk berkarya.",
+        "image": "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "solution": "Membangun ekosistem kreator lengkap: portfolio publik, toko digital, sistem manajemen project, dan pembayaran terintegrasi — semua dalam satu platform.",
+    "solutions": [
+      {
+        "point": "Creator Studio All-in-One",
+        "detail": "Setiap kreator mendapat studio digital pribadi: galeri portfolio, toko produk, halaman comission, dan dashboard pendapatan yang terintegrasi.",
+        "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        "point": "Smart Contract & Escrow",
+        "detail": "Sistem escrow built-in melindungi kreator dan klien — pembayaran ditahan hingga project selesai dan disetujui, mengeliminasi risiko penipuan.",
+        "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1000"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "heading": "Dibuat oleh Kreator, untuk Kreator",
+        "body": "RUPA lahir dari diskusi panjang bersama komunitas desainer Bandung. Kami tidak hanya membangun fitur — kami membangun kepercayaan bahwa karya lokal layak dihargai setara karya internasional."
+      },
+      {
+        "type": "quote",
+        "text": "RUPA bukan sekadar marketplace. Ini adalah gerakan untuk menaikkan standar industri kreatif Indonesia."
+      }
+    ],
+    "image": "/images/portfolio/Rupa.webp",
     "demoUrl": "#",
     "githubUrl": "#",
     "technical": {
-      "frontend": "React with Framer Motion for smooth UX.",
-      "realtime": "ElasticSearch for sub-second search results.",
-      "security": "Strict SOC2 compliance patterns."
-    }
-  },
-  {
-    "slug": "hydra-db",
-    "title": "HYDRA STORAGE",
-    "category": "Data Engineering",
-    "tagColor": "lime",
-    "taxonomy": ["archive"],
-    "description": "Distributed blob storage system designed for petabyte-scale data lakes with automatic deduplication.",
-    "tech": ["C++", "RocksDB", "S3 Protocol", "Erlang"],
-    "year": "2022",
-    "role": "Core Contributor",
-    "client": "DataFlux Systems",
-    "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1000",
-    "demoUrl": "#",
-    "githubUrl": "#",
-    "technical": {
-      "frontend": "Web-based admin console using Svelte.",
-      "realtime": "Erlang OTP for massive concurrency.",
-      "security": "Multi-factor encryption keys."
-    }
-  },
-  {
-    "slug": "velocity-pos",
-    "title": "VELOCITY POS",
-    "category": "Retail Tech",
-    "tagColor": "yellow",
-    "taxonomy": ["featured"],
-    "description": "Cloud-native point of sale with offline-first capabilities and instant inventory synchronization.",
-    "tech": ["Next.js", "PWA", "SQLite", "Firebase"],
-    "year": "2023",
-    "role": "Lead Developer",
-    "client": "Urban Retailers",
-    "image": "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=1000",
-    "demoUrl": "#",
-    "githubUrl": "#",
-    "technical": {
-      "frontend": "PWA for reliable offline performance.",
-      "realtime": "Firebase Realtime DB for sync.",
-      "security": "End-to-end transaction logging."
-    }
-  },
-  {
-    "slug": "aurora-os",
-    "title": "AURORA CORE",
-    "category": "Operating System",
-    "tagColor": "white",
-    "taxonomy": ["masterpiece"],
-    "description": "A lightweight Linux-based kernel optimized for edge computing and high-density container workloads.",
-    "tech": ["C", "Assembly", "BASH", "QEMU"],
-    "year": "2024",
-    "role": "Kernel Developer",
-    "client": "EdgeMesh Lab",
-    "image": "https://images.unsplash.com/photo-1518433278981-2247b99659f1?auto=format&fit=crop&q=80&w=1000",
-    "demoUrl": "#",
-    "githubUrl": "#",
-    "technical": {
-      "frontend": "Minimal TUI interface.",
-      "realtime": "Real-time task scheduling (RTOS).",
-      "security": "Sandboxed process isolation."
-    }
-  },
-  {
-    "slug": "flux-monitor",
-    "title": "FLUX MONITOR",
-    "category": "DevOps Tool",
-    "tagColor": "cyan",
-    "taxonomy": ["featured"],
-    "description": "Synthetic monitoring and error tracking for microservices with automated rollback triggers.",
-    "tech": ["Go", "Grafana", "K8s Operator", "NATS"],
-    "year": "2024",
-    "role": "Infrastructure Engineer",
-    "client": "OpsScale",
-    "image": "https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1000",
-    "demoUrl": "#",
-    "githubUrl": "#",
-    "technical": {
-      "frontend": "Custom Grafana dashboards.",
-      "realtime": "NATS JetStream for high-speed messaging.",
-      "security": "Service-mesh level authentication."
-    }
-  },
-  {
-    "slug": "quantum-render",
-    "title": "QUANTUM ENGINE",
-    "category": "Graphics",
-    "tagColor": "purple",
-    "taxonomy": ["masterpiece"],
-    "description": "Hardware-accelerated ray tracing engine for browser-based 3D visualizations and architectural walkthroughs.",
-    "tech": ["WebGPU", "WGSL", "Rust", "WASM"],
-    "year": "2024",
-    "role": "Graphics Engineer",
-    "client": "Visual Arch",
-    "image": "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=1000",
-    "demoUrl": "#",
-    "githubUrl": "#",
-    "technical": {
-      "frontend": "Rust-to-WASM high-performance pipeline.",
-      "realtime": "WebGPU for next-gen 3D processing.",
-      "security": "Strict memory-safe architecture via Rust."
+      "frontend": "Next.js App Router dengan infinite scroll dan lazy loading untuk galeri karya yang smooth.",
+      "realtime": "Supabase Realtime untuk notifikasi project update dan pesan antara kreator dan klien.",
+      "security": "Row-level security di Supabase memastikan data setiap kreator terisolasi sempurna."
     }
   }
 ]
