@@ -21,7 +21,7 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
   return (
     <header className="pt-20 pb-12">
       <div className="flex gap-3 mb-8">
-        <Tag variant="green">{category}</Tag>
+        <Tag variant="secondary">{category}</Tag>
         {readTime && <Tag variant="white">{readTime}</Tag>}
       </div>
 
