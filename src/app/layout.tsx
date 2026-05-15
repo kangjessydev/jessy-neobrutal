@@ -32,7 +32,7 @@ export default function RootLayout({
         <LayoutWrapper>
           {children}
         </LayoutWrapper>
-        <Script src="https://unpkg.com/@phosphor-icons/web@2.1.1" strategy="beforeInteractive" />
+        <Script src="https://unpkg.com/@phosphor-icons/web@2.1.1" />
       </body>
     </html>
   );
