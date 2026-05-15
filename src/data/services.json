@@ -13,28 +13,31 @@
       {
         "category": "HALAMAN & KONTEN",
         "items": [
-          "5 halaman utama",
-          "Desain responsif mobile & desktop",
-          "Copywriting dasar tiap halaman"
+          { "text": "5 halaman utama", "included": true },
+          { "text": "Desain responsif mobile & desktop", "included": true },
+          { "text": "Copywriting dasar tiap halaman", "included": true }
         ]
       },
       {
         "category": "FITUR TEKNIS",
         "items": [
-          "Akses panel kelola konten",
-          "Form kontak + notifikasi email otomatis",
-          "SSL & proteksi login",
-          "Optimasi kecepatan loading",
-          "Setup Google Analytics & Search Console"
+          { "text": "Akses panel kelola konten", "included": true },
+          { "text": "Form kontak + notifikasi email otomatis", "included": true },
+          { "text": "SSL & proteksi login", "included": true },
+          { "text": "Optimasi kecepatan loading", "included": true },
+          { "text": "Setup Google Analytics & Search Console", "included": true },
+          { "text": "Sistem transaksi / pembayaran online", "included": false },
+          { "text": "Otomasi notifikasi & follow-up", "included": false },
+          { "text": "Member area / akun pelanggan", "included": false }
         ]
       },
       {
         "category": "BONUS",
         "items": [
-          "Video panduan kelola website",
-          "Gratis domain 1 tahun",
-          "Panduan pilih hosting gratis",
-          "Setup hosting gratis"
+          { "text": "Video panduan kelola website", "included": true },
+          { "text": "Gratis domain 1 tahun", "included": true },
+          { "text": "Panduan pilih hosting gratis", "included": true },
+          { "text": "Setup hosting gratis", "included": true }
         ]
       }
     ],
@@ -56,37 +59,39 @@
       {
         "category": "HALAMAN & KONTEN",
         "items": [
-          "Semua Fitur Starter Essential",
-          "Hingga 3 halaman statis tambahan",
-          "Katalog / menu / portofolio dinamis",
-          "Landing page campaign",
-          "5 artikel konten awal"
+          { "text": "Semua Fitur Starter Essential", "included": true },
+          { "text": "Hingga 3 halaman statis tambahan", "included": true },
+          { "text": "Katalog / menu / portofolio dinamis", "included": true },
+          { "text": "Landing page campaign", "included": true },
+          { "text": "5 artikel konten awal", "included": true }
         ]
       },
       {
         "category": "FITUR TEKNIS",
         "items": [
-          "Sistem transaksi / pembayaran online",
-          "Otomasi notifikasi & follow-up",
-          "Optimasi kecepatan lanjutan",
-          "Pencadangan otomatis mingguan",
-          "Member area / akun pelanggan"
+          { "text": "Sistem transaksi / pembayaran online", "included": true },
+          { "text": "Otomasi notifikasi & follow-up", "included": true },
+          { "text": "Optimasi kecepatan lanjutan", "included": true },
+          { "text": "Pencadangan otomatis mingguan", "included": true },
+          { "text": "Member area / akun pelanggan", "included": true },
+          { "text": "Arsitektur sistem terpisah", "included": false },
+          { "text": "Integrasi sistem / software lama", "included": false }
         ]
       },
       {
         "category": "BONUS",
         "items": [
-          "Video panduan + dokumen serah terima sistem",
-          "Gratis domain 1 tahun",
-          "Hosting shared premium 1 tahun",
-          "Setup & konfigurasi penuh",
-          "1 bulan Basic Care maintenance gratis"
+          { "text": "Video panduan + dokumen serah terima sistem", "included": true },
+          { "text": "Gratis domain 1 tahun", "included": true },
+          { "text": "Hosting shared premium 1 tahun", "included": true },
+          { "text": "Setup & konfigurasi penuh", "included": true },
+          { "text": "1 bulan Basic Care maintenance gratis", "included": true }
         ]
       },
       {
         "category": "BONUS OPSIONAL",
         "items": [
-          "3 konten TikTok profesional untuk promosi launch website, bekerja sama dengan partner kami FCA."
+          { "text": "3 konten TikTok profesional untuk promosi launch website, bekerja sama dengan partner kami FCA.", "included": true }
         ]
       }
     ],
@@ -107,39 +112,39 @@
       {
         "category": "HALAMAN & KONTEN",
         "items": [
-          "Semua Fitur Business Growth",
-          "Hingga 5 halaman statis tambahan",
-          "Hingga 3 jenis halaman dinamis",
-          "Desain UI dashboard custom",
-          "5 artikel konten awal (lebih panjang & terstruktur)"
+          { "text": "Semua Fitur Business Growth", "included": true },
+          { "text": "Hingga 5 halaman statis tambahan", "included": true },
+          { "text": "Hingga 3 jenis halaman dinamis", "included": true },
+          { "text": "Desain UI dashboard custom", "included": true },
+          { "text": "5 artikel konten awal (lebih panjang & terstruktur)", "included": true }
         ]
       },
       {
         "category": "FITUR TEKNIS",
         "items": [
-          "Arsitektur sistem terpisah",
-          "Integrasi sistem / software lama",
-          "Hak akses tim yang fleksibel",
-          "Integrasi hingga 2 layanan pihak ketiga",
-          "Enkripsi & proteksi data sensitif",
-          "Dibangun untuk trafik tinggi",
-          "Pencadangan harian + pantau uptime"
+          { "text": "Arsitektur sistem terpisah", "included": true },
+          { "text": "Integrasi sistem / software lama", "included": true },
+          { "text": "Hak akses tim yang fleksibel", "included": true },
+          { "text": "Integrasi hingga 2 layanan pihak ketiga", "included": true },
+          { "text": "Enkripsi & proteksi data sensitif", "included": true },
+          { "text": "Dibangun untuk trafik tinggi", "included": true },
+          { "text": "Pencadangan harian + pantau uptime", "included": true }
         ]
       },
       {
         "category": "BONUS",
         "items": [
-          "Video panduan + dokumen serah terima sistem",
-          "Gratis domain 1 tahun",
-          "VPS entry level 1 tahun",
-          "Setup, konfigurasi & optimasi server",
-          "1 bulan Growth Care maintenance gratis"
+          { "text": "Video panduan + dokumen serah terima sistem", "included": true },
+          { "text": "Gratis domain 1 tahun", "included": true },
+          { "text": "VPS entry level 1 tahun", "included": true },
+          { "text": "Setup, konfigurasi & optimasi server", "included": true },
+          { "text": "1 bulan Growth Care maintenance gratis", "included": true }
         ]
       },
       {
         "category": "BONUS OPSIONAL",
         "items": [
-          "4 konten TikTok profesional untuk promosi launch website, bekerja sama dengan partner kami FCA."
+          { "text": "4 konten TikTok profesional untuk promosi launch website, bekerja sama dengan partner kami FCA.", "included": true }
         ]
       }
     ],

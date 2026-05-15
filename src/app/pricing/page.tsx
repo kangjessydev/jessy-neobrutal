@@ -80,10 +80,14 @@ export default function PricingPage() {
                   </h3>
                   <ul className="space-y-4">
                     {group.items.map((item, i) => (
-                      <li key={i} className="flex gap-3 group">
-                        <i className={`ph-bold ${group.category.includes('OPSIONAL') ? 'ph-plus-circle text-orange-500' : 'ph-check-circle text-blue-500'} text-xl shrink-0`}></i>
-                        <span className="font-space font-bold text-sm leading-tight text-gray-800">
-                          {item}
+                      <li key={i} className={`flex gap-3 group ${!item.included ? 'opacity-30 grayscale' : ''}`}>
+                        <i className={`ph-bold ${
+                          !item.included ? 'ph-circle text-gray-400' : 
+                          group.category.includes('OPSIONAL') ? 'ph-plus-circle text-orange-500' : 
+                          'ph-check-circle text-blue-500'
+                        } text-xl shrink-0`}></i>
+                        <span className={`font-space font-bold text-sm leading-tight ${!item.included ? 'text-gray-400 line-through' : 'text-gray-800'}`}>
+                          {item.text}
                         </span>
                       </li>
                     ))}
