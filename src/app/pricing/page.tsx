@@ -26,14 +26,12 @@ export default function PricingPage() {
         {services.map((service) => (
           <div 
             key={service.id}
-            className={`relative flex flex-col border-8 border-black p-8 md:p-10 transition-all hover:-translate-x-1 hover:-translate-y-1 ${
-              service.featured 
-                ? 'bg-[#ffd700] shadow-[16px_16px_0px_#000000] z-10 scale-105' 
-                : 'bg-white shadow-[8px_8px_0px_#000000]'
-            } hover:shadow-[20px_20px_0px_#000000]`}
+            className={`relative flex flex-col bg-white border-8 border-black p-8 md:p-10 transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[16px_16px_0px_#000000] ${
+              service.featured ? 'shadow-[12px_12px_0px_#000000] border-[#ffd700]' : 'shadow-[8px_8px_0px_#000000]'
+            }`}
           >
             {service.featured && (
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-black text-white border-4 border-black px-4 py-1 font-black uppercase text-sm z-10">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-[#ffd700] border-4 border-black px-4 py-1 font-black uppercase text-sm z-10">
                 {service.tagline}
               </div>
             )}
@@ -101,9 +99,9 @@ export default function PricingPage() {
             </div>
 
             <div className="mt-auto pt-8 border-t-4 border-black/5">
-              <div className={`border-4 border-black p-4 mb-8 ${service.featured ? 'bg-white/40' : 'bg-gray-50'}`}>
-                <p className="text-[10px] font-black uppercase text-gray-500 mb-2">COCOK UNTUK:</p>
-                <p className="font-space font-medium text-xs leading-relaxed text-gray-800">
+              <div className="bg-gray-50 border-4 border-black p-4 mb-8">
+                <p className="text-[10px] font-black uppercase text-gray-400 mb-2">COCOK UNTUK:</p>
+                <p className="font-space font-medium text-xs leading-relaxed text-gray-700">
                   {service.suitableFor}
                 </p>
               </div>
